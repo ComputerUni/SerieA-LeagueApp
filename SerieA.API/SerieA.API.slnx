@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../SerieA.WebUI/SerieA.WebUI.csproj" />
+  <Project Path="SerieA.API.csproj" />
+</Solution>
