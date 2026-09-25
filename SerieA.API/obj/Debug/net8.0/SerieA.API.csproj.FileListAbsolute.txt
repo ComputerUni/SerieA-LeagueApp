@@ -146,3 +146,5 @@ C:\Users\BURHAN\Desktop\SerieA\SerieA.API\obj\Debug\net8.0\refint\SerieA.API.dll
 C:\Users\BURHAN\Desktop\SerieA\SerieA.API\obj\Debug\net8.0\SerieA.API.pdb
 C:\Users\BURHAN\Desktop\SerieA\SerieA.API\obj\Debug\net8.0\SerieA.API.genruntimeconfig.cache
 C:\Users\BURHAN\Desktop\SerieA\SerieA.API\obj\Debug\net8.0\ref\SerieA.API.dll
+C:\Users\BURHAN\Desktop\SerieA\SerieA.API\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\BURHAN\Desktop\SerieA\SerieA.API\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
