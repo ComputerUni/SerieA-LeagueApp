@@ -58,3 +58,8 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\template\Admin Paneli 1.html
+wwwroot\template\Admin Paneli 2.html
+wwwroot\template\Detaylı Maç Sonucu.html
+wwwroot\template\Haftalık Fikstür.html
+wwwroot\template\Puan Durumu.html

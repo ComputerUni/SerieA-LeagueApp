@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+
+@await Component.InvokeAsync("_AdminLayoutHead")
+
+<body class="admin">
+
+    @await Component.InvokeAsync("_AdminLayoutSvgIcons")
+
+    @await Component.InvokeAsync("_AdminLayoutSidebar")
+
+    <div class="admin-main">
+
+        @await Component.InvokeAsync("_AdminLayoutTopbar")
+
+        <main class="admin-content">
+            @RenderBody()
+        </main>
+    </div>
+
+    <div class="toast-stack" data-toasts aria-live="polite"></div>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

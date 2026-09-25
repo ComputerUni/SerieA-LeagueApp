@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Yeni Profil",
+    "Projects": [
+      {
+        "Path": "..\\SerieA.WebUI\\SerieA.WebUI.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "SerieA.API.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

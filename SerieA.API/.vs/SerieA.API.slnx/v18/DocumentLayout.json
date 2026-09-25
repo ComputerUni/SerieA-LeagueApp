@@ -1,55 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\controllers\\teamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.api\\controllers\\teamscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|solutionrelative:controllers\\teamscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.api\\mappings\\teammappings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|solutionrelative:mappings\\teammappings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.api\\dtos\\matchdtos\\resultmatchdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|solutionrelative:dtos\\matchdtos\\resultmatchdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.api\\dtos\\matchdtos\\creatematchdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|solutionrelative:dtos\\matchdtos\\creatematchdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.api\\dtos\\matchdtos\\updatematchdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|solutionrelative:dtos\\matchdtos\\updatematchdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.api\\entities\\match.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|solutionrelative:entities\\match.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.api\\dtos\\teamdtos\\updateteamdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|solutionrelative:dtos\\teamdtos\\updateteamdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.api\\dtos\\teamdtos\\createteamdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|solutionrelative:dtos\\teamdtos\\createteamdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.api\\dtos\\teamdtos\\resultteamdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|solutionrelative:dtos\\teamdtos\\resultteamdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.api\\entities\\team.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|solutionrelative:entities\\team.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -57,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 592,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -74,167 +26,11 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{a80febb4-e7e0-4147-b476-21aaf2453969}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TeamController.cs",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Controllers\\TeamController.cs",
-              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Controllers\\TeamController.cs",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Controllers\\TeamController.cs",
-              "RelativeToolTip": "..\\SerieA.WebUI\\Controllers\\TeamController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-25T11:42:00.712Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-25T11:34:28.582Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TeamMappings.cs",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\Mappings\\TeamMappings.cs",
-              "RelativeDocumentMoniker": "Mappings\\TeamMappings.cs",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\Mappings\\TeamMappings.cs",
-              "RelativeToolTip": "Mappings\\TeamMappings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-25T11:05:13.89Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TeamsController.cs",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\Controllers\\TeamsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\TeamsController.cs",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\Controllers\\TeamsController.cs",
-              "RelativeToolTip": "Controllers\\TeamsController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACsAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-25T10:46:55.409Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Match.cs",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\Entities\\Match.cs",
-              "RelativeDocumentMoniker": "Entities\\Match.cs",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\Entities\\Match.cs",
-              "RelativeToolTip": "Entities\\Match.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-25T10:26:31.524Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "UpdateMatchDto.cs",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\DTOs\\MatchDtos\\UpdateMatchDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\MatchDtos\\UpdateMatchDto.cs",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\DTOs\\MatchDtos\\UpdateMatchDto.cs",
-              "RelativeToolTip": "DTOs\\MatchDtos\\UpdateMatchDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-25T10:26:19.88Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CreateMatchDto.cs",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\DTOs\\MatchDtos\\CreateMatchDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\MatchDtos\\CreateMatchDto.cs",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\DTOs\\MatchDtos\\CreateMatchDto.cs",
-              "RelativeToolTip": "DTOs\\MatchDtos\\CreateMatchDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-25T10:26:10.523Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ResultMatchDto.cs",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\DTOs\\MatchDtos\\ResultMatchDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\MatchDtos\\ResultMatchDto.cs",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\DTOs\\MatchDtos\\ResultMatchDto.cs",
-              "RelativeToolTip": "DTOs\\MatchDtos\\ResultMatchDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-25T10:26:01.954Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Team.cs",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\Entities\\Team.cs",
-              "RelativeDocumentMoniker": "Entities\\Team.cs",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\Entities\\Team.cs",
-              "RelativeToolTip": "Entities\\Team.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-25T10:22:57.708Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "UpdateTeamDto.cs",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\DTOs\\TeamDtos\\UpdateTeamDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\TeamDtos\\UpdateTeamDto.cs",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\DTOs\\TeamDtos\\UpdateTeamDto.cs",
-              "RelativeToolTip": "DTOs\\TeamDtos\\UpdateTeamDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-25T10:05:49.177Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "CreateTeamDto.cs",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\DTOs\\TeamDtos\\CreateTeamDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\TeamDtos\\CreateTeamDto.cs",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\DTOs\\TeamDtos\\CreateTeamDto.cs",
-              "RelativeToolTip": "DTOs\\TeamDtos\\CreateTeamDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-25T10:05:40.361Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ResultTeamDto.cs",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\DTOs\\TeamDtos\\ResultTeamDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\TeamDtos\\ResultTeamDto.cs",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\DTOs\\TeamDtos\\ResultTeamDto.cs",
-              "RelativeToolTip": "DTOs\\TeamDtos\\ResultTeamDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-25T10:05:26.125Z",
-              "EditorCaption": ""
             }
           ]
         },
         {
-          "DockedWidth": 948,
+          "DockedWidth": 592,
           "SelectedChildIndex": -1,
           "Children": [
             {
