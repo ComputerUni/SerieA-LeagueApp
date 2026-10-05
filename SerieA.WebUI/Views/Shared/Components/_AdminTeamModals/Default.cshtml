@@ -38,10 +38,13 @@
                     <label class="field-label" for="t-region">Bölge <span class="req">*</span></label>
                     <select class="select-a" id="t-region" name="region">
                         <option value="">Bölge seçin</option>
-                        <option value="north">Kuzey İtalya</option>
-                        <option value="center">Orta İtalya</option>
-                        <option value="south">Güney İtalya</option>
-                        <option value="island">Adalar</option>
+                        @if (ViewBag.Regions != null)
+                        {
+                            foreach (var item in ViewBag.Regions)
+                            {
+                                <option value="@item.Value">@item.Text</option>
+                            }
+                        }
                     </select>
                     <p class="field-error"></p>
                 </div>
@@ -94,15 +97,17 @@
 
 <!-- Silme onayı -->
 <dialog class="modal-a modal-a--sm" id="delete-modal" aria-labelledby="delete-modal-title">
-    <form method="dialog">
-        <div class="modal-head">
-            <h2 class="modal-title" id="delete-modal-title">Takımı sil</h2>
-            <button type="submit" value="cancel" class="icon-btn" aria-label="Kapat"><svg class="icon" aria-hidden="true"><use href="#i-x" /></svg></button>
-        </div>
-        <div class="modal-body"><p class="confirm-text" data-delete-text></p></div>
-        <div class="modal-foot">
-            <button type="submit" value="cancel" class="btn-a btn-a--secondary">Vazgeç</button>
-            <button type="submit" value="confirm" class="btn-a btn-a--danger">Evet, sil</button>
-        </div>
-    </form>
+    <div class="modal-head">
+        <h2 class="modal-title" id="delete-modal-title">Takımı sil</h2>
+        <button type="button" class="icon-btn" data-modal-close aria-label="Kapat">
+            <svg class="icon" aria-hidden="true"><use href="#i-x" /></svg>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p class="confirm-text" data-delete-text></p>
+    </div>
+    <div class="modal-foot">
+        <button type="button" class="btn-a btn-a--secondary" data-modal-close>Vazgeç</button>
+        <button type="button" class="btn-a btn-a--danger" id="delete-confirm-btn">Evet, sil</button>
+    </div>
 </dialog>

@@ -44,8 +44,8 @@ namespace SerieA.WebUI.Controllers
         public async Task<IActionResult> DeleteTeam(int id)
         {
             var client = new HttpClient();
-            await client.DeleteAsync($"https://localhost:7078/api/Teams?=id" + id);
-            return RedirectToAction("CategoryList");
+            await client.DeleteAsync($"https://localhost:7078/api/Teams?id={id}");
+            return RedirectToAction("TeamList");
         }
 
         [HttpGet]
@@ -63,9 +63,9 @@ namespace SerieA.WebUI.Controllers
             var response = await client.PutAsync("https://localhost:7078/api/Teams", stringContent);
             if (response.IsSuccessStatusCode)
             {
-                return RedirectToAction("TeamList");
+                return Ok(new { success = true });
             }
-            return View();
+            return BadRequest(new { success = false, message = "API güncelleme isteğini reddetti." });
         }
 
     }

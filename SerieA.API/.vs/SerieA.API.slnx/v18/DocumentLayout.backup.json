@@ -3,46 +3,37 @@
   "WorkspaceRootPath": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\team\\teamlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\shared\\components\\_adminteamtable\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\shared\\components\\_adminlayouthead\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\controllers\\teamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\shared\\components\\_adminteamscripts\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\viewcomponents\\_adminteamviewcomponents\\_adminteamscriptsviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.api\\entities\\team.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|solutionrelative:entities\\team.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\viewcomponents\\_adminteamviewcomponents\\_adminteammodalsviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\shared\\components\\_adminteammodals\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\viewcomponents\\_adminteamviewcomponents\\_adminteamleaguestripviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\viewcomponents\\_adminteamviewcomponents\\_adminteamtableviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\viewcomponents\\_adminteamviewcomponents\\_adminteamheadviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\shared\\components\\_adminteamtable\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\shared\\components\\_adminteamleaguestrip\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\team\\teamlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\shared\\components\\_adminteamhead\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.api\\controllers\\teamscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|solutionrelative:controllers\\teamscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\controllers\\teamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -52,7 +43,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 592,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -73,112 +64,144 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Default.cshtml",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminLayoutHead\\Default.cshtml",
-              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminLayoutHead\\Default.cshtml",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminLayoutHead\\Default.cshtml",
-              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminLayoutHead\\Default.cshtml",
-              "ViewState": "AgIAALgEAAAAAAAAAAAwwM8EAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-25T13:32:10.158Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Default.cshtml",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamTable\\Default.cshtml",
-              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamTable\\Default.cshtml",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamTable\\Default.cshtml",
-              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamTable\\Default.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-25T12:48:41.644Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "_AdminTeamTableViewComponent.cs",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\ViewComponents\\_AdminTeamViewComponents\\_AdminTeamTableViewComponent.cs",
-              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\ViewComponents\\_AdminTeamViewComponents\\_AdminTeamTableViewComponent.cs",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\ViewComponents\\_AdminTeamViewComponents\\_AdminTeamTableViewComponent.cs",
-              "RelativeToolTip": "..\\SerieA.WebUI\\ViewComponents\\_AdminTeamViewComponents\\_AdminTeamTableViewComponent.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAgAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-25T12:48:00.658Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "_AdminTeamHeadViewComponent.cs",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\ViewComponents\\_AdminTeamViewComponents\\_AdminTeamHeadViewComponent.cs",
-              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\ViewComponents\\_AdminTeamViewComponents\\_AdminTeamHeadViewComponent.cs",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\ViewComponents\\_AdminTeamViewComponents\\_AdminTeamHeadViewComponent.cs",
-              "RelativeToolTip": "..\\SerieA.WebUI\\ViewComponents\\_AdminTeamViewComponents\\_AdminTeamHeadViewComponent.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-25T12:42:34.381Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TeamList.cshtml",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Team\\TeamList.cshtml",
-              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Team\\TeamList.cshtml",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Team\\TeamList.cshtml",
-              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Team\\TeamList.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-25T12:35:00.338Z",
+              "WhenOpened": "2026-10-05T09:09:28.568Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Program.cs",
+              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Program.cs",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Program.cs",
+              "RelativeToolTip": "..\\SerieA.WebUI\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-05T09:09:22.314Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Default.cshtml",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamTable\\Default.cshtml",
+              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamTable\\Default.cshtml",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamTable\\Default.cshtml",
+              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamTable\\Default.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-04T18:06:16.401Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Default.cshtml",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamLeagueStrip\\Default.cshtml",
+              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamLeagueStrip\\Default.cshtml",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamLeagueStrip\\Default.cshtml",
+              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamLeagueStrip\\Default.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-04T18:06:07.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TeamList.cshtml",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Team\\TeamList.cshtml",
+              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Team\\TeamList.cshtml",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Team\\TeamList.cshtml",
+              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Team\\TeamList.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-04T18:05:59.944Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TeamsController.cs",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\Controllers\\TeamsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TeamsController.cs",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\Controllers\\TeamsController.cs",
+              "RelativeToolTip": "Controllers\\TeamsController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwCYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-04T18:00:32.271Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Default.cshtml",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamModals\\Default.cshtml",
+              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamModals\\Default.cshtml",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamModals\\Default.cshtml",
+              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamModals\\Default.cshtml",
+              "ViewState": "AgIAACQAAAAAAAAAAAAiwG4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-04T18:31:29.993Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "TeamController.cs",
               "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Controllers\\TeamController.cs",
               "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Controllers\\TeamController.cs",
               "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Controllers\\TeamController.cs",
               "RelativeToolTip": "..\\SerieA.WebUI\\Controllers\\TeamController.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAowAkAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAmwCgAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-25T12:34:40.522Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "_AdminLayout.cshtml",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\_AdminLayout.cshtml",
-              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Shared\\_AdminLayout.cshtml",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\_AdminLayout.cshtml",
-              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Shared\\_AdminLayout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-25T12:43:49.415Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Default.cshtml",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamHead\\Default.cshtml",
-              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamHead\\Default.cshtml",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamHead\\Default.cshtml",
-              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamHead\\Default.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-25T12:44:27.643Z",
+              "WhenOpened": "2026-10-04T18:01:56.484Z",
               "EditorCaption": ""
             }
           ]
         },
         {
           "DockedWidth": 592,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Team.cs",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\Entities\\Team.cs",
+              "RelativeDocumentMoniker": "Entities\\Team.cs",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\Entities\\Team.cs",
+              "RelativeToolTip": "Entities\\Team.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-05T09:32:54.94Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Default.cshtml",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamScripts\\Default.cshtml",
+              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamScripts\\Default.cshtml",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamScripts\\Default.cshtml",
+              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamScripts\\Default.cshtml",
+              "ViewState": "AgIAABsBAAAAAAAAAAAmwDwBAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-04T18:32:23.04Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 592,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -191,84 +214,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Default.cshtml",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamScripts\\Default.cshtml",
-              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamScripts\\Default.cshtml",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamScripts\\Default.cshtml",
-              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamScripts\\Default.cshtml",
-              "ViewState": "AgIAAOoAAAAAAAAAAAAAAP4AAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-25T13:22:01.139Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "_AdminTeamScriptsViewComponent.cs",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\ViewComponents\\_AdminTeamViewComponents\\_AdminTeamScriptsViewComponent.cs",
-              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\ViewComponents\\_AdminTeamViewComponents\\_AdminTeamScriptsViewComponent.cs",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\ViewComponents\\_AdminTeamViewComponents\\_AdminTeamScriptsViewComponent.cs",
-              "RelativeToolTip": "..\\SerieA.WebUI\\ViewComponents\\_AdminTeamViewComponents\\_AdminTeamScriptsViewComponent.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-25T13:21:20.599Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Default.cshtml",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamModals\\Default.cshtml",
-              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamModals\\Default.cshtml",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamModals\\Default.cshtml",
-              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamModals\\Default.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGsAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-25T13:19:21.323Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "_AdminTeamModalsViewComponent.cs",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\ViewComponents\\_AdminTeamViewComponents\\_AdminTeamModalsViewComponent.cs",
-              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\ViewComponents\\_AdminTeamViewComponents\\_AdminTeamModalsViewComponent.cs",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\ViewComponents\\_AdminTeamViewComponents\\_AdminTeamModalsViewComponent.cs",
-              "RelativeToolTip": "..\\SerieA.WebUI\\ViewComponents\\_AdminTeamViewComponents\\_AdminTeamModalsViewComponent.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-25T13:18:33.771Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Default.cshtml",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamLeagueStrip\\Default.cshtml",
-              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamLeagueStrip\\Default.cshtml",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamLeagueStrip\\Default.cshtml",
-              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamLeagueStrip\\Default.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-25T12:46:35.594Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "_AdminTeamLeagueStripViewComponent.cs",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\ViewComponents\\_AdminTeamViewComponents\\_AdminTeamLeagueStripViewComponent.cs",
-              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\ViewComponents\\_AdminTeamViewComponents\\_AdminTeamLeagueStripViewComponent.cs",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\ViewComponents\\_AdminTeamViewComponents\\_AdminTeamLeagueStripViewComponent.cs",
-              "RelativeToolTip": "..\\SerieA.WebUI\\ViewComponents\\_AdminTeamViewComponents\\_AdminTeamLeagueStripViewComponent.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-25T12:45:57.129Z",
-              "EditorCaption": ""
             }
           ]
         }

@@ -18,10 +18,13 @@
             <label class="field-label" for="f-region">Bölge</label>
             <select class="select-a" id="f-region" name="region">
                 <option value="">Tüm Bölgeler</option>
-                <option value="north">Kuzey İtalya</option>
-                <option value="center">Orta İtalya</option>
-                <option value="south">Güney İtalya</option>
-                <option value="island">Adalar</option>
+                @if (ViewBag.Regions != null)
+                {
+                    foreach (var item in ViewBag.Regions)
+                    {
+                        <option value="@item.Value">@item.Text</option>
+                    }
+                }
             </select>
         </div>
         <div>
