@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<body class="admin">
+    <div class="admin-main">
+
+        @await Component.InvokeAsync("_AdminMatchTopbar")
+
+        <main class="admin-content">
+
+            @await Component.InvokeAsync("_AdminMatchHead")
+
+            @await Component.InvokeAsync("_AdminMatchTable")
+
+        </main>
+    </div>
+
+    @await Component.InvokeAsync("_AdminMatchModals")
+
+    <div class="toast-stack" data-toasts aria-live="polite"></div>
+
+    @await Component.InvokeAsync("_AdminMatchScripts")
+
+</body>
+

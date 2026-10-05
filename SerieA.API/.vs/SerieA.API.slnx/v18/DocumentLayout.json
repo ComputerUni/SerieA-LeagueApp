@@ -3,44 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.api\\controllers\\teamscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|solutionrelative:controllers\\teamscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\shared\\components\\_adminteamscripts\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\shared\\components\\_adminteamtable\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\shared\\components\\_adminmatchscripts\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\shared\\components\\_adminlayouthead\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\controllers\\matchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\shared\\components\\_adminteammodals\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\models\\matchlistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\shared\\components\\_adminteamleaguestrip\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.api\\dtos\\matchdtos\\resultmatchdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|solutionrelative:dtos\\matchdtos\\resultmatchdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\team\\teamlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.api\\entities\\team.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|solutionrelative:entities\\team.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.api\\dtos\\teamdtos\\updateteamdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|solutionrelative:dtos\\teamdtos\\updateteamdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\controllers\\teamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.api\\dtos\\teamdtos\\resultteamdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|solutionrelative:dtos\\teamdtos\\resultteamdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 592,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,164 +50,86 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Program.cs",
-              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Program.cs",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Program.cs",
-              "RelativeToolTip": "..\\SerieA.WebUI\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-05T09:09:22.314Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Default.cshtml",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamTable\\Default.cshtml",
-              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamTable\\Default.cshtml",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamTable\\Default.cshtml",
-              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamTable\\Default.cshtml",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAiwDsAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-10-04T18:06:16.401Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Default.cshtml",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamLeagueStrip\\Default.cshtml",
-              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamLeagueStrip\\Default.cshtml",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamLeagueStrip\\Default.cshtml",
-              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamLeagueStrip\\Default.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-10-04T18:06:07.156Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "TeamList.cshtml",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Team\\TeamList.cshtml",
-              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Team\\TeamList.cshtml",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Team\\TeamList.cshtml",
-              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Team\\TeamList.cshtml",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-10-04T18:05:59.944Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "TeamsController.cs",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\Controllers\\TeamsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\TeamsController.cs",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\Controllers\\TeamsController.cs",
-              "RelativeToolTip": "Controllers\\TeamsController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwCUAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-04T18:00:32.271Z",
+              "Title": "Default.cshtml",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamScripts\\Default.cshtml",
+              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamScripts\\Default.cshtml",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamScripts\\Default.cshtml",
+              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamScripts\\Default.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-05T12:24:03.516Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Default.cshtml",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamModals\\Default.cshtml",
-              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamModals\\Default.cshtml",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamModals\\Default.cshtml",
-              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamModals\\Default.cshtml",
-              "ViewState": "AgIAAEYAAAAAAAAAAAAiwFcAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-10-04T18:31:29.993Z",
+              "Title": "ResultMatchDto.cs",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\DTOs\\MatchDtos\\ResultMatchDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\MatchDtos\\ResultMatchDto.cs",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\DTOs\\MatchDtos\\ResultMatchDto.cs",
+              "RelativeToolTip": "DTOs\\MatchDtos\\ResultMatchDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-05T12:23:33.326Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "ResultTeamDto.cs",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\DTOs\\TeamDtos\\ResultTeamDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\TeamDtos\\ResultTeamDto.cs",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\DTOs\\TeamDtos\\ResultTeamDto.cs",
+              "RelativeToolTip": "DTOs\\TeamDtos\\ResultTeamDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-05T09:09:28.568Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "TeamController.cs",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Controllers\\TeamController.cs",
-              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Controllers\\TeamController.cs",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Controllers\\TeamController.cs",
-              "RelativeToolTip": "..\\SerieA.WebUI\\Controllers\\TeamController.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAmwCgAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-04T18:01:56.484Z",
+              "WhenOpened": "2026-10-05T12:23:29.368Z",
               "EditorCaption": ""
             }
           ]
         },
         {
           "DockedWidth": 592,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MatchController.cs",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Controllers\\MatchController.cs",
+              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Controllers\\MatchController.cs",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Controllers\\MatchController.cs",
+              "RelativeToolTip": "..\\SerieA.WebUI\\Controllers\\MatchController.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwCUAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-05T12:28:26.975Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Default.cshtml",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminLayoutHead\\Default.cshtml",
-              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminLayoutHead\\Default.cshtml",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminLayoutHead\\Default.cshtml",
-              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminLayoutHead\\Default.cshtml",
-              "ViewState": "AgIAAIkCAAAAAAAAAAAqwKECAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-10-05T10:07:10.568Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "UpdateTeamDto.cs",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\DTOs\\TeamDtos\\UpdateTeamDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\TeamDtos\\UpdateTeamDto.cs",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\DTOs\\TeamDtos\\UpdateTeamDto.cs",
-              "RelativeToolTip": "DTOs\\TeamDtos\\UpdateTeamDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAwAAAAAAAAAA==",
+              "Title": "MatchListViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Models\\MatchListViewModel.cs",
+              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Models\\MatchListViewModel.cs",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Models\\MatchListViewModel.cs",
+              "RelativeToolTip": "..\\SerieA.WebUI\\Models\\MatchListViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-05T09:34:31.464Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Team.cs",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\Entities\\Team.cs",
-              "RelativeDocumentMoniker": "Entities\\Team.cs",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\Entities\\Team.cs",
-              "RelativeToolTip": "Entities\\Team.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-05T09:32:54.94Z",
+              "WhenOpened": "2026-10-05T12:27:30.17Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Default.cshtml",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamScripts\\Default.cshtml",
-              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamScripts\\Default.cshtml",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamScripts\\Default.cshtml",
-              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamScripts\\Default.cshtml",
-              "ViewState": "AgIAABwBAAAAAAAAAAAAADoBAAAoAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminMatchScripts\\Default.cshtml",
+              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminMatchScripts\\Default.cshtml",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminMatchScripts\\Default.cshtml",
+              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminMatchScripts\\Default.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-10-04T18:32:23.04Z",
+              "WhenOpened": "2026-10-05T12:24:05.707Z",
               "EditorCaption": ""
             }
           ]

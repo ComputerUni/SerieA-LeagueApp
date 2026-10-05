@@ -5,6 +5,8 @@
 <body class="admin">
     <div class="admin-main">
 
+        @await Component.InvokeAsync("_AdminTeamTopbar")
+
         <main class="admin-content">
 
             @await Component.InvokeAsync("_AdminTeamHead")
