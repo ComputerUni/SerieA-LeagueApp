@@ -12,6 +12,7 @@ namespace SerieA.API.DTOs.MatchDtos
         public int? HomeScore { get; set; }
         public int? AwayScore { get; set; }
         public MatchStatus Status { get; set; }
+        public TimeOnly MatchTime { get; set; }
         public string? Stadium { get; set; }
     }
 }

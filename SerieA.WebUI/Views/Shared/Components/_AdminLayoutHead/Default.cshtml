@@ -391,11 +391,17 @@
       font-size: .78rem;
       font-weight: 600;
     }
-    .badge-a--NotStarted { background: #EDF2F9; color: #4B5E80; }
+/*     .badge-a--NotStarted { background: #EDF2F9; color: #4B5E80; }
     .badge-a--Live       { background: var(--green-soft); color: var(--green); }
     .badge-a--Live::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
     .badge-a--Finished   { background: #E3E9F4; color: var(--navy-700); }
-    .badge-a--Postponed  { background: var(--amber-soft); color: var(--amber); }
+    .badge-a--Postponed  { background: var(--amber-soft); color: var(--amber); } */
+
+    .badge-a--1 { background: #EDF2F9; color: #4B5E80; }      
+    .badge-a--2 { background: #E3E9F4; color: var(--navy-700); }   
+    .badge-a--3 { background: var(--green-soft); color: var(--green); } 
+    .badge-a--3::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--green); display: inline-block; margin-right: 4px; }
+    .badge-a--4 { background: var(--amber-soft); color: var(--amber); }
 
     .row-actions { display: inline-flex; gap: 4px; }
     .act-btn {

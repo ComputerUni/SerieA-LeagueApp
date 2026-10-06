@@ -15,7 +15,7 @@ namespace SerieA.API.DTOs.MatchDtos
         public int? AwayTeamScore { get; set; }
         public int Week { get; set; }
         public DateTime MatchDate { get; set; }
-        public string? MatchTime => MatchDate.ToString("HH:mm");
+        public TimeOnly MatchTime { get; set; }
         public MatchStatus Status { get; set; }
         public string? Stadium { get; set; }
 

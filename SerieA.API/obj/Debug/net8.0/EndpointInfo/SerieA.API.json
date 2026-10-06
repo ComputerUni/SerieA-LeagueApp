@@ -248,7 +248,7 @@
           },
           "matchTime": {
             "type": "string",
-            "nullable": true
+            "format": "time"
           },
           "homeScore": {
             "type": "integer",
@@ -373,6 +373,10 @@
           },
           "status": {
             "$ref": "#/components/schemas/MatchStatus"
+          },
+          "matchTime": {
+            "type": "string",
+            "format": "time"
           },
           "stadium": {
             "type": "string",

@@ -45,7 +45,7 @@
                 id = m.Id,
                             week = m.Week,
                             date = m.MatchDate.ToString("yyyy-MM-dd"),
-                            time = m.MatchTime,
+                            time = m.MatchTime.ToString("HH:mm"),
                             home = m.HomeTeamId,
                             away = m.AwayTeamId,
                             homeScore = m.HomeTeamScore,
@@ -54,22 +54,6 @@
                             stadium = m.Stadium
                 })));
 
-
-        // /* Demo kayıtlar (API: GET /api/admin/matches) */
-        //  let matches = [
-        //      { id: 95, week: 11, date: '2026-10-31', time: '18:00', home: 'roma', away: 'inter', homeScore: 1, awayScore: 2, status: 'Finished' },
-        //      { id: 96, week: 11, date: '2026-10-31', time: '20:45', home: 'napoli', away: 'atalanta', homeScore: 2, awayScore: 0, status: 'Finished' },
-        //      { id: 97, week: 11, date: '2026-11-01', time: '15:00', home: 'bologna', away: 'milan', homeScore: 1, awayScore: 3, status: 'Finished' },
-        //      { id: 101, week: 12, date: '2026-11-08', time: '20:45', home: 'milan', away: 'roma', homeScore: 2, awayScore: 1, status: 'Finished' },
-        //      { id: 102, week: 12, date: '2026-11-09', time: '18:00', home: 'inter', away: 'napoli', homeScore: null, awayScore: null, status: 'NotStarted' },
-        //      { id: 103, week: 12, date: '2026-11-09', time: '21:45', home: 'juventus', away: 'lazio', homeScore: 1, awayScore: 1, status: 'Live' },
-        //      { id: 104, week: 12, date: '2026-11-08', time: '15:00', home: 'atalanta', away: 'fiorentina', homeScore: 3, awayScore: 0, status: 'Finished' },
-        //      { id: 105, week: 12, date: '2026-11-09', time: '15:00', home: 'torino', away: 'bologna', homeScore: 0, awayScore: 0, status: 'Live' },
-        //      { id: 106, week: 12, date: '2026-11-10', time: '20:45', home: 'lecce', away: 'monza', homeScore: null, awayScore: null, status: 'Postponed' },
-        //      { id: 107, week: 12, date: '2026-11-10', time: '18:30', home: 'como', away: 'parma', homeScore: null, awayScore: null, status: 'NotStarted' },
-        //      { id: 108, week: 13, date: '2026-11-14', time: '20:45', home: 'inter', away: 'juventus', homeScore: null, awayScore: null, status: 'NotStarted' },
-        //      { id: 109, week: 13, date: '2026-11-14', time: '18:00', home: 'napoli', away: 'milan', homeScore: null, awayScore: null, status: 'NotStarted' }
-        //  ].map((m) => ({ ...m, stadium: TEAMS[m.home].stadium }));
 
         /* ---------- Yardımcılar ---------- */
         const $ = (sel, root = document) => root.querySelector(sel);
