@@ -2,10 +2,13 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+@await Component.InvokeAsync("_AdminMatchHeadCss")
+
+
 <body class="admin">
     <div class="admin-main">
 
-        @await Component.InvokeAsync("_AdminMatchTopbar")
+@*         @await Component.InvokeAsync("_AdminMatchTopbar") *@
 
         <main class="admin-content">
 

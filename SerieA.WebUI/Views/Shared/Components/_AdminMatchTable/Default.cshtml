@@ -1,5 +1,5 @@
 ﻿@using SerieA.API.DTOs.MatchDtos
-@model List<ResultMatchDto>
+@model MatchListViewModel
 
 <section class="card-a" aria-label="Maç listesi">
     <form class="filter-bar" data-filter-form role="search">
@@ -14,19 +14,20 @@
             <label class="field-label" for="f-week">Hafta Seç</label>
             <select class="select-a" id="f-week" name="week">
                 <option value="">Tüm Haftalar</option>
-                <option value="11">11. Hafta</option>
-                <option value="12">12. Hafta</option>
-                <option value="13">13. Hafta</option>
+                @for(int i = 1; i <= 38; i++)
+                    {
+                        <option value="@i">@i. Hafta</option>
+                    }
             </select>
         </div>
         <div>
             <label class="field-label" for="f-status">Durum</label>
             <select class="select-a" id="f-status" name="status">
                 <option value="">Tümü</option>
-                <option value="NotStarted">Başlamadı</option>
-                <option value="Live">Canlı</option>
-                <option value="Finished">Tamamlandı</option>
-                <option value="Postponed">Ertelendi</option>
+                <option value="1">Oynanmadı</option>
+                <option value="2">Oynandı</option>
+                <option value="3">Canlı</option>
+                <option value="4">Ertelendi</option>
             </select>
         </div>
         <div class="filter-actions">

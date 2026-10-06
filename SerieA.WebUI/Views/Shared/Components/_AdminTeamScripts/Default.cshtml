@@ -21,7 +21,6 @@
         const REGION = @Html.Raw(Json.Serialize(regions.ToDictionary(x => x.Key, x => x.Name)));
 
         /* Demo kayıtlar (API: GET /api/admin/teams). Kapasite ve yıllar demo amaçlıdır. */
-
         let teams = @Html.Raw(Json.Serialize(Model.Select(t => new
             {
                 id = t.Id,

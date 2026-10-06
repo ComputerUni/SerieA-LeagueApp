@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="tr">
 
-@await Component.InvokeAsync("_AdminLayoutHead")
+@* @await Component.InvokeAsync("_AdminLayoutHead") *@
 
 <body class="admin">
 
@@ -11,7 +11,7 @@
 
     <div class="admin-main">
 
-        @* @await Component.InvokeAsync("_AdminLayoutTopbar") *@
+        @await Component.InvokeAsync("_AdminLayoutTopbar")
 
         <main class="admin-content">
             @RenderBody()

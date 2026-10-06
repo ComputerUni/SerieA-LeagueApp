@@ -15,7 +15,7 @@ namespace SerieA.API.Controllers
         [HttpGet]
         public async Task<IActionResult> MatchList()
         {
-            var matches = await _context.Matches.ToListAsync();
+            var matches = await _context.Matches.Include(m => m.HomeTeam).Include(m => m.AwayTeam).ToListAsync();
             var values = _mapper.Map<List<ResultMatchDto>>(matches);
             return Ok(values);
         }
