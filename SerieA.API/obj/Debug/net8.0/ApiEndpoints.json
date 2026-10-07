@@ -58,6 +58,38 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SerieA.API.Controllers.MatchesController",
+    "Method": "GetMatchDetailById",
+    "RelativePath": "api/Matches/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SerieA.API.Controllers.MatchesController",
+    "Method": "GetMatchesByWeek",
+    "RelativePath": "api/Matches/week/{week}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "week",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SerieA.API.Controllers.TeamsController",
     "Method": "TeamList",
     "RelativePath": "api/Teams",

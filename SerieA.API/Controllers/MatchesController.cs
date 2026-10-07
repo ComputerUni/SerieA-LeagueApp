@@ -33,7 +33,7 @@ namespace SerieA.API.Controllers
         public async Task<IActionResult> DeleteMatch(int id)
         {
             var value = await _context.Matches.FindAsync(id);
-            if(value == null)
+            if (value == null)
             {
                 return NotFound("Maç Kaydı Bulunamadı.");
             }
@@ -47,13 +47,41 @@ namespace SerieA.API.Controllers
         public async Task<IActionResult> UpdateMatch(UpdateMatchDto updateMatchDto)
         {
             var match = await _context.Matches.FindAsync(updateMatchDto.Id);
-            if(match is null)
+            if (match is null)
             {
                 return NotFound("Güncellenmek İstenen Maç Kaydı Bulunamadı.");
             }
             _mapper.Map(updateMatchDto, match);
             await _context.SaveChangesAsync();
             return Ok("Maç Kaydı Başarıyla Güncellendi");
+        }
+
+        [HttpGet("week/{week}")]
+        public async Task<IActionResult> GetMatchesByWeek(int week)
+        {
+            var matches = await _context.Matches
+                            .Include(x => x.HomeTeam)
+                            .Include(x => x.AwayTeam)
+                            .Where(x => x.Week == week).ToListAsync();
+            if(!matches.Any())
+            {
+                return NotFound($"{week}. haftaya ait maç bulunamadı");
+            }
+
+            var values = _mapper.Map<List<ResultMatchDto>>(matches);
+            return Ok(values);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetMatchDetailById(int id)
+        {
+            var detail = await _context.Matches.Include(x => x.AwayTeam).Include(x => x.HomeTeam).Include(x => x.Substitutions).Include(x => x.MatchCards).Include(x => x.MatchGoals).FirstOrDefaultAsync(x => x.Id == id);
+            if(detail is null)
+            {
+                return NotFound($"{id} numaralı id'ye ait maç detayı bulunamadı");
+            }
+            var value = _mapper.Map<ResultMatchDto>(detail);
+            return Ok(value);
         }
     }
 }

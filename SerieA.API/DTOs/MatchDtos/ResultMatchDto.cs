@@ -1,4 +1,7 @@
-﻿using SerieA.API.Entities.Enums;
+﻿using SerieA.API.DTOs.MatchCardDtos;
+using SerieA.API.DTOs.MatchGoalDtos;
+using SerieA.API.DTOs.SubstitutionDtos;
+using SerieA.API.Entities.Enums;
 
 namespace SerieA.API.DTOs.MatchDtos
 {
@@ -18,6 +21,9 @@ namespace SerieA.API.DTOs.MatchDtos
         public TimeOnly MatchTime { get; set; }
         public MatchStatus Status { get; set; }
         public string? Stadium { get; set; }
+        public List<MatchGoalDto> Goals { get; set; }
+        public List<MatchCardDto> Cards { get; set; }
+        public List<SubstitutionDto> Substitutions { get; set; }
 
     }
 }
