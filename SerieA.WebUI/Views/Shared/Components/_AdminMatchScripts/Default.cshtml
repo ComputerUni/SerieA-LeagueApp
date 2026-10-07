@@ -24,17 +24,17 @@
         let teamsArray = @Html.Raw(Json.Serialize(Model.Teams.Select(t => new
             {
                 id = t.Id,
-                            name = t.Name,
-                            code = t.ShortCode,
-                            city = t.City,
-                            region = t.Region,
-                            stadium = t.Stadium,
-                            capacity = t.StadiumCapacity,
-                            founded = t.FoundationYear,
-                            colorA = t.PrimaryColor,
-                            colorB = t.SecondaryColor,
-                            status = t.IsActive ? "active" : "inactive"
-                })));
+                                                    name = t.Name,
+                                                    code = t.ShortCode,
+                                                    city = t.City,
+                                                    region = t.Region,
+                                                    stadium = t.Stadium,
+                                                    capacity = t.StadiumCapacity,
+                                                    founded = t.FoundationYear,
+                                                    colorA = t.PrimaryColor,
+                                                    colorB = t.SecondaryColor,
+                                                    status = t.IsActive ? "active" : "inactive"
+                            })));
 
         const TEAMS = Object.fromEntries(teamsArray.map(t => [t.id, t]));
 
@@ -43,16 +43,16 @@
         let matches = @Html.Raw(Json.Serialize(Model.Matches.Select(m => new
             {
                 id = m.Id,
-                            week = m.Week,
-                            date = m.MatchDate.ToString("yyyy-MM-dd"),
-                            time = m.MatchTime.ToString("HH:mm"),
-                            home = m.HomeTeamId,
-                            away = m.AwayTeamId,
-                            homeScore = m.HomeTeamScore,
-                            awayScore = m.AwayTeamScore,
-                            status = (int)m.Status,
-                            stadium = m.Stadium
-                })));
+                                                    week = m.Week,
+                                                    date = m.MatchDate.ToString("yyyy-MM-dd"),
+                                                    time = m.MatchTime.ToString("HH:mm"),
+                                                    home = m.HomeTeamId,
+                                                    away = m.AwayTeamId,
+                                                    homeScore = m.HomeTeamScore,
+                                                    awayScore = m.AwayTeamScore,
+                                                    status = (int)m.Status,
+                                                    stadium = m.Stadium
+                            })));
 
 
         /* ---------- Yardımcılar ---------- */
@@ -97,26 +97,26 @@
                 els.rows.innerHTML = `<tr class="table-empty"><td colspan="9"><strong>Kayıt bulunamadı</strong>Filtreleri değiştirin ya da Temizle ile tüm maçları gösterin.</td></tr>`;
             } else {
                 els.rows.innerHTML = list.map((m) => `
-                                    <tr data-id="${m.id}"${m.id === highlightId ? ' class="is-new"' : ''}>
-                                      <td class="col-id"><span>${m.id}</span></td>
-                                      <td class="week-cell">${m.week}. Hafta</td>
-                                      <td>${fmtDate(m.date)}</td>
-                                      <td>${m.time}</td>
-                                      <td>${teamCell(m.home)}</td>
-                                      <td class="col-score">${hasScore(m)
+                                                <tr data-id="${m.id}"${m.id === highlightId ? ' class="is-new"' : ''}>
+                                                  <td class="col-id"><span>${m.id}</span></td>
+                                                  <td class="week-cell">${m.week}. Hafta</td>
+                                                  <td>${fmtDate(m.date)}</td>
+                                                  <td>${m.time}</td>
+                                                  <td>${teamCell(m.home)}</td>
+                                                  <td class="col-score">${hasScore(m)
                         ? `<span class="score">${m.homeScore} - ${m.awayScore}</span>`
                         : '<span class="score score--empty">-</span>'}</td>
-                                      <td>${teamCell(m.away)}</td>
-                                      <td><span class="badge-a badge-a--${m.status}">${STATUS[m.status]}</span></td>
-                                      <td class="col-actions">
-                                        <div class="row-actions">
-                                          <a class="act-btn" href="/Match/MatchDetail/${m.id}" data-demo-nav title="Detay" aria-label="Detay: ${esc(TEAMS[m.home].name)} - ${esc(TEAMS[m.away].name)}">${icon('eye')}</a>
-                                          <button type="button" class="act-btn" data-edit="${m.id}" title="Düzenle" aria-label="Düzenle: ${esc(TEAMS[m.home].name)} - ${esc(TEAMS[m.away].name)}">${icon('edit')}</button>
-                                          <button type="button" class="act-btn ${(m.status === 2 || m.status === 3) ? '' : 'act-btn--disabled'}" ${(m.status === 2 || m.status === 3) ? `data-stats="${m.id}"` : 'disabled'}" title="İstatistik">${icon('chart')}</button>
-                                          <button type="button" class="act-btn act-btn--danger" data-delete="${m.id}" title="Sil" aria-label="Sil: ${esc(TEAMS[m.home].name)} - ${esc(TEAMS[m.away].name)}">${icon('trash')}</button>
-                                        </div>
-                                      </td>
-                                    </tr>`).join('');
+                                                  <td>${teamCell(m.away)}</td>
+                                                  <td><span class="badge-a badge-a--${m.status}">${STATUS[m.status]}</span></td>
+                                                  <td class="col-actions">
+                                                    <div class="row-actions">
+                                                      <a class="act-btn" href="/Match/MatchDetail/${m.id}" data-demo-nav title="Detay" aria-label="Detay: ${esc(TEAMS[m.home].name)} - ${esc(TEAMS[m.away].name)}">${icon('eye')}</a>
+                                                      <button type="button" class="act-btn" data-edit="${m.id}" title="Düzenle" aria-label="Düzenle: ${esc(TEAMS[m.home].name)} - ${esc(TEAMS[m.away].name)}">${icon('edit')}</button>
+                                                          <button type="button" class="act-btn ${(m.status === 2 || m.status === 3) ? '' : 'act-btn--disabled'}" ${(m.status === 2 || m.status === 3) ? `data-stats="${m.id}"` : 'disabled'}" title="İstatistik">${icon('chart')}</button>
+                                                      <button type="button" class="act-btn act-btn--danger" data-delete="${m.id}" title="Sil" aria-label="Sil: ${esc(TEAMS[m.home].name)} - ${esc(TEAMS[m.away].name)}">${icon('trash')}</button>
+                                                    </div>
+                                                  </td>
+                                                </tr>`).join('');
             }
             els.count.textContent = `${matches.length} kayıttan ${list.length} tanesi gösteriliyor`;
         }
@@ -338,7 +338,7 @@
 
         els.rows.addEventListener('click', async (e) => {
             const stats = e.target.closest('[data-stats]');
-            if(!stats) return;
+            if (!stats) return;
 
             const matchId = Number(stats.dataset.stats);
             const m = matches.find(x => x.id === matchId);
@@ -355,18 +355,88 @@
 
             try {
                 const res = await fetch(`https://localhost:7078/api/MatchStatistics/${matchId}`);
-                if(res.ok) {
+                if (res.ok) {
                     const data = await res.json();
-                    const home = data.find(x => x.homeTeamId == m.home);
-                    const away = data.find(x => x.awayTeamId == m.away);
-                    if(home) {fillStatsForm('home', home); existingHomeStatId = home.id; }
-                    if(away) {fillStatsForm('away', away); existingAwayStatId = away.id; }
+                    const home = data.find(x => (x.teamId ?? x.TeamId) == m.home);
+                    const away = data.find(x => (x.teamId ?? x.TeamId) == m.away);
+                    if (home) { fillStatsForm('home', home); existingHomeStatId = home.id; }
+                    if (away) { fillStatsForm('away', away); existingAwayStatId = away.id; }
                 }
             } catch (err) {
                 console.error(err);
             }
             els.statsModal.showModal();
         });
+
+        function fillStatsForm(side, data) {
+            const f = els.statsForm.elements;
+            f[`${side}Possession`].value = data.possession ?? data.Possession ?? 0;
+            f[`${side}Shots`].value = data.shots ?? data.Shots ?? 0;
+            f[`${side}ShotsOnTarget`].value = data.shotsOnTarget ?? data.ShotsOnTarget ?? 0;
+            f[`${side}Passes`].value = data.passes ?? data.Passes ?? 0;
+            f[`${side}PassAccuracy`].value = data.passAccuracy ?? data.PassAccuracy ?? 0;
+            f[`${side}Corners`].value = data.corners ?? data.Corners ?? 0;
+            f[`${side}Fouls`].value = data.fouls ?? data.Fouls ?? 0;
+            f[`${side}Offsides`].value = data.offsides ?? data.Offsides ?? 0;
+        }
+
+        els.statsForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const f = els.statsForm.elements;
+            const matchId = Number(f.matchId.value);
+            const homeTeamId = Number(f.homeTeamId.value);
+            const awayTeamId = Number(f.awayTeamId.value);
+
+            const homeData = {
+                matchId,
+                teamId: homeTeamId,
+                possession: Number(f.homePossession.value),
+                shots: Number(f.homeShots.value),
+                shotsOnTarget: Number(f.homeShotsOnTarget.value),
+                passes: Number(f.homePasses.value),
+                passAccuracy: Number(f.homePassAccuracy.value),
+                corners: Number(f.homeCorners.value),
+                fouls: Number(f.homeFouls.value),
+                offsides: Number(f.homeOffsides.value)
+            };
+
+            const awayData = {
+                matchId,
+                teamId: awayTeamId,
+                possession: Number(f.awayPossession.value),
+                shots: Number(f.awayShots.value),
+                shotsOnTarget: Number(f.awayShotsOnTarget.value),
+                passes: Number(f.awayPasses.value),
+                passAccuracy: Number(f.awayPassAccuracy.value),
+                corners: Number(f.awayCorners.value),
+                fouls: Number(f.awayFouls.value),
+                offsides: Number(f.awayOffsides.value)
+            };
+
+            try {
+                await Promise.all([
+                    fetch(existingHomeStatId
+                        ? `https://localhost:7078/api/MatchStatistics/${existingHomeStatId}`
+                        : 'https://localhost:7078/api/MatchStatistics', {
+                        method: existingHomeStatId ? 'PUT' : 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(existingHomeStatId ? { id: existingHomeStatId, ...homeData } : homeData)
+                    }),
+                    fetch(existingAwayStatId
+                        ? `https://localhost:7078/api/MatchStatistics/${existingAwayStatId}`
+                        : 'https://localhost:7078/api/MatchStatistics', {
+                        method: existingAwayStatId ? 'PUT' : 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(existingAwayStatId ? { id: existingAwayStatId, ...awayData } : awayData)
+                    }),
+                ]);
+                els.statsModal.close();
+                toast('İstatistikler başarıyla kaydedildi.');
+            } catch (err) {
+                toast('Kaydedilemedi: ' + err.message, 'info');
+            }
+
+        })
 
 
         /* ---------- Toast ---------- */

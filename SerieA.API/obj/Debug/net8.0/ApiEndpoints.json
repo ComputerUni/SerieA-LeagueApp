@@ -90,6 +90,59 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SerieA.API.Controllers.MatchStatisticsController",
+    "Method": "CreateMatchStatistics",
+    "RelativePath": "api/MatchStatistics",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createMatchStatisticsDto",
+        "Type": "SerieA.API.DTOs.MatchStatisticsDtos.CreateMatchStatisticsDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SerieA.API.Controllers.MatchStatisticsController",
+    "Method": "UpdateMatchStatistic",
+    "RelativePath": "api/MatchStatistics/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "updateMatchStatisticsDto",
+        "Type": "SerieA.API.DTOs.MatchStatisticsDtos.UpdateMatchStatisticsDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SerieA.API.Controllers.MatchStatisticsController",
+    "Method": "GetMatchStatisticByMatchId",
+    "RelativePath": "api/MatchStatistics/{matchId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "matchId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SerieA.API.Controllers.StandingsController",
     "Method": "GetStandings",
     "RelativePath": "api/Standings",

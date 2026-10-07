@@ -141,6 +141,102 @@
         }
       }
     },
+    "/api/MatchStatistics": {
+      "post": {
+        "tags": [
+          "MatchStatistics"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMatchStatisticsDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMatchStatisticsDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMatchStatisticsDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/MatchStatistics/{id}": {
+      "put": {
+        "tags": [
+          "MatchStatistics"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMatchStatisticsDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMatchStatisticsDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMatchStatisticsDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/MatchStatistics/{matchId}": {
+      "get": {
+        "tags": [
+          "MatchStatistics"
+        ],
+        "parameters": [
+          {
+            "name": "matchId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Standings": {
       "get": {
         "tags": [
@@ -328,6 +424,52 @@
         },
         "additionalProperties": false
       },
+      "CreateMatchStatisticsDto": {
+        "type": "object",
+        "properties": {
+          "matchId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "teamId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "possession": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "shots": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "shotsOnTarget": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "passes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "passAccuracy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "corners": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fouls": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "offsides": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateTeamDto": {
         "type": "object",
         "properties": {
@@ -439,6 +581,56 @@
           "stadium": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateMatchStatisticsDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "matchId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "teamId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "possession": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "shots": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "shotsOnTarget": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "passes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "passAccuracy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "corners": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fouls": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "offsides": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

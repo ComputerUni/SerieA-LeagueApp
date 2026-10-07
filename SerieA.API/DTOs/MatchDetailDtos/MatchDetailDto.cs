@@ -1,6 +1,6 @@
 ﻿using SerieA.API.DTOs.MatchCardDtos;
 using SerieA.API.DTOs.MatchGoalDtos;
-using SerieA.API.DTOs.MatchStatsDtos;
+using SerieA.API.DTOs.MatchStatisticsDtos;
 using SerieA.API.DTOs.SubstitutionDtos;
 using SerieA.API.DTOs.TimelineEventDtos;
 using SerieA.API.Entities.Enums;
@@ -34,7 +34,7 @@ namespace SerieA.API.DTOs.MatchDetailDtos
         public List<MatchCardDto> Cards { get; set; } = new();
         public List<SubstitutionDto> Substitutions { get; set; } = new();
         public List<TimelineEventDto> TimelineEvents { get; set; } = new();
-        public ResultMatchStatisticsDto Stats { get; set; } = new();
+        public MatchStatisticItemDto Stats { get; set; } = new();
 
     }
 }

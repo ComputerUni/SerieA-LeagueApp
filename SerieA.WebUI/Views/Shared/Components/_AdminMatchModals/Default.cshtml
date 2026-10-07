@@ -1,5 +1,255 @@
 ﻿@using SerieA.API.Entities.Enums
 @using SerieA.API.Extensions
+
+<style>
+    /* Modal Genel Pencere Yapısı - Açık Tema */
+    .stats-dialog {
+        padding: 0;
+        border: 1px solid #E2E8F0;
+        border-radius: 20px;
+        background: #FFFFFF;
+        color: #1E293B;
+        box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
+        max-width: 520px;
+        width: calc(100% - 32px);
+        margin: auto;
+    }
+
+        .stats-dialog::backdrop {
+            background: rgba(15, 23, 42, 0.45);
+            backdrop-filter: blur(4px);
+        }
+
+    .stats-dialog__content {
+        padding: 24px 28px;
+    }
+
+    /* Başlık */
+    .stats-dialog__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 18px;
+    }
+
+    .stats-dialog__subtitle {
+        display: block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: #2563EB;
+    }
+
+    .stats-dialog__title {
+        margin: 2px 0 0;
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: #0F172A;
+    }
+
+    .stats-dialog__close {
+        display: grid;
+        place-items: center;
+        width: 32px;
+        height: 32px;
+        border: 1px solid #E2E8F0;
+        border-radius: 50%;
+        background: #F8FAFC;
+        color: #64748B;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+        .stats-dialog__close:hover {
+            background: #F1F5F9;
+            color: #0F172A;
+            border-color: #CBD5E1;
+        }
+
+    /* Takım Karşılaşma Kartı */
+    .stats-matchup {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 18px;
+        margin-bottom: 20px;
+        border: 1px solid #E2E8F0;
+        border-radius: 12px;
+        background: #F8FAFC;
+    }
+
+    .stats-matchup__team {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .stats-matchup__team--home {
+        text-align: left;
+    }
+
+    .stats-matchup__team--away {
+        text-align: right;
+    }
+
+    .stats-matchup__label {
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: #64748B;
+        text-transform: uppercase;
+    }
+
+    .stats-matchup__name {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #0F172A;
+    }
+
+    .stats-matchup__vs {
+        padding: 4px 10px;
+        border-radius: 20px;
+        background: #EFF6FF;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: #2563EB;
+        border: 1px solid #DBEAFE;
+    }
+
+    /* İstatistik Satırları */
+    .stats-rows {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        max-height: 52vh;
+        overflow-y: auto;
+        padding-right: 4px;
+    }
+
+        /* Scrollbar Tasarımı */
+        .stats-rows::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .stats-rows::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 4px;
+        }
+
+    .stat-entry {
+        display: grid;
+        grid-template-columns: 74px 1fr 74px;
+        align-items: center;
+        gap: 14px;
+        padding: 4px 8px;
+        border-radius: 10px;
+        transition: background 0.15s ease;
+    }
+
+        .stat-entry:hover {
+            background: #F8FAFC;
+        }
+
+    .stat-label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #334155;
+        text-align: center;
+    }
+
+        .stat-label small {
+            color: #64748B;
+            font-weight: 500;
+        }
+
+    /* Giriş Kutuları (Input) */
+    .stat-input {
+        width: 100%;
+        height: 38px;
+        padding: 0 10px;
+        border: 1.5px solid #CBD5E1;
+        border-radius: 8px;
+        background: #FFFFFF;
+        color: #0F172A;
+        font-family: inherit;
+        font-size: 1rem;
+        font-weight: 700;
+        text-align: center;
+        transition: all 0.2s ease;
+        appearance: textfield;
+        -moz-appearance: textfield;
+    }
+
+        .stat-input::-webkit-outer-spin-button,
+        .stat-input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .stat-input:focus {
+            outline: none;
+            border-color: #2563EB;
+            background: #FFFFFF;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+    .stat-input--home {
+        border-left: 3.5px solid #2563EB;
+    }
+
+    .stat-input--away {
+        border-right: 3.5px solid #0EA5E9;
+    }
+
+    /* Alt Bar / Butonlar */
+    .stats-dialog__foot {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        margin-top: 20px;
+        padding-top: 16px;
+        border-top: 1px solid #E2E8F0;
+    }
+
+    .btn-stat {
+        padding: 9px 22px;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.15s ease;
+    }
+
+    .btn-stat--ghost {
+        border: 1px solid #CBD5E1;
+        background: #FFFFFF;
+        color: #475569;
+    }
+
+        .btn-stat--ghost:hover {
+            background: #F1F5F9;
+            color: #0F172A;
+            border-color: #94A3B8;
+        }
+
+    .btn-stat--primary {
+        border: none;
+        background: #2563EB;
+        color: #FFFFFF;
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    }
+
+        .btn-stat--primary:hover {
+            background: #1D4ED8;
+        }
+
+</style>
+
+
 <dialog class="modal-a" id="match-modal" aria-labelledby="match-modal-title">
     <form data-match-form novalidate>
         <div class="modal-head">
@@ -70,76 +320,107 @@
     </form>
 </dialog>
 
-<dialog id="stats-modal" aria-labelledby="stats-modal-title">
-    <div class="modal-head">
-        <h2 id="stats-modal-title">Maç İstatistikleri</h2>
-        <button type="button" class="modal-close" data-stats-modal-close aria-label="Kapat">✕</button>
-    </div>
-    <div class="modal-body">
-        <div class="stats-teams-header">
-            <span id="stats-home-name" class="stats-team-name"></span>
-            <span>vs</span>
-            <span id="stats-away-name" class="stats-team-name"></span>
+<dialog id="stats-modal" class="stats-dialog" aria-labelledby="stats-modal-title">
+    <div class="stats-dialog__content">
+        <!-- Başlık -->
+        <header class="stats-dialog__head">
+            <div>
+                <span class="stats-dialog__subtitle">Maç Yönetimi</span>
+                <h2 id="stats-modal-title" class="stats-dialog__title">İstatistikleri Düzenle</h2>
+            </div>
+            <button type="button" class="stats-dialog__close" data-stats-modal-close aria-label="Kapat">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+            </button>
+        </header>
+
+        <!-- Takım Karşılaşma Kartı -->
+        <div class="stats-matchup">
+            <div class="stats-matchup__team stats-matchup__team--home">
+                <span class="stats-matchup__label">Ev Sahibi</span>
+                <span id="stats-home-name" class="stats-matchup__name">-</span>
+            </div>
+            <div class="stats-matchup__vs">VS</div>
+            <div class="stats-matchup__team stats-matchup__team--away">
+                <span class="stats-matchup__label">Deplasman</span>
+                <span id="stats-away-name" class="stats-matchup__name">-</span>
+            </div>
         </div>
-        <form data-stats-form>
+
+        <!-- Form & İstatistik Alanları -->
+        <form data-stats-form class="stats-form">
             <input type="hidden" name="matchId" id="stats-match-id">
             <input type="hidden" name="homeTeamId" id="stats-home-id">
             <input type="hidden" name="awayTeamId" id="stats-away-id">
-            <table class="stats-input-table">
-                <thead>
-                    <tr>
-                        <th>Ev Sahibi</th>
-                        <th></th>
-                        <th>Deplasman</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><input type="number" class="input-a" name="homePossession" min="0" max="100"></td>
-                        <td class="stat-label">Topa Sahiplik %</td>
-                        <td><input type="number" class="input-a" name="awayPossession" min="0" max="100"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="input-a" name="homeShots" min="0"></td>
-                        <td class="stat-label">Şut</td>
-                        <td><input type="number" class="input-a" name="awayShots" min="0"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="input-a" name="homeShotsOnTarget" min="0"></td>
-                        <td class="stat-label">İsabetli Şut</td>
-                        <td><input type="number" class="input-a" name="awayShotsOnTarget" min="0"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="input-a" name="homePasses" min="0"></td>
-                        <td class="stat-label">Pas</td>
-                        <td><input type="number" class="input-a" name="awayPasses" min="0"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="input-a" name="homePassAccuracy" min="0" max="100"></td>
-                        <td class="stat-label">Pas İsabeti %</td>
-                        <td><input type="number" class="input-a" name="awayPassAccuracy" min="0" max="100"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="input-a" name="homeCorners" min="0"></td>
-                        <td class="stat-label">Korner</td>
-                        <td><input type="number" class="input-a" name="awayCorners" min="0"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="input-a" name="homeFouls" min="0"></td>
-                        <td class="stat-label">Faul</td>
-                        <td><input type="number" class="input-a" name="awayFouls" min="0"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="input-a" name="homeOffsides" min="0"></td>
-                        <td class="stat-label">Ofsayt</td>
-                        <td><input type="number" class="input-a" name="awayOffsides" min="0"></td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="modal-foot">
-                <button type="button" class="btn-a btn-a--ghost" data-stats-modal-close>İptal</button>
-                <button type="submit" class="btn-a btn-a--primary">Kaydet</button>
+
+            <div class="stats-rows">
+                <!-- Topa Sahiplik -->
+                <div class="stat-entry">
+                    <input type="number" class="stat-input stat-input--home" name="homePossession" min="0" max="100" placeholder="0">
+                    <div class="stat-label">
+                        <span>Topa Sahiplik</span>
+                        <small>%</small>
+                    </div>
+                    <input type="number" class="stat-input stat-input--away" name="awayPossession" min="0" max="100" placeholder="0">
+                </div>
+
+                <!-- Şut -->
+                <div class="stat-entry">
+                    <input type="number" class="stat-input stat-input--home" name="homeShots" min="0" placeholder="0">
+                    <div class="stat-label">Toplam Şut</div>
+                    <input type="number" class="stat-input stat-input--away" name="awayShots" min="0" placeholder="0">
+                </div>
+
+                <!-- İsabetli Şut -->
+                <div class="stat-entry">
+                    <input type="number" class="stat-input stat-input--home" name="homeShotsOnTarget" min="0" placeholder="0">
+                    <div class="stat-label">İsabetli Şut</div>
+                    <input type="number" class="stat-input stat-input--away" name="awayShotsOnTarget" min="0" placeholder="0">
+                </div>
+
+                <!-- Pas -->
+                <div class="stat-entry">
+                    <input type="number" class="stat-input stat-input--home" name="homePasses" min="0" placeholder="0">
+                    <div class="stat-label">Toplam Pas</div>
+                    <input type="number" class="stat-input stat-input--away" name="awayPasses" min="0" placeholder="0">
+                </div>
+
+                <!-- Pas İsabeti -->
+                <div class="stat-entry">
+                    <input type="number" class="stat-input stat-input--home" name="homePassAccuracy" min="0" max="100" placeholder="0">
+                    <div class="stat-label">
+                        <span>Pas İsabeti</span>
+                        <small>%</small>
+                    </div>
+                    <input type="number" class="stat-input stat-input--away" name="awayPassAccuracy" min="0" max="100" placeholder="0">
+                </div>
+
+                <!-- Korner -->
+                <div class="stat-entry">
+                    <input type="number" class="stat-input stat-input--home" name="homeCorners" min="0" placeholder="0">
+                    <div class="stat-label">Korner</div>
+                    <input type="number" class="stat-input stat-input--away" name="awayCorners" min="0" placeholder="0">
+                </div>
+
+                <!-- Faul -->
+                <div class="stat-entry">
+                    <input type="number" class="stat-input stat-input--home" name="homeFouls" min="0" placeholder="0">
+                    <div class="stat-label">Faul</div>
+                    <input type="number" class="stat-input stat-input--away" name="awayFouls" min="0" placeholder="0">
+                </div>
+
+                <!-- Ofsayt -->
+                <div class="stat-entry">
+                    <input type="number" class="stat-input stat-input--home" name="homeOffsides" min="0" placeholder="0">
+                    <div class="stat-label">Ofsayt</div>
+                    <input type="number" class="stat-input stat-input--away" name="awayOffsides" min="0" placeholder="0">
+                </div>
             </div>
+
+            <!-- Butonlar -->
+            <footer class="stats-dialog__foot">
+                <button type="button" class="btn-stat btn-stat--ghost" data-stats-modal-close>İptal</button>
+                <button type="submit" class="btn-stat btn-stat--primary">Kaydet</button>
+            </footer>
         </form>
     </div>
 </dialog>
