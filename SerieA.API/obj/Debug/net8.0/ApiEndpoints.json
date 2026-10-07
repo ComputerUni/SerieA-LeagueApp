@@ -90,6 +90,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SerieA.API.Controllers.StandingsController",
+    "Method": "GetStandings",
+    "RelativePath": "api/Standings",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SerieA.API.Controllers.TeamsController",
     "Method": "TeamList",
     "RelativePath": "api/Teams",

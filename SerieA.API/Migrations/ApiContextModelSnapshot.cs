@@ -64,7 +64,7 @@ namespace SerieA.API.Migrations
 
                     b.HasIndex("HomeTeamId");
 
-                    b.ToTable("Matches");
+                    b.ToTable("Matches", (string)null);
                 });
 
             modelBuilder.Entity("SerieA.API.Entities.MatchCard", b =>
@@ -97,7 +97,7 @@ namespace SerieA.API.Migrations
 
                     b.HasIndex("TeamId");
 
-                    b.ToTable("MatchCards");
+                    b.ToTable("MatchCards", (string)null);
                 });
 
             modelBuilder.Entity("SerieA.API.Entities.MatchGoal", b =>
@@ -127,7 +127,54 @@ namespace SerieA.API.Migrations
 
                     b.HasIndex("TeamId");
 
-                    b.ToTable("MatchGoals");
+                    b.ToTable("MatchGoals", (string)null);
+                });
+
+            modelBuilder.Entity("SerieA.API.Entities.MatchStatistic", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Corners")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Fouls")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MatchId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Offsides")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PassAccuracy")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Passes")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Possession")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Shots")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ShotsOnTarget")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TeamId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MatchId");
+
+                    b.HasIndex("TeamId");
+
+                    b.ToTable("MatchStatistics", (string)null);
                 });
 
             modelBuilder.Entity("SerieA.API.Entities.Substitution", b =>
@@ -161,7 +208,7 @@ namespace SerieA.API.Migrations
 
                     b.HasIndex("TeamId");
 
-                    b.ToTable("Substitutions");
+                    b.ToTable("Substitutions", (string)null);
                 });
 
             modelBuilder.Entity("SerieA.API.Entities.Team", b =>
@@ -214,7 +261,7 @@ namespace SerieA.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Teams");
+                    b.ToTable("Teams", (string)null);
                 });
 
             modelBuilder.Entity("SerieA.API.Entities.Match", b =>
@@ -267,6 +314,25 @@ namespace SerieA.API.Migrations
                         .WithMany("MatchGoals")
                         .HasForeignKey("TeamId")
                         .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Match");
+
+                    b.Navigation("Team");
+                });
+
+            modelBuilder.Entity("SerieA.API.Entities.MatchStatistic", b =>
+                {
+                    b.HasOne("SerieA.API.Entities.Match", "Match")
+                        .WithMany()
+                        .HasForeignKey("MatchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SerieA.API.Entities.Team", "Team")
+                        .WithMany()
+                        .HasForeignKey("TeamId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Match");

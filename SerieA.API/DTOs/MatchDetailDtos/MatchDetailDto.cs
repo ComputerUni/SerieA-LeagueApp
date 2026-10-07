@@ -34,7 +34,7 @@ namespace SerieA.API.DTOs.MatchDetailDtos
         public List<MatchCardDto> Cards { get; set; } = new();
         public List<SubstitutionDto> Substitutions { get; set; } = new();
         public List<TimelineEventDto> TimelineEvents { get; set; } = new();
-        public MatchStatsDto Stats { get; set; } = new();
+        public ResultMatchStatisticsDto Stats { get; set; } = new();
 
     }
 }

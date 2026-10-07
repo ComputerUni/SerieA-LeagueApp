@@ -1,0 +1,42 @@
+﻿@using SerieA.API.DTOs.MatchDtos
+@model ResultMatchDto
+
+@{
+    var goals = Model.Goals.OrderBy(g => g.Minute).ToList();
+    var homeGoals = goals.Where(g => g.TeamId == Model.HomeTeamId).ToList();
+    var awayGoals = goals.Where(g => g.TeamId == Model.AwayTeamId).ToList();
+}
+
+<section class="panel" aria-labelledby="goals-title">
+    <div class="panel__head"><h2 class="panel__title" id="goals-title">Goller</h2></div>
+    <div class="split">
+        @foreach (var (teamGoals, teamName, teamLogo) in new[]
+        {
+            (homeGoals, Model.HomeTeamName, Model.HomeTeamLogo),
+            (awayGoals, Model.AwayTeamName, Model.AwayTeamLogo)
+        })
+        {
+            <div class="split__col">
+                <h3 class="split__team">
+                    <span class="team-crest team-crest--xs" aria-hidden="true">
+                        <img src="@teamLogo"
+                             alt="@teamName"
+                             onerror="this.style.display='none'" />
+                    </span>
+                    @teamName
+                    <span class="split__count">@teamGoals.Count gol</span>
+                </h3>
+                <ul class="item-list goal-list">
+                    @foreach (var g in teamGoals)
+                    {
+                        <li>
+                            <span class="item-minute">@g.Minute'</span>
+                            <span class="item-main"><strong>@g.PlayerName</strong></span>
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+
+    </div>
+</section>

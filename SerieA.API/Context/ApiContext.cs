@@ -53,6 +53,7 @@ namespace SerieA.API.Context
         public DbSet<MatchGoal> MatchGoals { get; set; }
         public DbSet<Substitution> Substitutions { get; set; }
         public DbSet<Team> Teams { get; set; }
+        public DbSet<MatchStatistic> MatchStatistics { get; set; }
 
 
     }

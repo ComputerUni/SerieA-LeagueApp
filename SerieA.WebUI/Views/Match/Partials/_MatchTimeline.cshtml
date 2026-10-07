@@ -1,0 +1,116 @@
+﻿@using SerieA.API.DTOs.MatchDtos
+@using SerieA.API.Entities.Enums
+@model ResultMatchDto
+
+@{
+    var homeScore = 0;
+    var awayScore = 0;
+    var halfTimeRendered = false;
+
+    var cards = Model.Cards.Select(c => new { c.Minute, Type = c.CardType == CardType.YellowCard ? "yellow" : "red", c.TeamId, PlayerName = c.PlayerName, Sub = (string?)null });
+    var goals = Model.Goals.Select(g => new { g.Minute, Type = "goal", g.TeamId, g.PlayerName, Sub = (string?)null });
+    var subs = Model.Substitutions.Select(s => new { s.Minute, Type = "sub", s.TeamId, PlayerName = s.PlayerIn, Sub = s.PlayerOut });
+
+    var allEvents = goals.Cast<dynamic>().Concat(cards.Cast<dynamic>()).Concat(subs.Cast<dynamic>()).OrderBy(e => e.Minute).ToList();
+}
+
+<section class="panel" aria-labelledby="timeline-title">
+    <div class="panel__head">
+        <h2 class="panel__title" id="timeline-title">Maç olayları</h2>
+        <div class="event-filter" role="group" aria-label="Olay türüne göre filtrele">
+            <button type="button" class="chip" data-event-filter="all" aria-pressed="true">Tümü</button>
+            <button type="button" class="chip" data-event-filter="goal" aria-pressed="false">Goller</button>
+            <button type="button" class="chip" data-event-filter="card" aria-pressed="false">Kartlar</button>
+            <button type="button" class="chip" data-event-filter="sub" aria-pressed="false">Değişiklikler</button>
+        </div>
+    </div>
+
+    <div class="timeline-legend" aria-hidden="true">
+        <span><span class="team-crest team-crest--xs crest-milan">@Model.HomeTeamName.Substring(0, 3)</span>@Model.HomeTeamName</span>
+        <span></span>
+        <span>@Model.AwayTeamName<span class="team-crest team-crest--xs crest-roma">@Model.AwayTeamName.Substring(0, 3)</span></span>
+    </div>
+
+    <ol class="timeline">
+        <li class="event event--period"><span class="period-mark">Başlama düdüğü</span></li>
+        @foreach (var e in allEvents)
+        {
+            var isHome = e.TeamId == Model.HomeTeamId;
+            var sideClass = isHome ? "event--home" : "event--away";
+            var typeClass = e.Type == "goal" ? "event--goal" :
+                            e.Type == "yellow" ? "event--yellow" :
+                            e.Type == "red" ? "event--red" : "event--sub";
+            var dataType = e.Type == "goal" ? "goal" : e.Type == "sub" ? "sub" : "card";
+            var elemId = $"ev-{e.Type}-{e.Minute}";
+
+            if (e.Type == "goal")
+            {
+                if (isHome) homeScore++; else awayScore++;
+            }
+
+            if (e.Minute > 45 && !halfTimeRendered)
+            {
+                halfTimeRendered = true;
+                <li class="event event--period">
+                    <span class="period-mark">Devre arası <strong>@homeScore-@awayScore</strong></span>
+                </li>
+
+            }
+            <li class="event @sideClass @typeClass" id="@elemId" data-type="@dataType">
+                <span class="event__minute">@e.Minute</span>
+                <div class="event-card">
+                    <span class="event-card__icon">
+                        @if (e.Type == "goal")
+                        {
+                            <svg class="i-ball" aria-hidden="true"><use href="#i-ball" /></svg>
+                        }
+                        else if (e.Type == "sub")
+                        {
+                            <svg width="18" height="18" aria-hidden="true"><use href="#i-swap" /></svg>
+                        }
+                        else
+                        {
+                            <span class="i-card @(e.Type == "yellow" ? "i-card--yellow" : "i-card--red")"></span>
+                        }
+                    </span>
+                    <span class="event-card__body">
+                        @if (e.Type == "sub")
+                        {
+                            <span class="event-card__player sub-in">@e.PlayerName</span>
+                            <span class="event-card__meta sub-out">@e.Sub</span>
+                        }
+                        else
+                        {
+                            <span class="event-card__player">@e.PlayerName</span>
+                            <span class="event-card__meta">
+                                @if (e.Type == "goal")
+                                {
+                                    <text>Gol</text>
+                                }
+                                else if (e.Type == "yellow")
+                                {
+                                    <text>Sarı Kart</text>
+                                }
+                                else
+                                {
+                                    <text>Kırmızı Kart</text>
+                                }
+                            </span>
+                        }
+                    </span>
+                    @if (e.Type == "goal")
+                    {
+                        <span class="event-score">@homeScore - @awayScore</span>
+                    }
+                </div>
+            </li>
+
+
+        }
+        <li class="event event--period">
+            <span class="period-mark">Maç sonu <strong>@Model.HomeTeamScore-@Model.AwayTeamScore</strong></span>
+        </li>
+
+    </ol>
+</section>
+

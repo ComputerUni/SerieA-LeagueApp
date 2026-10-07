@@ -1,0 +1,46 @@
+﻿@using SerieA.API.DTOs.MatchDtos
+@using SerieA.API.Entities.Enums
+@model ResultMatchDto
+
+@{
+    var cards = Model.Cards.OrderBy(c => c.Minute).ToList();
+    var homeCards = cards.Where(c => c.TeamId == Model.HomeTeamId).ToList();
+    var awayCards = cards.Where(c => c.TeamId == Model.AwayTeamId).ToList();
+}
+
+<section class="panel" aria-labelledby="cards-title">
+    <div class="panel__head"><h2 class="panel__title" id="cards-title">Kartlar</h2></div>
+    <div class="split">
+        @foreach(var (teamCards, teamName, teamLogo) in new[]
+        {
+            (homeCards, Model.HomeTeamName, Model.HomeTeamLogo),
+            (awayCards, Model.AwayTeamName, Model.AwayTeamLogo)
+        })
+        {
+            <div class="split__col">
+                <h3 class="split__team">
+                    <span class="team-crest team-crest--xs" aria-hidden="true">
+                        <img src="@teamLogo" alt="@teamName" />
+                    </span>
+                    @teamName
+                    <span class="split__count">@teamCards.Count kart</span>
+                </h3>
+                <ul class="item-list">
+                    @foreach (var c in teamCards)
+                    {
+                        var isRed = c.CardType == CardType.RedCard || c.CardType == CardType.SecondYellowCard;
+                        <li>
+                            <span class="item-minute">@c.Minute'</span>
+                            <span class="item-main"><strong>@c.PlayerName</strong></span>
+                            <span class="card-tag">
+                                <span class="i-card @(isRed ? "i-card--red" : "i-card--yellow")"></span>
+                                @(isRed ? "Kırmızı" : "Sarı")
+                            </span>
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+       
+    </div>
+</section>

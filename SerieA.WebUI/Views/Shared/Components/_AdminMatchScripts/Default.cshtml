@@ -77,7 +77,9 @@
             scoreFields: $('[data-score-fields]'),
             del: $('#delete-modal'),
             delText: $('[data-delete-text]'),
-            toasts: $('[data-toasts]')
+            toasts: $('[data-toasts]'),
+            statsModal: $('#stats-modal'),
+            statsForm: $('[data-stats-form]')
         };
         let filters = { team: '', week: '', status: '' };
 
@@ -108,8 +110,9 @@
                                       <td><span class="badge-a badge-a--${m.status}">${STATUS[m.status]}</span></td>
                                       <td class="col-actions">
                                         <div class="row-actions">
-                                          <a class="act-btn" href="/Admin/Matches/Detail/${m.id}" data-demo-nav title="Detay" aria-label="Detay: ${esc(TEAMS[m.home].name)} - ${esc(TEAMS[m.away].name)}">${icon('eye')}</a>
+                                          <a class="act-btn" href="/Match/MatchDetail/${m.id}" data-demo-nav title="Detay" aria-label="Detay: ${esc(TEAMS[m.home].name)} - ${esc(TEAMS[m.away].name)}">${icon('eye')}</a>
                                           <button type="button" class="act-btn" data-edit="${m.id}" title="Düzenle" aria-label="Düzenle: ${esc(TEAMS[m.home].name)} - ${esc(TEAMS[m.away].name)}">${icon('edit')}</button>
+                                          <button type="button" class="act-btn ${(m.status === 2 || m.status === 3) ? '' : 'act-btn--disabled'}" ${(m.status === 2 || m.status === 3) ? `data-stats="${m.id}"` : 'disabled'}" title="İstatistik">${icon('chart')}</button>
                                           <button type="button" class="act-btn act-btn--danger" data-delete="${m.id}" title="Sil" aria-label="Sil: ${esc(TEAMS[m.home].name)} - ${esc(TEAMS[m.away].name)}">${icon('trash')}</button>
                                         </div>
                                       </td>
@@ -327,6 +330,44 @@
             }
             pendingDelete = null;
         });
+
+        let existingHomeStatId = null;
+        let existingAwayStatId = null;
+
+        document.querySelectorAll('[data-stats-modal-close]').forEach(b => b.addEventListener('click', () => els.statsModal.close()));
+
+        els.rows.addEventListener('click', async (e) => {
+            const stats = e.target.closest('[data-stats]');
+            if(!stats) return;
+
+            const matchId = Number(stats.dataset.stats);
+            const m = matches.find(x => x.id === matchId);
+
+            $('#stats-home-name').textContent = TEAMS[m.home].name;
+            $('#stats-away-name').textContent = TEAMS[m.away].name;
+            $('#stats-match-id').value = matchId;
+            $('#stats-home-id').value = m.home;
+            $('#stats-away-id').value = m.away;
+
+            existingAwayStatId = null;
+            existingHomeStatId = null;
+            els.statsForm.reset();
+
+            try {
+                const res = await fetch(`https://localhost:7078/api/MatchStatistics/${matchId}`);
+                if(res.ok) {
+                    const data = await res.json();
+                    const home = data.find(x => x.homeTeamId == m.home);
+                    const away = data.find(x => x.awayTeamId == m.away);
+                    if(home) {fillStatsForm('home', home); existingHomeStatId = home.id; }
+                    if(away) {fillStatsForm('away', away); existingAwayStatId = away.id; }
+                }
+            } catch (err) {
+                console.error(err);
+            }
+            els.statsModal.showModal();
+        });
+
 
         /* ---------- Toast ---------- */
         function toast(message, type = 'success') {

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SerieA.API.Context;
+using SerieA.API.DTOs.StandingDtos;
 using SerieA.API.Entities.Enums;
 
 namespace SerieA.API.Controllers
@@ -34,9 +35,23 @@ namespace SerieA.API.Controllers
 
                 var points = wins * 3 + draws;
 
-                return new 
-                           
-            })
+                return new ResultStandingDto
+                {
+                    TeamId = team.Id,
+                    TeamName = team.Name,
+                    PlayedMatch = homeMatches.Count + awayMatches.Count,
+                    Won = wins,
+                    Drawn = draws,
+                    Lost = loses,
+                    GoalsFor = goalsFor,
+                    GoalsAgainst = goalsAgainst,
+                    GoalDifference = goalsFor - goalsAgainst,
+                    Points = points
+                };
+
+            }).OrderByDescending(x => x.Points).ThenByDescending(x => x.GoalDifference).ThenByDescending(x => x.GoalsFor).ToList();
+
+            return Ok(standings);
         }
     }
 }

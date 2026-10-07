@@ -70,6 +70,81 @@
     </form>
 </dialog>
 
+<dialog id="stats-modal" aria-labelledby="stats-modal-title">
+    <div class="modal-head">
+        <h2 id="stats-modal-title">Maç İstatistikleri</h2>
+        <button type="button" class="modal-close" data-stats-modal-close aria-label="Kapat">✕</button>
+    </div>
+    <div class="modal-body">
+        <div class="stats-teams-header">
+            <span id="stats-home-name" class="stats-team-name"></span>
+            <span>vs</span>
+            <span id="stats-away-name" class="stats-team-name"></span>
+        </div>
+        <form data-stats-form>
+            <input type="hidden" name="matchId" id="stats-match-id">
+            <input type="hidden" name="homeTeamId" id="stats-home-id">
+            <input type="hidden" name="awayTeamId" id="stats-away-id">
+            <table class="stats-input-table">
+                <thead>
+                    <tr>
+                        <th>Ev Sahibi</th>
+                        <th></th>
+                        <th>Deplasman</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="number" class="input-a" name="homePossession" min="0" max="100"></td>
+                        <td class="stat-label">Topa Sahiplik %</td>
+                        <td><input type="number" class="input-a" name="awayPossession" min="0" max="100"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" class="input-a" name="homeShots" min="0"></td>
+                        <td class="stat-label">Şut</td>
+                        <td><input type="number" class="input-a" name="awayShots" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" class="input-a" name="homeShotsOnTarget" min="0"></td>
+                        <td class="stat-label">İsabetli Şut</td>
+                        <td><input type="number" class="input-a" name="awayShotsOnTarget" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" class="input-a" name="homePasses" min="0"></td>
+                        <td class="stat-label">Pas</td>
+                        <td><input type="number" class="input-a" name="awayPasses" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" class="input-a" name="homePassAccuracy" min="0" max="100"></td>
+                        <td class="stat-label">Pas İsabeti %</td>
+                        <td><input type="number" class="input-a" name="awayPassAccuracy" min="0" max="100"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" class="input-a" name="homeCorners" min="0"></td>
+                        <td class="stat-label">Korner</td>
+                        <td><input type="number" class="input-a" name="awayCorners" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" class="input-a" name="homeFouls" min="0"></td>
+                        <td class="stat-label">Faul</td>
+                        <td><input type="number" class="input-a" name="awayFouls" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" class="input-a" name="homeOffsides" min="0"></td>
+                        <td class="stat-label">Ofsayt</td>
+                        <td><input type="number" class="input-a" name="awayOffsides" min="0"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="modal-foot">
+                <button type="button" class="btn-a btn-a--ghost" data-stats-modal-close>İptal</button>
+                <button type="submit" class="btn-a btn-a--primary">Kaydet</button>
+            </div>
+        </form>
+    </div>
+</dialog>
+
+
 <!-- Silme onayı -->
 <dialog class="modal-a modal-a--sm" id="delete-modal" aria-labelledby="delete-modal-title">
     <form method="dialog">
@@ -86,3 +161,5 @@
         </div>
     </form>
 </dialog>
+
+

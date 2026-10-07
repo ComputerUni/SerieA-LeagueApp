@@ -1,0 +1,42 @@
+﻿@using SerieA.API.DTOs.MatchDtos
+@model ResultMatchDto
+
+@{
+    var substitutions = Model.Substitutions.OrderBy(s => s.Minute).ToList();
+    var homeSubs = substitutions.Where(s => s.TeamId == Model.HomeTeamId).ToList();
+    var awaySubs = substitutions.Where(s => s.TeamId == Model.AwayTeamId).ToList();
+}
+
+<section class="panel" aria-labelledby="subs-title">
+    <div class="panel__head"><h2 class="panel__title" id="subs-title">Oyuncu değişiklikleri</h2></div>
+    <div class="split">
+        @foreach (var (teamSubs, teamName, teamLogo) in new[]
+        {
+        (homeSubs, Model.HomeTeamName, Model.HomeTeamLogo),
+        (awaySubs, Model.AwayTeamName, Model.AwayTeamLogo)
+    })
+        {
+            <div class="split__col">
+                <h3 class="split__team">
+                    <span class="team-crest team-crest--xs" aria-hidden="true">
+                        <img src="@teamLogo" alt="@teamName" />
+                    </span>
+                    @teamName
+                    <span class="split__count">@teamSubs.Count değişiklik</span>
+                </h3>
+                <ul class="item-list">
+                    @foreach (var s in teamSubs)
+                    {
+                        <li>
+                            <span class="item-minute">@s.Minute'</span>
+                            <span class="item-main">
+                                <strong class="sub-in">@s.PlayerIn</strong>
+                                <small class="sub-out">@s.PlayerOut</small>
+                            </span>
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+    </div>
+</section>

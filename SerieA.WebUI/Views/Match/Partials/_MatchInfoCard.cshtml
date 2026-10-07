@@ -1,0 +1,16 @@
+﻿@using SerieA.API.DTOs.MatchDtos
+@model ResultMatchDto
+<section class="panel" aria-labelledby="info-title">
+    <div class="panel__head"><h2 class="panel__title" id="info-title">Maç bilgileri</h2></div>
+    <dl class="info-list">
+        <div><dt>Lig</dt><dd>Serie A</dd></div>
+        <div><dt>Sezon</dt><dd>2026/27</dd></div>
+        <div><dt>Hafta</dt><dd>@Model.Week</dd></div>
+        <div><dt>Stadyum</dt><dd>@Model.Stadium</dd></div>
+        <div><dt>Şehir</dt><dd>@Model.City, İtalya</dd></div>
+        <div><dt>Hakem</dt><dd>Daniele Orsato</dd></div>
+        <div><dt>Seyirci</dt><dd>72000</dd></div>
+        <div><dt>Tarih</dt><dd>@Model.MatchDate.ToString("dd MMMM yyyy")</dd></div>
+        <div><dt>Saat</dt><dd>@Model.MatchTime.ToString("HH:mm")</dd></div>
+    </dl>
+</section>

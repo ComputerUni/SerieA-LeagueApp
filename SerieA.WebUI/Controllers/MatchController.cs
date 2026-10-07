@@ -74,5 +74,18 @@ namespace SerieA.WebUI.Controllers
             }
             return BadRequest(new { success = false, message = "API güncelleme isteğini reddetti." });
         }
+
+        public async Task<IActionResult> MatchDetail(int id)
+        {
+            var client = new HttpClient();
+            var response = await client.GetAsync($"https://localhost:7078/api/Matches/{id}");
+            if(response.IsSuccessStatusCode)
+            {
+                var jsonData = await response.Content.ReadAsStringAsync();
+                var model = JsonConvert.DeserializeObject<ResultMatchDto>(jsonData);
+                return View(model);
+            }
+            return NotFound();
+        }
     }
 }

@@ -31,8 +31,52 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/BURHAN/Desktop/SerieA/SerieA.WebUI/Views/Match/MatchDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hcTWF0Y2hEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/BURHAN/Desktop/SerieA/SerieA.WebUI/Views/Match/MatchList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hcTWF0Y2hMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BURHAN/Desktop/SerieA/SerieA.WebUI/Views/Match/Partials/_CardsPanel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hcUGFydGlhbHNcX0NhcmRzUGFuZWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BURHAN/Desktop/SerieA/SerieA.WebUI/Views/Match/Partials/_GoalsPanel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hcUGFydGlhbHNcX0dvYWxzUGFuZWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BURHAN/Desktop/SerieA/SerieA.WebUI/Views/Match/Partials/_MatchHead.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hcUGFydGlhbHNcX01hdGNoSGVhZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BURHAN/Desktop/SerieA/SerieA.WebUI/Views/Match/Partials/_MatchHero.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hcUGFydGlhbHNcX01hdGNoSGVyby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BURHAN/Desktop/SerieA/SerieA.WebUI/Views/Match/Partials/_MatchInfoCard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hcUGFydGlhbHNcX01hdGNoSW5mb0NhcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BURHAN/Desktop/SerieA/SerieA.WebUI/Views/Match/Partials/_MatchStats.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hcUGFydGlhbHNcX01hdGNoU3RhdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BURHAN/Desktop/SerieA/SerieA.WebUI/Views/Match/Partials/_MatchSvg.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hcUGFydGlhbHNcX01hdGNoU3ZnLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BURHAN/Desktop/SerieA/SerieA.WebUI/Views/Match/Partials/_MatchTimeline.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hcUGFydGlhbHNcX01hdGNoVGltZWxpbmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BURHAN/Desktop/SerieA/SerieA.WebUI/Views/Match/Partials/_PeriodScoreCards.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hcUGFydGlhbHNcX1BlcmlvZFNjb3JlQ2FyZHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BURHAN/Desktop/SerieA/SerieA.WebUI/Views/Match/Partials/_SubstitutionsPanel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hcUGFydGlhbHNcX1N1YnN0aXR1dGlvbnNQYW5lbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/BURHAN/Desktop/SerieA/SerieA.WebUI/Views/Shared/Components/_AdminLayoutHead/Default.cshtml]

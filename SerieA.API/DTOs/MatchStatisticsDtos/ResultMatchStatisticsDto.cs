@@ -1,6 +1,6 @@
-﻿namespace SerieA.API.DTOs.MatchStatsDtos
+﻿namespace SerieA.API.DTOs.MatchStatisticsDtos
 {
-    public class MatchStatsDto
+    public class ResultMatchStatisticsDto
     {
         public int YellowCardsHome { get; set; }
         public int YellowCardsAway { get; set; }
@@ -19,6 +19,7 @@
         public int CornersHome { get; set; }
         public int CornersAway { get; set; }
         public int FoulsHome { get; set; }
+        public int FoulsAway { get; set; }
         public int OffsidesHome { get; set; }
         public int OffsidesAway { get; set; }
     }

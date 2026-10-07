@@ -21,6 +21,7 @@ namespace SerieA.API.Entities
         public IList<Substitution> Substitutions { get; set; }
         public IList<MatchCard> MatchCards { get; set; }
         public IList<MatchGoal> MatchGoals { get; set; }
+        public IList<MatchStatistic> MatchStatistics { get; set; }
 
     }
 }

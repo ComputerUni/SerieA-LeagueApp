@@ -1,0 +1,107 @@
+﻿@using SerieA.API.Extensions
+@model ResultMatchDto
+
+@{
+    var htHome = Model.Goals.Count(g => g.TeamId == Model.HomeTeamId && g.Minute <= 45);
+    var htAway = Model.Goals.Count(g => g.TeamId == Model.AwayTeamId && g.Minute <= 45);
+}
+
+<header class="match-hero">
+    <div class="hero-topbar">
+        <ul class="comp-tags" aria-label="Müsabaka">
+            <li class="comp-tag comp-tag--league">Serie A</li>
+            <li class="comp-tag">2026/27</li>
+            <li class="comp-tag">@Model.Week. Hafta</li>
+        </ul>
+        <span class="status-pill">@Model.Status.GetDisplayName()</span>
+    </div>
+
+    <div class="scoreboard">
+        <div class="sb-team sb-team--home">
+            <span class="team-crest team-crest--xl" aria-hidden="true">
+                <img src="@Model.HomeTeamLogo" alt="@Model.HomeTeamName" />
+            </span>
+            <div>
+                <span class="sb-team__role">Ev sahibi</span>
+                <h1 class="sb-team__name">@Model.HomeTeamName</h1>
+                <ul class="sb-scorers" aria-label="@Model.HomeTeamName golleri">
+                    @foreach (var goal in Model.Goals.Where(g => g.TeamId == Model.HomeTeamId))
+                    {
+                        <li>
+                            <svg class="i-ball" aria-hidden="true"><use href="#i-ball" /></svg>
+                            @goal.PlayerName @goal.Minute'
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+        <div class="sb-score">
+            <p class="sb-score__value" aria-label="Skor: @Model.HomeTeamName @Model.HomeTeamScore, @Model.AwayTeamName @Model.AwayTeamScore">
+                <span>@Model.HomeTeamScore</span><span class="sb-score__sep" aria-hidden="true"></span><span class="is-loser">@Model.AwayTeamScore</span>
+            </p>
+            <p class="sb-score__ht">İlk yarı @htHome-@htAway</p>
+        </div>
+
+        <div class="sb-team sb-team--away is-loser">
+            <span class="team-crest team-crest--xl crest-roma" aria-hidden="true">@Model.AwayTeamName.Substring(0, 3)</span>
+            <div>
+                <span class="sb-team__role">Deplasman</span>
+                <h2 class="sb-team__name">@Model.AwayTeamName</h2>
+                <ul class="sb-scorers" aria-label="@Model.AwayTeamName golleri">
+                    @foreach (var goal in Model.Goals.Where(g => g.TeamId == Model.AwayTeamId))
+                    {
+                        <li>
+                            <svg class="i-ball" aria-hidden="true"><use href="#i-ball" /></svg>
+                            @goal.PlayerName @goal.Minute'
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <ul class="hero-facts">
+        <li><svg aria-hidden="true"><use href="#i-calendar" /></svg>@Model.MatchDate.ToString("dd MMMM yyyy")</li>
+        <li><svg aria-hidden="true"><use href="#i-clock" /></svg>@Model.MatchDate.ToString("HH:mm")</li>
+        <li><svg aria-hidden="true"><use href="#i-stadium" /></svg>@Model.Stadium</li>
+        <li><svg aria-hidden="true"><use href="#i-whistle" /></svg><span>Hakem:</span> Daniele Orsato</li>
+    </ul>
+
+    <!-- Partial: _MatchFlowStrip -->
+    <section class="flow-strip" aria-labelledby="flow-title">
+        <div class="flow-head">
+            <h2 class="flow-title" id="flow-title">Maç akışı</h2>
+            <p class="flow-hint">Ayrıntısını görmek için bir olaya dokun</p>
+        </div>
+        <div class="flow-scroll">
+            <div class="flow-track">
+                <span class="flow-side-label flow-side-label--home"><span class="team-crest team-crest--xs crest-milan" aria-hidden="true">MIL</span></span>
+                <span class="flow-side-label flow-side-label--away"><span class="team-crest team-crest--xs crest-roma" aria-hidden="true">ROM</span></span>
+                <span class="flow-axis" aria-hidden="true"></span>
+                <span class="flow-half" aria-hidden="true"><span>Devre arası</span></span>
+                <span class="flow-tick" style="--x:calc(15 / 95 * 100%)">15'</span>
+                <span class="flow-tick" style="--x:calc(30 / 95 * 100%)">30'</span>
+                <span class="flow-tick" style="--x:calc(45 / 95 * 100%)">45'</span>
+                <span class="flow-tick" style="--x:calc(60 / 95 * 100%)">60'</span>
+                <span class="flow-tick" style="--x:calc(75 / 95 * 100%)">75'</span>
+                <span class="flow-tick" style="--x:calc(90 / 95 * 100%)">90'</span>
+
+                <button type="button" class="flow-marker flow-marker--home flow-marker--goal" style="--m:14" data-flow-ref="ev-14" aria-label="14. dakika, Milan golü, Rafael Leão" title="14' Gol: Rafael Leão"><span class="flow-marker__dot"><svg class="i-ball" aria-hidden="true"><use href="#i-ball" /></svg></span></button>
+                <button type="button" class="flow-marker flow-marker--away flow-marker--card" style="--m:27" data-flow-ref="ev-27" aria-label="27. dakika, sarı kart, Paulo Dybala" title="27' Sarı kart: Paulo Dybala"><span class="flow-marker__dot"><span class="i-card i-card--yellow"></span></span></button>
+                <button type="button" class="flow-marker flow-marker--home flow-marker--goal" style="--m:41" data-flow-ref="ev-41" aria-label="41. dakika, Milan golü, Olivier Giroud" title="41' Gol: Olivier Giroud"><span class="flow-marker__dot"><svg class="i-ball" aria-hidden="true"><use href="#i-ball" /></svg></span></button>
+                <button type="button" class="flow-marker flow-marker--away flow-marker--card" style="--m:54" data-flow-ref="ev-54" aria-label="54. dakika, sarı kart, Bryan Cristante" title="54' Sarı kart: Bryan Cristante"><span class="flow-marker__dot"><span class="i-card i-card--yellow"></span></span></button>
+                <button type="button" class="flow-marker flow-marker--away flow-marker--sub" style="--m:58" data-flow-ref="ev-58" aria-label="58. dakika, Roma oyuncu değişikliği" title="58' Değişiklik: Pellegrini girdi"><span class="flow-marker__dot"></span></button>
+                <button type="button" class="flow-marker flow-marker--home flow-marker--sub" style="--m:64" data-flow-ref="ev-64" aria-label="64. dakika, Milan oyuncu değişikliği" title="64' Değişiklik: Pulisic girdi"><span class="flow-marker__dot"></span></button>
+                <button type="button" class="flow-marker flow-marker--home flow-marker--card" style="--m:67" data-flow-ref="ev-67" aria-label="67. dakika, sarı kart, Fikayo Tomori" title="67' Sarı kart: Fikayo Tomori"><span class="flow-marker__dot"><span class="i-card i-card--yellow"></span></span></button>
+                <button type="button" class="flow-marker flow-marker--away flow-marker--goal" style="--m:72" data-flow-ref="ev-72" aria-label="72. dakika, Roma golü, Tammy Abraham" title="72' Gol: Tammy Abraham"><span class="flow-marker__dot"><svg class="i-ball" aria-hidden="true"><use href="#i-ball" /></svg></span></button>
+                <button type="button" class="flow-marker flow-marker--away flow-marker--card" style="--m:74;margin-left:7px" data-flow-ref="ev-74" aria-label="74. dakika, sarı kart, Gianluca Mancini" title="74' Sarı kart: Gianluca Mancini"><span class="flow-marker__dot"><span class="i-card i-card--yellow"></span></span></button>
+                <button type="button" class="flow-marker flow-marker--home flow-marker--sub" style="--m:78" data-flow-ref="ev-78" aria-label="78. dakika, Milan oyuncu değişikliği" title="78' Değişiklik: Musah girdi"><span class="flow-marker__dot"></span></button>
+                <button type="button" class="flow-marker flow-marker--away flow-marker--sub" style="--m:79" data-flow-ref="ev-79" aria-label="79. dakika, Roma oyuncu değişikliği" title="79' Değişiklik: Belotti girdi"><span class="flow-marker__dot"></span></button>
+                <button type="button" class="flow-marker flow-marker--home flow-marker--card" style="--m:83" data-flow-ref="ev-83" aria-label="83. dakika, sarı kart, Theo Hernández" title="83' Sarı kart: Theo Hernández"><span class="flow-marker__dot"><span class="i-card i-card--yellow"></span></span></button>
+                <button type="button" class="flow-marker flow-marker--home flow-marker--sub" style="--m:88" data-flow-ref="ev-88" aria-label="88. dakika, Milan oyuncu değişikliği" title="88' Değişiklik: Okafor girdi"><span class="flow-marker__dot"></span></button>
+                <button type="button" class="flow-marker flow-marker--away flow-marker--card" style="--m:92" data-flow-ref="ev-90" aria-label="90+2. dakika, kırmızı kart, Diego Llorente" title="90+2' Kırmızı kart: Diego Llorente"><span class="flow-marker__dot"><span class="i-card i-card--red"></span></span></button>
+            </div>
+        </div>
+    </section>
+</header>

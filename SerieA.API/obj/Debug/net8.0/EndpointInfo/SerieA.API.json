@@ -141,6 +141,18 @@
         }
       }
     },
+    "/api/Standings": {
+      "get": {
+        "tags": [
+          "Standings"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Teams": {
       "get": {
         "tags": [
