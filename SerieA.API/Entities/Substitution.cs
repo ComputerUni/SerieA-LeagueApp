@@ -8,8 +8,10 @@ namespace SerieA.API.Entities
         public Match Match { get; set; }
         public int TeamId { get; set; }
         public Team Team { get; set; }
-        public string PlayerIn { get; set; }
-        public string PlayerOut { get; set; }
+        public int PlayerInId { get; set; }
+        public Player? PlayerIn { get; set; }
+        public int PlayerOutId { get; set; }
+        public Player? PlayerOut { get; set; }
         public int Minute { get; set; }
     }
 }

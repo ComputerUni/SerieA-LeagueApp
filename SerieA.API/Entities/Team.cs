@@ -22,6 +22,7 @@ namespace SerieA.API.Entities
         public IList<MatchGoal> MatchGoals { get; set; }
         public IList<Match> HomeMatches { get; set; }
         public IList<Match> AwayMatches { get; set; }
+        public IList<Player> Players { get; set; }
 
     }
 }
