@@ -2,7 +2,6 @@
 @using SerieA.API.Extensions
 
 <style>
-    /* Modal Genel Pencere Yapısı - Açık Tema */
     .stats-dialog {
         padding: 0;
         border: 1px solid #E2E8F0;
@@ -24,7 +23,6 @@
         padding: 24px 28px;
     }
 
-    /* Başlık */
     .stats-dialog__head {
         display: flex;
         align-items: center;
@@ -67,7 +65,6 @@
             border-color: #CBD5E1;
         }
 
-    /* Takım Karşılaşma Kartı */
     .stats-matchup {
         display: grid;
         grid-template-columns: 1fr auto 1fr;
@@ -116,7 +113,6 @@
         border: 1px solid #DBEAFE;
     }
 
-    /* İstatistik Satırları */
     .stats-rows {
         display: flex;
         flex-direction: column;
@@ -126,7 +122,6 @@
         padding-right: 4px;
     }
 
-        /* Scrollbar Tasarımı */
         .stats-rows::-webkit-scrollbar {
             width: 5px;
         }
@@ -166,7 +161,6 @@
             font-weight: 500;
         }
 
-    /* Giriş Kutuları (Input) */
     .stat-input {
         width: 100%;
         height: 38px;
@@ -205,7 +199,6 @@
         border-right: 3.5px solid #0EA5E9;
     }
 
-    /* Alt Bar / Butonlar */
     .stats-dialog__foot {
         display: flex;
         justify-content: flex-end;
@@ -247,6 +240,58 @@
             background: #1D4ED8;
         }
 
+
+    .stats-fields {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        margin-bottom: 20px;
+    }
+
+    .stat-form-row {
+        display: flex;
+        gap: 12px;
+    }
+
+    .stat-form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .stat-form-group--flex-1 {
+        flex: 1;
+    }
+
+    .stat-form-group--flex-2 {
+        flex: 2;
+    }
+
+    .stat-form-group--flex-3 {
+        flex: 3;
+    }
+
+    .stat-form-label {
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: var(--text-muted, #94a3b8);
+    }
+
+    .stat-input--select {
+        cursor: pointer;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .text-success {
+        color: #22c55e;
+    }
+
+    .text-danger {
+        color: #ef4444;
+    }
 </style>
 
 
@@ -322,7 +367,6 @@
 
 <dialog id="stats-modal" class="stats-dialog" aria-labelledby="stats-modal-title">
     <div class="stats-dialog__content">
-        <!-- Başlık -->
         <header class="stats-dialog__head">
             <div>
                 <span class="stats-dialog__subtitle">Maç Yönetimi</span>
@@ -333,7 +377,6 @@
             </button>
         </header>
 
-        <!-- Takım Karşılaşma Kartı -->
         <div class="stats-matchup">
             <div class="stats-matchup__team stats-matchup__team--home">
                 <span class="stats-matchup__label">Ev Sahibi</span>
@@ -346,14 +389,12 @@
             </div>
         </div>
 
-        <!-- Form & İstatistik Alanları -->
         <form data-stats-form class="stats-form">
             <input type="hidden" name="matchId" id="stats-match-id">
             <input type="hidden" name="homeTeamId" id="stats-home-id">
             <input type="hidden" name="awayTeamId" id="stats-away-id">
 
             <div class="stats-rows">
-                <!-- Topa Sahiplik -->
                 <div class="stat-entry">
                     <input type="number" class="stat-input stat-input--home" name="homePossession" min="0" max="100" placeholder="0">
                     <div class="stat-label">
@@ -363,28 +404,24 @@
                     <input type="number" class="stat-input stat-input--away" name="awayPossession" min="0" max="100" placeholder="0">
                 </div>
 
-                <!-- Şut -->
                 <div class="stat-entry">
                     <input type="number" class="stat-input stat-input--home" name="homeShots" min="0" placeholder="0">
                     <div class="stat-label">Toplam Şut</div>
                     <input type="number" class="stat-input stat-input--away" name="awayShots" min="0" placeholder="0">
                 </div>
 
-                <!-- İsabetli Şut -->
                 <div class="stat-entry">
                     <input type="number" class="stat-input stat-input--home" name="homeShotsOnTarget" min="0" placeholder="0">
                     <div class="stat-label">İsabetli Şut</div>
                     <input type="number" class="stat-input stat-input--away" name="awayShotsOnTarget" min="0" placeholder="0">
                 </div>
 
-                <!-- Pas -->
                 <div class="stat-entry">
                     <input type="number" class="stat-input stat-input--home" name="homePasses" min="0" placeholder="0">
                     <div class="stat-label">Toplam Pas</div>
                     <input type="number" class="stat-input stat-input--away" name="awayPasses" min="0" placeholder="0">
                 </div>
 
-                <!-- Pas İsabeti -->
                 <div class="stat-entry">
                     <input type="number" class="stat-input stat-input--home" name="homePassAccuracy" min="0" max="100" placeholder="0">
                     <div class="stat-label">
@@ -394,21 +431,18 @@
                     <input type="number" class="stat-input stat-input--away" name="awayPassAccuracy" min="0" max="100" placeholder="0">
                 </div>
 
-                <!-- Korner -->
                 <div class="stat-entry">
                     <input type="number" class="stat-input stat-input--home" name="homeCorners" min="0" placeholder="0">
                     <div class="stat-label">Korner</div>
                     <input type="number" class="stat-input stat-input--away" name="awayCorners" min="0" placeholder="0">
                 </div>
 
-                <!-- Faul -->
                 <div class="stat-entry">
                     <input type="number" class="stat-input stat-input--home" name="homeFouls" min="0" placeholder="0">
                     <div class="stat-label">Faul</div>
                     <input type="number" class="stat-input stat-input--away" name="awayFouls" min="0" placeholder="0">
                 </div>
 
-                <!-- Ofsayt -->
                 <div class="stat-entry">
                     <input type="number" class="stat-input stat-input--home" name="homeOffsides" min="0" placeholder="0">
                     <div class="stat-label">Ofsayt</div>
@@ -416,7 +450,6 @@
                 </div>
             </div>
 
-            <!-- Butonlar -->
             <footer class="stats-dialog__foot">
                 <button type="button" class="btn-stat btn-stat--ghost" data-stats-modal-close>İptal</button>
                 <button type="submit" class="btn-stat btn-stat--primary">Kaydet</button>
@@ -425,8 +458,211 @@
     </div>
 </dialog>
 
+<dialog id="goal-modal" class="stats-dialog" aria-labelledby="goal-modal-title">
+    <div class="stats-dialog__content">
+        <header class="stats-dialog__head">
+            <div>
+                <span class="stats-dialog__subtitle">Maç Yönetimi</span>
+                <h2 id="goal-modal-title" class="stats-dialog__title">Gol Yönetimi</h2>
+            </div>
+            <button type="button" class="stats-dialog__close" data-goal-modal-close aria-label="Kapat">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6L6 18M6 6l12 12" /></svg>
+            </button>
+        </header>
 
-<!-- Silme onayı -->
+        <div class="stats-matchup">
+            <div class="stats-matchup__team stats-matchup__team--home">
+                <span class="stats-matchup__label">Ev Sahibi</span>
+                <span id="goal-home-name" class="stats-matchup__name">-</span>
+            </div>
+            <div class="stats-matchup__vs">VS</div>
+            <div class="stats-matchup__team stats-matchup__team--away">
+                <span class="stats-matchup__label">Deplasman</span>
+                <span id="goal-away-name" class="stats-matchup__name">-</span>
+            </div>
+        </div>
+
+        <form data-goal-form class="stats-form">
+            <input type="hidden" name="id" id="goal-id">
+            <input type="hidden" name="matchId" id="goal-match-id">
+
+            <div class="stats-fields">
+                <div class="stat-form-group">
+                    <label for="goal-team-id" class="stat-form-label">Takım</label>
+                    <select id="goal-team-id" name="teamId" class="stat-input stat-input--select" required>
+                        <option value="">Takım Seçin</option>
+                    </select>
+                </div>
+
+                <div class="stat-form-row">
+                    <div class="stat-form-group stat-form-group--flex-3">
+                        <label for="goal-player-name" class="stat-form-label">Golü Atan</label>
+                        <input type="text" id="goal-player-name" name="playerName" class="stat-input" placeholder="Oyuncu Adı" required>
+                    </div>
+
+                    <div class="stat-form-group stat-form-group--flex-1">
+                        <label for="goal-minute" class="stat-form-label">Dakika</label>
+                        <input type="number" id="goal-minute" name="minute" class="stat-input text-center" min="1" max="130" placeholder="Örn: 24" required>
+                    </div>
+                </div>
+
+                <div class="stat-form-group">
+                    <label for="goal-assist-player" class="stat-form-label">Asist Yapan (Opsiyonel)</label>
+                    <input type="text" id="goal-assist-player" name="assistPlayerName" class="stat-input" placeholder="Asist Yapan">
+                </div>
+            </div>
+
+            <div style="display:flex; justify-content:flex-end; gap:8px;">
+                <button type="button" id="goal-reset-btn" class="btn-stat btn-stat--ghost" style="display:none;">Düzenlemeyi İptal Et</button>
+                <button type="submit" id="goal-submit-btn" class="btn-stat btn-stat--primary">Gol Ekle</button>
+            </div>
+        </form>
+
+        <hr style="border:0; border-top:1px solid var(--border-color, #334155); margin: 20px 0;">
+
+        <div class="event-list-container">
+            <h4 style="margin: 0 0 10px 0; font-size: 0.9rem; color: #94a3b8;">Kayıtlı Goller</h4>
+            <div id="goal-list" class="event-list">
+            </div>
+        </div>
+    </div>
+</dialog>
+
+<dialog id="card-modal" class="stats-dialog" aria-labelledby="card-modal-title">
+    <div class="stats-dialog__content">
+        <header class="stats-dialog__head">
+            <div>
+                <span class="stats-dialog__subtitle">Maç Yönetimi</span>
+                <h2 id="card-modal-title" class="stats-dialog__title">Kart Bilgisi</h2>
+            </div>
+            <button type="button" class="stats-dialog__close" data-card-modal-close aria-label="Kapat">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+            </button>
+        </header>
+
+        <div class="stats-matchup">
+            <div class="stats-matchup__team stats-matchup__team--home">
+                <span class="stats-matchup__label">Ev Sahibi</span>
+                <span id="card-home-name" class="stats-matchup__name">-</span>
+            </div>
+            <div class="stats-matchup__vs">VS</div>
+            <div class="stats-matchup__team stats-matchup__team--away">
+                <span class="stats-matchup__label">Deplasman</span>
+                <span id="card-away-name" class="stats-matchup__name">-</span>
+            </div>
+        </div>
+
+        <form data-card-form class="stats-form">
+            <input type="hidden" name="id" id="card-id">
+            <input type="hidden" name="matchId" id="card-match-id">
+
+            <div class="stats-fields">
+                <div class="stat-form-row">
+                    <div class="stat-form-group stat-form-group--flex-2">
+                        <label for="card-team-id" class="stat-form-label">Takım</label>
+                        <select id="card-team-id" name="teamId" class="stat-input stat-input--select" required>
+                            <option value="">Takım Seçin</option>
+                        </select>
+                    </div>
+
+                    <div class="stat-form-group stat-form-group--flex-2">
+                        <label for="card-type" class="stat-form-label">Kart Tipi</label>
+                        <select id="card-type" name="cardType" class="stat-input stat-input--select" required>
+                            <option value="1">Sarı Kart</option>
+                            <option value="2">Kırmızı Kart</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="stat-form-row">
+                    <div class="stat-form-group stat-form-group--flex-3">
+                        <label for="card-player-name" class="stat-form-label">Oyuncu</label>
+                        <input type="text" id="card-player-name" name="playerName" class="stat-input" placeholder="Örn: Theo Hernández" required>
+                    </div>
+
+                    <div class="stat-form-group stat-form-group--flex-1">
+                        <label for="card-minute" class="stat-form-label">Dakika</label>
+                        <input type="number" id="card-minute" name="minute" class="stat-input text-center" min="1" max="130" placeholder="Örn: 72" required>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="stats-dialog__foot">
+                <button type="button" class="btn-stat btn-stat--ghost" data-card-modal-close>İptal</button>
+                <button type="submit" class="btn-stat btn-stat--primary">Kaydet</button>
+            </footer>
+        </form>
+    </div>
+</dialog>
+
+<dialog id="sub-modal" class="stats-dialog" aria-labelledby="sub-modal-title">
+    <div class="stats-dialog__content">
+        <header class="stats-dialog__head">
+            <div>
+                <span class="stats-dialog__subtitle">Maç Yönetimi</span>
+                <h2 id="sub-modal-title" class="stats-dialog__title">Oyuncu Değişikliği</h2>
+            </div>
+            <button type="button" class="stats-dialog__close" data-sub-modal-close aria-label="Kapat">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+            </button>
+        </header>
+
+        <div class="stats-matchup">
+            <div class="stats-matchup__team stats-matchup__team--home">
+                <span class="stats-matchup__label">Ev Sahibi</span>
+                <span id="sub-home-name" class="stats-matchup__name">-</span>
+            </div>
+            <div class="stats-matchup__vs">VS</div>
+            <div class="stats-matchup__team stats-matchup__team--away">
+                <span class="stats-matchup__label">Deplasman</span>
+                <span id="sub-away-name" class="stats-matchup__name">-</span>
+            </div>
+        </div>
+
+        <form data-sub-form class="stats-form">
+            <input type="hidden" name="id" id="sub-id">
+            <input type="hidden" name="matchId" id="sub-match-id">
+
+            <div class="stats-fields">
+                <div class="stat-form-row">
+                    <div class="stat-form-group stat-form-group--flex-3">
+                        <label for="sub-team-id" class="stat-form-label">Takım</label>
+                        <select id="sub-team-id" name="teamId" class="stat-input stat-input--select" required>
+                            <option value="">Takım Seçin</option>
+                        </select>
+                    </div>
+
+                    <div class="stat-form-group stat-form-group--flex-1">
+                        <label for="sub-minute" class="stat-form-label">Dakika</label>
+                        <input type="number" id="sub-minute" name="minute" class="stat-input text-center" min="1" max="130" placeholder="Örn: 65" required>
+                    </div>
+                </div>
+
+                <div class="stat-form-row">
+                    <div class="stat-form-group stat-form-group--flex-1">
+                        <label for="sub-player-in" class="stat-form-label">
+                            <span class="text-success">▲</span> Giren Oyuncu (Player In)
+                        </label>
+                        <input type="text" id="sub-player-in" name="playerIn" class="stat-input" placeholder="Örn: Federico Dimarco" required>
+                    </div>
+
+                    <div class="stat-form-group stat-form-group--flex-1">
+                        <label for="sub-player-out" class="stat-form-label">
+                            <span class="text-danger">▼</span> Çıkan Oyuncu (Player Out)
+                        </label>
+                        <input type="text" id="sub-player-out" name="playerOut" class="stat-input" placeholder="Örn: Carlos Augusto" required>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="stats-dialog__foot">
+                <button type="button" class="btn-stat btn-stat--ghost" data-sub-modal-close>İptal</button>
+                <button type="submit" class="btn-stat btn-stat--primary">Kaydet</button>
+            </footer>
+        </form>
+    </div>
+</dialog>
+
 <dialog class="modal-a modal-a--sm" id="delete-modal" aria-labelledby="delete-modal-title">
     <form method="dialog">
         <div class="modal-head">

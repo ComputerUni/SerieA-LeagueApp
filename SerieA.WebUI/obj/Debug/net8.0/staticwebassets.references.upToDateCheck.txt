@@ -35,3 +35,8 @@ C:\Users\BURHAN\Desktop\SerieA\SerieA.API\obj\Debug\net8.0\staticwebassets.build
 C:\Users\BURHAN\Desktop\SerieA\SerieA.API\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\BURHAN\Desktop\SerieA\SerieA.API\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\BURHAN\Desktop\SerieA\SerieA.API\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\BURHAN\Desktop\SerieA\SerieA.API\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\BURHAN\Desktop\SerieA\SerieA.API\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\BURHAN\Desktop\SerieA\SerieA.API\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\BURHAN\Desktop\SerieA\SerieA.API\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\BURHAN\Desktop\SerieA\SerieA.API\obj\Debug\net8.0\staticwebassets.build.json

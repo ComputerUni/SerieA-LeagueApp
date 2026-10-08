@@ -30,9 +30,9 @@ namespace SerieA.API.DTOs.MatchDetailDtos
         public string AwayTeamLogo { get; set; }
         public int? AwayScore { get; set; }
 
-        public List<MatchGoalDto> Goals { get; set; } = new();
-        public List<MatchCardDto> Cards { get; set; } = new();
-        public List<SubstitutionDto> Substitutions { get; set; } = new();
+        public List<ResultMatchGoalDto> Goals { get; set; } = new();
+        public List<ResultMatchCardDto> Cards { get; set; } = new();
+        public List<ResultSubstitutionDto> Substitutions { get; set; } = new();
         public List<TimelineEventDto> TimelineEvents { get; set; } = new();
         public MatchStatisticItemDto Stats { get; set; } = new();
 

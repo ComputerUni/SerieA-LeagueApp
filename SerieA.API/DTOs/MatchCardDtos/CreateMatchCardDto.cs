@@ -1,9 +1,11 @@
-﻿using SerieA.API.Entities.Enums;
+﻿using SerieA.API.Entities;
+using SerieA.API.Entities.Enums;
 
 namespace SerieA.API.DTOs.MatchCardDtos
 {
-    public class MatchCardDto
+    public class CreateMatchCardDto
     {
+        public int MatchId { get; set; }
         public int TeamId { get; set; }
         public string PlayerName { get; set; }
         public int Minute { get; set; }

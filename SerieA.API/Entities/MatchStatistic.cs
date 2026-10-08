@@ -16,7 +16,5 @@ namespace SerieA.API.Entities
         public int Corners { get; set; }
         public int Fouls { get; set; }
         public int Offsides { get; set; }
-
-
     }
 }

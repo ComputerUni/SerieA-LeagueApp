@@ -1,13 +1,10 @@
-﻿using SerieA.API.Entities.Common;
-
-namespace SerieA.API.Entities
+﻿namespace SerieA.API.DTOs.MatchGoalDtos
 {
-    public class MatchGoal : BaseEntity
+    public class UpdateMatchGoalDto
     {
+        public int Id { get; set; }
         public int MatchId { get; set; }
-        public Match Match { get; set; }
         public int TeamId { get; set; }
-        public Team Team { get; set; }
         public string PlayerName { get; set; }
         public string? AssistPlayerName { get; set; }
         public int Minute { get; set; }

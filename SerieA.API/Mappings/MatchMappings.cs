@@ -23,9 +23,9 @@ namespace SerieA.API.Mappings
                 .ForMember(dest => dest.Substitutions, opt => opt.MapFrom(src => src.Substitutions));
             CreateMap<CreateMatchDto, Match>().ReverseMap();
             CreateMap<Match, UpdateMatchDto>().ReverseMap();
-            CreateMap<MatchGoal, MatchGoalDto>();
-            CreateMap<MatchCard, MatchCardDto>();
-            CreateMap<Substitution, SubstitutionDto>();
+            CreateMap<MatchGoal, ResultMatchGoalDto>();
+            CreateMap<MatchCard, ResultMatchCardDto>();
+            CreateMap<Substitution, ResultSubstitutionDto>();
         }
     }
 }

@@ -1,5 +1,53 @@
 [
   {
+    "ContainingType": "SerieA.API.Controllers.MatchCardsController",
+    "Method": "CreateCard",
+    "RelativePath": "api/MatchCards",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createMatchCardDto",
+        "Type": "SerieA.API.DTOs.MatchCardDtos.CreateMatchCardDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SerieA.API.Controllers.MatchCardsController",
+    "Method": "UpdateCard",
+    "RelativePath": "api/MatchCards",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateMatchCardDto",
+        "Type": "SerieA.API.DTOs.MatchCardDtos.UpdateMatchCardDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SerieA.API.Controllers.MatchCardsController",
+    "Method": "GetCardByMatchId",
+    "RelativePath": "api/MatchCards/{matchId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "matchId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SerieA.API.Controllers.MatchesController",
     "Method": "MatchList",
     "RelativePath": "api/Matches",
@@ -90,6 +138,54 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SerieA.API.Controllers.MatchGoalsController",
+    "Method": "CreateGoal",
+    "RelativePath": "api/MatchGoals",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createMatchGoalDto",
+        "Type": "SerieA.API.DTOs.MatchGoalDtos.CreateMatchGoalDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SerieA.API.Controllers.MatchGoalsController",
+    "Method": "UpdateGoal",
+    "RelativePath": "api/MatchGoals",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateMatchGoalDto",
+        "Type": "SerieA.API.DTOs.MatchGoalDtos.UpdateMatchGoalDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SerieA.API.Controllers.MatchGoalsController",
+    "Method": "GetGoalByMatchId",
+    "RelativePath": "api/MatchGoals/{matchId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "matchId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SerieA.API.Controllers.MatchStatisticsController",
     "Method": "CreateMatchStatistics",
     "RelativePath": "api/MatchStatistics",
@@ -150,6 +246,54 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SerieA.API.Controllers.SubstitutionsController",
+    "Method": "CreateSubstitution",
+    "RelativePath": "api/Substitutions",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createSubstitutionDto",
+        "Type": "SerieA.API.DTOs.SubstitutionDtos.CreateSubstitutionDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SerieA.API.Controllers.SubstitutionsController",
+    "Method": "UpdateSubstitution",
+    "RelativePath": "api/Substitutions",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateSubstitutionDto",
+        "Type": "SerieA.API.DTOs.SubstitutionDtos.UpdateSubstitutionDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SerieA.API.Controllers.SubstitutionsController",
+    "Method": "GetSubstitutionByMatchId",
+    "RelativePath": "api/Substitutions/{matchId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "matchId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

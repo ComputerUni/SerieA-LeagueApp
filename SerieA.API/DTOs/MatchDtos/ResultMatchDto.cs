@@ -22,9 +22,9 @@ namespace SerieA.API.DTOs.MatchDtos
         public TimeOnly MatchTime { get; set; }
         public MatchStatus Status { get; set; }
         public string? Stadium { get; set; }
-        public List<MatchGoalDto> Goals { get; set; }
-        public List<MatchCardDto> Cards { get; set; }
-        public List<SubstitutionDto> Substitutions { get; set; }
+        public List<ResultMatchGoalDto> Goals { get; set; }
+        public List<ResultMatchCardDto> Cards { get; set; }
+        public List<ResultSubstitutionDto> Substitutions { get; set; }
 
     }
 }

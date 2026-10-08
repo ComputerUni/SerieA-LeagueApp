@@ -14,10 +14,6 @@
 }
 
 <script>
-    /* =============================================================
-       Serie A Admin - admin.js
-       Demo veri + filtre + ekle/düzenle/sil. API'ye geçişte MatchService değişir.
-       ============================================================= */
     (function() {
         'use strict';
 
@@ -79,7 +75,9 @@
             delText: $('[data-delete-text]'),
             toasts: $('[data-toasts]'),
             statsModal: $('#stats-modal'),
-            statsForm: $('[data-stats-form]')
+            statsForm: $('[data-stats-form]'),
+            goalsModal: $('#goal-modal'),
+            goalsForm: $('[data-goal-form]')
         };
         let filters = { team: '', week: '', status: '' };
 
@@ -112,7 +110,8 @@
                                                     <div class="row-actions">
                                                       <a class="act-btn" href="/Match/MatchDetail/${m.id}" data-demo-nav title="Detay" aria-label="Detay: ${esc(TEAMS[m.home].name)} - ${esc(TEAMS[m.away].name)}">${icon('eye')}</a>
                                                       <button type="button" class="act-btn" data-edit="${m.id}" title="Düzenle" aria-label="Düzenle: ${esc(TEAMS[m.home].name)} - ${esc(TEAMS[m.away].name)}">${icon('edit')}</button>
-                                                          <button type="button" class="act-btn ${(m.status === 2 || m.status === 3) ? '' : 'act-btn--disabled'}" ${(m.status === 2 || m.status === 3) ? `data-stats="${m.id}"` : 'disabled'}" title="İstatistik">${icon('chart')}</button>
+                                                      <button type="button" class="act-btn ${(m.status === 2 || m.status === 3) ? '' : 'act-btn--disabled'}" ${(m.status === 2 || m.status === 3) ? `data-stats="${m.id}"` : 'disabled'}" title="İstatistik">${icon('chart')}</button>
+                                                      <button type="button" class="act-btn ${(m.status === 2 || m.status === 3) ? '' : 'act-btn--disabled'} " ${(m.status === 2 || m.status === 3) ? `data-goals="${ m.id } "` : 'disabled'} title="Goller">${icon('ball')}</button>
                                                       <button type="button" class="act-btn act-btn--danger" data-delete="${m.id}" title="Sil" aria-label="Sil: ${esc(TEAMS[m.home].name)} - ${esc(TEAMS[m.away].name)}">${icon('trash')}</button>
                                                     </div>
                                                   </td>
@@ -203,7 +202,7 @@
             clearAllErrors();
             stadiumTouched = false;
             f.id.value = '';
-            f.status.value = 'NotStarted';
+            f.status.value = '1';
             if (mode === 'edit' && match) {
                 els.title.textContent = 'Maçı Düzenle';
                 f.id.value = match.id;
@@ -246,10 +245,16 @@
             }
 
             const scored = Number(data.status) === 2 || Number(data.status) === 3;
+
+            let formattedTime = data.time;
+            if (formattedTime && formattedTime.length === 5) {
+                formattedTime += ':00';
+            }
+
             const record = {
                 week: Number(data.week),
                 matchDate: data.date,
-                matchTime: data.time,
+                matchTime: formattedTime,
                 homeTeamId: Number(data.home),
                 awayTeamId: Number(data.away),
                 stadium: data.stadium.trim() || TEAMS[data.home].stadium,
@@ -331,8 +336,162 @@
             pendingDelete = null;
         });
 
+        let currentMatchGoals = [];
+        let activeGoalMatchId = null;
+
+        document.querySelectorAll('[data-goal-modal-close]').forEach(g => g.addEventListener('click', () => els.goalsModal.close()));
+
+        els.rows.addEventListener('click', async (e) => {
+            const goals = e.target.closest('[data-goals]');
+            if (!goals) return;
+
+            activeGoalMatchId = Number(goals.dataset.goals);
+            const m = matches.find(x => x.id === activeGoalMatchId);
+
+            $('#goal-home-name').textContent = TEAMS[m.home].name;
+            $('#goal-away-name').textContent = TEAMS[m.away].name;
+            $('#goal-match-id').value = activeGoalMatchId;
+
+            const teamSelect = $('#goal-team-id');
+            teamSelect.innerHTML = `
+                <option value="">Takım Seçiniz</option>    
+                <option value="${m.home}">${TEAMS[m.home].name} (Ev Sahibi)</option>    
+                <option value="${m.away}">${TEAMS[m.away].name} (Deplasman)</option>    
+            `
+            
+            resetGoalForm();
+            await loadGoals(activeGoalMatchId);
+            els.goalsModal.showModal();
+        });
+
+        async function loadGoals(matchId) {
+            const listEl = $('#goal-list');
+            listEl.innerHTML = '<span style="color:#94a3b8; font-size:0.85rem;">Yükleniyor...</span>';
+
+            try {
+                const res = await fetch(`https://localhost:7078/api/MatchGoals/${matchId}`);
+                if(!res.ok) throw new Error('Goller Getirilemedi');
+
+                currentMatchGoals = await res.json();
+                renderGoalList(currentMatchGoals);
+            } catch(err) {
+                listEl.innerHTML = '<span style="color:#ef4444; font-size:0.85rem;">Goller yüklenirken hata oluştu.</span>';
+            }
+        }
+
+        function renderGoalList(goals) {
+            const listEl = $('#goal-list');
+           if(!goals || goals.length === 0) {
+                listEl.innerHTML = '<span style="color:#94a3b8; font-size:0.85rem;">Bu maçta henüz gol kaydı yok.</span>';
+                return;
+           }
+
+           goals.sort((a,b) => (a.minute ?? a.Minute) - (b.minute ?? b.Minute));
+
+           listEl.innerHTML = goals.map(g => {
+               const id = g.id ?? g.Id;
+               const minute = g.minute ?? g.Minute;
+               const player = g.playerName ?? g.PlayerName;
+               const assist = g.assistPlayerName ?? g.AssistPlayerName;
+               const teamId = g.teamId ?? g.TeamId;
+               const teamName = TEAMS[teamId] ? TEAMS[teamId].name : 'Takım';
+
+                return `
+                <div class="event-item" style="display:flex; align-items:center; justify-content:space-between; padding:8px 12px; background:rgba(255,255,255,0.04); border-radius:6px; margin-bottom:6px;">
+                    <div>
+                        <strong>${minute}'</strong> ⚽ <strong>${player}</strong>
+                        <span style="font-size:0.8rem; color:#94a3b8;">(${teamName})</span>
+                        ${assist ? `<span style="font-size:0.8rem; color:#64748b; margin-left:6px;">(Asist: ${assist})</span>` : ''}
+                    </div>
+                    <div style="display:flex; gap:6px;">
+                        <button type="button" class="btn-stat btn-stat--ghost" style="padding:4px 8px; font-size:0.75rem;" onclick="editGoal(${id})">Düzenle</button>
+                        <button type="button" class="btn-stat btn-stat--ghost" style="padding:4px 8px; font-size:0.75rem; color:#ef4444;" onclick="deleteGoal(${id})">Sil</button>
+                    </div>
+                </div>
+            `;
+           }).join('');
+        }
+
+        els.goalsForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const f = els.goalsForm.elements;
+            const goalId = f.id.value ? Number(f.id.value) : null;
+
+            const payload = {
+                matchId: Number(f.matchId.value),
+                teamId: Number(f.teamId.value),
+                playerName: f.playerName.value.trim(),
+                assistPlayerName: f.assistPlayerName.value.trim() || null,
+                minute: Number(f.minute.value)
+            };
+
+            if(goalId) payload.id = goalId;
+
+            try {
+                const url = 'https://localhost:7078/api/MatchGoals'
+
+                const res = await fetch(url, {
+                    method: goalId ? 'PUT' : 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(payload)
+                });
+
+                if(!res.ok){
+                    const error = await res.text();
+                    throw new Error(error || 'İşlem Gerçekleştirilemedi');
+                }
+
+                if(!goalId){
+                    const m = matches.find(x => x.id === activeGoalMatchId);
+                    if(m) {
+                        if(m.status === 1) m.status = 2;
+                        if(payload.teamId === m.home) {
+                            m.homeScore = (m.homeScore ?? 0) + 1;
+                        } else if(payload.teamId === m.away) {
+                            m.awayScore = (m.awayScore ?? 0) + 1;
+                        }
+                        renderTable();
+                    }
+                }
+
+                toast(goalId ? 'Gol Başarıyla Güncellendi' : 'Gol Başarıyla Eklendi.');
+                resetGoalForm();
+                await loadGoals(activeGoalMatchId);
+            } catch(err) {
+                toast('Hata: ' + err.message, 'info');
+            }
+        });
+
+        function resetGoalForm() {
+            els.goalsForm.reset();
+            $('#goal-id').value = '';
+            $('#goal-match-id').value = activeGoalMatchId;
+            $('#goal-submit-btn').textContent = 'Gol Ekle';
+            const cancelBtn = $('#goal-reset-btn');
+            if(cancelBtn) cancelBtn.style.display = 'none';
+        }
+
+        window.editGoal = function(id) {
+            const goal = currentMatchGoals.find(g => (g.id ?? g.Id) === id);
+            if (!goal) return;
+
+            const f = els.goalsForm.elements;
+            f.id.value = goal.id ?? goal.Id;
+            f.teamId.value = goal.teamId ?? goal.TeamId;
+            f.playerName.value = goal.playerName ?? goal.PlayerName;
+            f.assistPlayerName.value = goal.assistPlayerName ?? goal.AssistPlayerName ?? '';
+            f.minute.value = goal.minute ?? goal.Minute;
+
+            $('#goal-submit-btn').textContent = 'Güncelle';
+            const cancelBtn = $('#goal-reset-btn');
+            if (cancelBtn) cancelBtn.style.display = 'inline-block';
+        };
+
+
+
+
         let existingHomeStatId = null;
-        let existingAwayStatId = null;
+        let existingAwayStatId = null
 
         document.querySelectorAll('[data-stats-modal-close]').forEach(b => b.addEventListener('click', () => els.statsModal.close()));
 
