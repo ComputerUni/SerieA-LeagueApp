@@ -112,7 +112,7 @@
                                                       <td><span class="badge-a badge-a--${m.status}">${STATUS[m.status]}</span></td>
                                                       <td class="col-actions">
                                                         <div class="row-actions">
-                                                          <a class="act-btn" href="/Match/MatchDetail/${m.id}" data-demo-nav title="Detay" aria-label="Detay: ${esc(TEAMS[m.home].name)} - ${esc(TEAMS[m.away].name)}">${icon('eye')}</a>
+                                                          <a class="act-btn" href="/Match/MatchDetail/${m.id}" aria-label="Detay: ${esc(TEAMS[m.home].name)} - ${esc(TEAMS[m.away].name)}">${icon('eye')}</a>
                                                           <button type="button" class="act-btn" data-edit="${m.id}" title="Düzenle" aria-label="Düzenle: ${esc(TEAMS[m.home].name)} - ${esc(TEAMS[m.away].name)}">${icon('edit')}</button>
                                                           <button type="button" class="act-btn ${(m.status === 2 || m.status === 3) ? '' : 'act-btn--disabled'}" ${(m.status === 2 || m.status === 3) ? `data-stats="${m.id}"` : 'disabled'}" title="İstatistik">${icon('chart')}</button>
                                                           <button type="button" class="act-btn ${(m.status === 2 || m.status === 3) ? '' : 'act-btn--disabled'} " ${(m.status === 2 || m.status === 3) ? `data-goals="${m.id} "` : 'disabled'} title="Goller">${icon('ball')}</button>
@@ -427,11 +427,14 @@
             const f = els.goalsForm.elements;
             const goalId = f.id.value ? Number(f.id.value) : null;
 
+            const playerEl = document.getElementById('goal-player-id');
+            const assistEl = document.getElementById('goal-assist-player-id');
+
             const payload = {
                 matchId: Number(f.matchId.value),
                 teamId: Number(f.teamId.value),
-                playerId: Number(f.playerId.value),
-                assistPlayerId: f.assistPlayerName.value ? Number(f.assistPlayerName.value) : null,
+                playerId: Number(playerEl.value),
+                assistPlayerId: (assistEl && assistEl.value) ? Number(assistEl.value) : null,
                 minute: Number(f.minute.value)
             };
 
@@ -471,7 +474,7 @@
             document.getElementById('goal-assist-player-id').innerHTML = '<option value="">-</option>';
         }
 
-        async function populatePlayersByTeam(teamId, selectedPlayerId = null, selectedAssistId = null) {
+        async function populateGoalPlayersByTeam(teamId, selectedPlayerId = null, selectedAssistId = null) {
             const playerSelect = document.getElementById('goal-player-id');
             const assistSelect = document.getElementById('goal-assist-player-id');
 
@@ -505,7 +508,7 @@
     }
 
         document.getElementById('goal-team-id').addEventListener('change', function () {
-        populatePlayersByTeam(this.value);
+        populateGoalPlayersByTeam(this.value);
     });
 
         window.editGoal = async function(id) {
@@ -523,7 +526,7 @@
             f.teamId.value = tId;
             f.minute.value = min;
 
-            await populatePlayersByTeam(tId, pId, aId);
+            await populateGoalPlayersByTeam(tId, pId, aId);
 
             $('#goal-submit-btn').textContent = 'Güncelle';
             const cancelBtn = $('#goal-reset-btn');

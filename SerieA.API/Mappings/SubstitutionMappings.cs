@@ -10,7 +10,9 @@ namespace SerieA.API.Mappings
         {
             CreateMap<CreateSubstitutionDto, Substitution>();
             CreateMap<UpdateSubstitutionDto, Substitution>();
-            CreateMap<Substitution, ResultSubstitutionDto>();
+            CreateMap<Substitution, ResultSubstitutionDto>()
+                .ForMember(dest => dest.PlayerInName, opt => opt.MapFrom(src => $"{src.PlayerIn.FirstName} {src.PlayerIn.LastName}"))
+                .ForMember(dest => dest.PlayerOutName, opt => opt.MapFrom(src => $"{src.PlayerOut.FirstName} {src.PlayerOut.LastName}"));
         }
     }
 }

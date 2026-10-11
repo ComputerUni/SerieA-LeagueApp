@@ -16,22 +16,29 @@ namespace SerieA.API.Controllers
         public async Task<IActionResult> GetGoalByMatchId(int matchId)
         {
             var goals = await _context.MatchGoals
-                .AsNoTracking()
                 .Where(x => x.MatchId == matchId)
-                .Select(x => new ResultMatchGoalDto
-                {
-                    Id = x.Id,
-                    MatchId = x.MatchId,
-                    TeamId = x.TeamId,
-                    Minute = x.Minute,
-                    PlayerId = x.PlayerId,
-                    AssistPlayerId = x.AssistPlayerId,
-                    PlayerName = x.Player != null ? (x.Player.FirstName + " " + x.Player.LastName).Trim() : ("Oyuncu #" + x.PlayerId),
-                    AssistPlayerName = x.AssistPlayer != null ? (x.AssistPlayer.FirstName + " " + x.AssistPlayer.LastName).Trim() : null
-                })
+                .Include(x => x.Team)
+                .Include(x => x.Player)
+                .Include(x => x.AssistPlayer)
                 .ToListAsync();
 
-            return Ok(goals);
+            if (!goals.Any())
+                return Ok(new List<ResultMatchGoalDto>());
+
+
+            var value = goals.Select(g => new ResultMatchGoalDto
+            {
+                Id = g.Id,
+                MatchId = g.MatchId,
+                TeamId = g.TeamId,
+                PlayerId = g.PlayerId,
+                AssistPlayerId = g.AssistPlayerId,
+                Minute = g.Minute,
+                PlayerName = g.Player.FirstName + " " + g.Player.LastName,
+                AssistPlayerName = g.AssistPlayer.FirstName + " " + g.AssistPlayer.LastName
+            }).ToList();
+
+            return Ok(value);
         }
 
         [HttpPost]

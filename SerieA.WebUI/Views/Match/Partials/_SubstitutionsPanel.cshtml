@@ -1,10 +1,10 @@
 ﻿@using SerieA.API.DTOs.MatchDtos
-@model ResultMatchDto
+@model MatchStatisticsViewModel
 
 @{
-    var substitutions = Model.Substitutions.OrderBy(s => s.Minute).ToList();
-    var homeSubs = substitutions.Where(s => s.TeamId == Model.HomeTeamId).ToList();
-    var awaySubs = substitutions.Where(s => s.TeamId == Model.AwayTeamId).ToList();
+    var substitutions = Model.Match.Substitutions.OrderBy(s => s.Minute).ToList();
+    var homeSubs = substitutions.Where(s => s.TeamId == Model.Match.HomeTeamId).ToList();
+    var awaySubs = substitutions.Where(s => s.TeamId == Model.Match.AwayTeamId).ToList();
 }
 
 <section class="panel" aria-labelledby="subs-title">
@@ -12,15 +12,15 @@
     <div class="split">
         @foreach (var (teamSubs, teamName, teamLogo) in new[]
         {
-        (homeSubs, Model.HomeTeamName, Model.HomeTeamLogo),
-        (awaySubs, Model.AwayTeamName, Model.AwayTeamLogo)
+        (homeSubs, Model.Match.HomeTeamName, Model.Match.HomeTeamLogo),
+        (awaySubs, Model.Match.AwayTeamName, Model.Match.AwayTeamLogo)
     })
         {
             <div class="split__col">
                 <h3 class="split__team">
-                    <span class="team-crest team-crest--xs" aria-hidden="true">
-                        <img src="@teamLogo" alt="@teamName" />
-                    </span>
+
+                    <img style="width:25px;height:25px;" src="@teamLogo" alt="@teamName" />
+
                     @teamName
                     <span class="split__count">@teamSubs.Count değişiklik</span>
                 </h3>

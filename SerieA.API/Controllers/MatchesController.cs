@@ -75,7 +75,20 @@ namespace SerieA.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetMatchDetailById(int id)
         {
-            var detail = await _context.Matches.Include(x => x.AwayTeam).Include(x => x.HomeTeam).Include(x => x.Substitutions).Include(x => x.MatchCards).Include(x => x.MatchGoals).FirstOrDefaultAsync(x => x.Id == id);
+            var detail = await _context.Matches
+                .Include(x => x.AwayTeam)
+                .Include(x => x.HomeTeam)
+                .Include(x => x.Substitutions)
+                    .ThenInclude(s => s.PlayerIn)
+                .Include(x => x.Substitutions)
+                    .ThenInclude(s => s.PlayerOut)
+                .Include(x => x.MatchCards)
+                    .ThenInclude(c => c.Player)
+                .Include(x => x.MatchGoals)
+                    .ThenInclude(g => g.Player)
+                .Include(x => x.MatchGoals)
+                    .ThenInclude(g => g.AssistPlayer)
+                .FirstOrDefaultAsync(x => x.Id == id);
             if(detail is null)
             {
                 return NotFound($"{id} numaralı id'ye ait maç detayı bulunamadı");

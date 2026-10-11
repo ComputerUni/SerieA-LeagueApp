@@ -1,15 +1,15 @@
 ﻿@using SerieA.API.DTOs.MatchDtos
 @using SerieA.API.Entities.Enums
-@model ResultMatchDto
+@model MatchStatisticsViewModel
 
 @{
     var homeScore = 0;
     var awayScore = 0;
     var halfTimeRendered = false;
 
-    var cards = Model.Cards.Select(c => new { c.Minute, Type = c.CardType == CardType.YellowCard ? "yellow" : "red", c.TeamId, PlayerName = c.PlayerName, Sub = (string?)null });
-    var goals = Model.Goals.Select(g => new { g.Minute, Type = "goal", g.TeamId, g.PlayerName, Sub = (string?)null });
-    var subs = Model.Substitutions.Select(s => new { s.Minute, Type = "sub", s.TeamId, PlayerName = s.PlayerInName, Sub = s.PlayerOutName });
+    var cards = Model.Match.Cards.Select(c => new { c.Minute, Type = c.CardType == CardType.YellowCard ? "yellow" : "red", c.TeamId, PlayerName = c.PlayerName, Sub = (string?)null });
+    var goals = Model.Match.Goals.Select(g => new { g.Minute, Type = "goal", g.TeamId, g.PlayerName, Sub = (string?)null });
+    var subs = Model.Match.Substitutions.Select(s => new { s.Minute, Type = "sub", s.TeamId, PlayerName = s.PlayerInName, Sub = s.PlayerOutName });
 
     var allEvents = goals.Cast<dynamic>().Concat(cards.Cast<dynamic>()).Concat(subs.Cast<dynamic>()).OrderBy(e => e.Minute).ToList();
 }
@@ -26,27 +26,22 @@
     </div>
 
     <div class="timeline-legend" aria-hidden="true">
-        <span><span class="team-crest team-crest--xs crest-milan">@Model.HomeTeamName.Substring(0, 3)</span>@Model.HomeTeamName</span>
+        <span><img style="width:35px; height:35px;" src="@Model.Match.HomeTeamLogo" alt="@Model.Match.HomeTeamName" />@Model.Match.HomeTeamName</span>
         <span></span>
-        <span>@Model.AwayTeamName<span class="team-crest team-crest--xs crest-roma">@Model.AwayTeamName.Substring(0, 3)</span></span>
+        <span>@Model.Match.AwayTeamName<img style="width:35px; height:35px;" src="@Model.Match.AwayTeamLogo" alt="@Model.Match.AwayTeamName" /></span>
     </div>
 
     <ol class="timeline">
         <li class="event event--period"><span class="period-mark">Başlama düdüğü</span></li>
         @foreach (var e in allEvents)
         {
-            var isHome = e.TeamId == Model.HomeTeamId;
+            var isHome = e.TeamId == Model.Match.HomeTeamId;
             var sideClass = isHome ? "event--home" : "event--away";
             var typeClass = e.Type == "goal" ? "event--goal" :
                             e.Type == "yellow" ? "event--yellow" :
                             e.Type == "red" ? "event--red" : "event--sub";
             var dataType = e.Type == "goal" ? "goal" : e.Type == "sub" ? "sub" : "card";
             var elemId = $"ev-{e.Type}-{e.Minute}";
-
-            if (e.Type == "goal")
-            {
-                if (isHome) homeScore++; else awayScore++;
-            }
 
             if (e.Minute > 45 && !halfTimeRendered)
             {
@@ -56,6 +51,12 @@
                 </li>
 
             }
+
+            if (e.Type == "goal")
+            {
+                if (isHome) homeScore++; else awayScore++;
+            }
+
             <li class="event @sideClass @typeClass" id="@elemId" data-type="@dataType">
                 <span class="event__minute">@e.Minute</span>
                 <div class="event-card">
@@ -108,7 +109,7 @@
 
         }
         <li class="event event--period">
-            <span class="period-mark">Maç sonu <strong>@Model.HomeTeamScore-@Model.AwayTeamScore</strong></span>
+            <span class="period-mark">Maç sonu <strong>@Model.Match.HomeTeamScore-@Model.Match.AwayTeamScore</strong></span>
         </li>
 
     </ol>

@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SerieA.API.DTOs.MatchDtos;
+using SerieA.API.DTOs.MatchStatisticsDtos;
 using SerieA.API.DTOs.TeamDtos;
+using SerieA.API.Entities.Enums;
 using SerieA.WebUI.Models;
 using System.Text;
 
@@ -78,14 +80,47 @@ namespace SerieA.WebUI.Controllers
         public async Task<IActionResult> MatchDetail(int id)
         {
             var client = new HttpClient();
-            var response = await client.GetAsync($"https://localhost:7078/api/Matches/{id}");
-            if(response.IsSuccessStatusCode)
+
+            var matchResponse = await client.GetAsync($"https://localhost:7078/api/Matches/{id}");
+            if (!matchResponse.IsSuccessStatusCode) return NotFound();
+
+            var match = JsonConvert.DeserializeObject<ResultMatchDto>(await matchResponse.Content.ReadAsStringAsync());
+
+            var statistics = new ResultMatchStatisticsDto();
+            var statsResponse = await client.GetAsync($"https://localhost:7078/api/MatchStatistics/{id}");
+            if (statsResponse.IsSuccessStatusCode)
             {
-                var jsonData = await response.Content.ReadAsStringAsync();
-                var model = JsonConvert.DeserializeObject<ResultMatchDto>(jsonData);
-                return View(model);
+                var statsList = JsonConvert.DeserializeObject<List<MatchStatisticItemDto>>(await statsResponse.Content.ReadAsStringAsync());
+
+                var home = statsList?.FirstOrDefault(s => s.TeamId == match.HomeTeamId);
+                var away = statsList?.FirstOrDefault(s => s.TeamId == match.AwayTeamId);
+
+                if (home != null && away != null)
+                {
+                    statistics.PossessionHome = home.Possession;
+                    statistics.PossessionAway = away.Possession;
+                    statistics.ShotsHome = home.Shots;
+                    statistics.ShotsAway = away.Shots;
+                    statistics.ShotsOnTargetHome = home.ShotsOnTarget;
+                    statistics.ShotsOnTargetAway = away.ShotsOnTarget;
+                    statistics.PassesHome = home.Passes;
+                    statistics.PassesAway = away.Passes;
+                    statistics.PassAccuracyHome = home.PassAccuracy;
+                    statistics.PassAccuracyAway = away.PassAccuracy;
+                    statistics.CornersHome = home.Corners;
+                    statistics.CornersAway = away.Corners;
+                    statistics.FoulsHome = home.Fouls;
+                    statistics.FoulsAway = away.Fouls;
+                    statistics.OffsidesHome = home.Offsides;
+                    statistics.OffsidesAway = away.Offsides;
+                    statistics.YellowCardsHome = match.Cards.Count(c => c.TeamId == match.HomeTeamId && c.CardType == CardType.YellowCard);
+                    statistics.YellowCardsAway = match.Cards.Count(c => c.TeamId == match.AwayTeamId && c.CardType == CardType.YellowCard);
+                    statistics.RedCardsHome = match.Cards.Count(c => c.TeamId == match.HomeTeamId && c.CardType == CardType.RedCard);
+                    statistics.RedCardsAway = match.Cards.Count(c => c.TeamId == match.AwayTeamId && c.CardType == CardType.RedCard);
+                }
             }
-            return NotFound();
+
+            return View(new MatchStatisticsViewModel { Match = match, Statistics = statistics });
         }
     }
 }

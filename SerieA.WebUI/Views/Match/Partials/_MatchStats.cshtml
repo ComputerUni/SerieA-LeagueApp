@@ -1,63 +1,70 @@
-﻿@using SerieA.API.DTOs.MatchDtos
-@model ResultMatchDto
+﻿@model MatchStatisticsViewModel
+
+@{
+    var totalPasses = Model.Statistics.PassesHome + Model.Statistics.PassesAway;
+    var passHomePct = totalPasses > 0 ? (Model.Statistics.PassesHome * 100 / totalPasses) : 50;
+    var passAwayPct = totalPasses > 0 ? (Model.Statistics.PassesAway * 100 / totalPasses) : 50;
+}
+
+
 <section class="panel" aria-labelledby="stats-title">
     <div class="panel__head">
         <h2 class="panel__title" id="stats-title">İstatistikler</h2>
         <div class="stats-teams" aria-hidden="true">
-            <span><span class="team-crest team-crest--xs crest-milan">MIL</span>Milan</span>
-            <span>Roma<span class="team-crest team-crest--xs crest-roma">ROM</span></span>
+            <span><img style="width:25px; height:25px;" src="@Model.Match.HomeTeamLogo" alt="@Model.Match.HomeTeamName" />@Model.Match.HomeTeamName</span>
+            <span>@Model.Match.AwayTeamName<img style="width:25px; height:25px;" src="@Model.Match.AwayTeamLogo" alt="@Model.Match.AwayTeamName" /></span>
         </div>
     </div>
 
     <div class="possession">
         <div class="possession__row">
-            <span class="possession__value">%54</span>
+            <span class="possession__value">%@Model.Statistics.PossessionHome</span>
             <span class="possession__label">Topa sahip olma</span>
-            <span class="possession__value possession__value--away">%46</span>
+            <span class="possession__value possession__value--away">%@Model.Statistics.PossessionAway</span>
         </div>
         <div class="possession__bar" aria-hidden="true">
-            <span style="flex:54;background:var(--home)"></span>
-            <span style="flex:46;background:var(--away)"></span>
+            <span style="flex:@Model.Statistics.PossessionHome;background:var(--home)"></span>
+            <span style="flex:@Model.Statistics.PossessionAway;background:var(--away)"></span>
         </div>
     </div>
 
     <!-- Razor: her satır için --w = değer / (ev + dep) -->
     <ul class="stat-list">
         <li class="stat-row">
-            <div class="stat-row__values"><span class="stat-val is-lead">15</span><span class="stat-row__label">Şut</span><span class="stat-val stat-val--away">10</span></div>
-            <div class="stat-bar" aria-hidden="true"><span class="bar-home" style="--w:calc(60% - 2px)"></span><span class="bar-away" style="--w:calc(40% - 2px)"></span></div>
+            <div class="stat-row__values"><span class="stat-val is-lead">@Model.Statistics.ShotsHome</span><span class="stat-row__label">Şut</span><span class="stat-val stat-val--away">@Model.Statistics.ShotsAway</span></div>
+            <div class="stat-bar" aria-hidden="true"><span class="bar-home" style="--w:calc(@Model.Statistics.ShotsHome% - 2px)"></span><span class="bar-away" style="--w:calc(@Model.Statistics.ShotsAway% - 2px)"></span></div>
         </li>
         <li class="stat-row">
-            <div class="stat-row__values"><span class="stat-val is-lead">7</span><span class="stat-row__label">İsabetli şut</span><span class="stat-val stat-val--away">4</span></div>
-            <div class="stat-bar" aria-hidden="true"><span class="bar-home" style="--w:calc(63.6% - 2px)"></span><span class="bar-away" style="--w:calc(36.4% - 2px)"></span></div>
+            <div class="stat-row__values"><span class="stat-val is-lead">@Model.Statistics.ShotsOnTargetHome</span><span class="stat-row__label">İsabetli şut</span><span class="stat-val stat-val--away">@Model.Statistics.ShotsOnTargetAway</span></div>
+            <div class="stat-bar" aria-hidden="true"><span class="bar-home" style="--w:calc(@Model.Statistics.ShotsOnTargetHome% - 2px)"></span><span class="bar-away" style="--w:calc(@Model.Statistics.ShotsOnTargetAway% - 2px)"></span></div>
         </li>
         <li class="stat-row">
-            <div class="stat-row__values"><span class="stat-val is-lead">512</span><span class="stat-row__label">Pas</span><span class="stat-val stat-val--away">438</span></div>
-            <div class="stat-bar" aria-hidden="true"><span class="bar-home" style="--w:calc(53.9% - 2px)"></span><span class="bar-away" style="--w:calc(46.1% - 2px)"></span></div>
+            <div class="stat-row__values"><span class="stat-val is-lead">@Model.Statistics.PassesHome</span><span class="stat-row__label">Pas</span><span class="stat-val stat-val--away">@Model.Statistics.PassesAway</span></div>
+            <div class="stat-bar" aria-hidden="true"><span class="bar-home" style="--w:calc(@(passHomePct)% - 2px)"></span><span class="bar-away" style="--w:calc(@(passAwayPct)% - 2px)"></span></div>
         </li>
         <li class="stat-row">
-            <div class="stat-row__values"><span class="stat-val is-lead">%87</span><span class="stat-row__label">Pas isabeti</span><span class="stat-val stat-val--away">%82</span></div>
-            <div class="stat-bar" aria-hidden="true"><span class="bar-home" style="--w:calc(51.5% - 2px)"></span><span class="bar-away" style="--w:calc(48.5% - 2px)"></span></div>
+            <div class="stat-row__values"><span class="stat-val is-lead">%@Model.Statistics.PassAccuracyHome</span><span class="stat-row__label">Pas isabeti</span><span class="stat-val stat-val--away">%@Model.Statistics.PassAccuracyAway</span></div>
+            <div class="stat-bar" aria-hidden="true"><span class="bar-home" style="--w:calc(@(passHomePct)% - 2px)"></span><span class="bar-away" style="--w:calc(@(passAwayPct)% - 2px)"></span></div>
         </li>
         <li class="stat-row">
-            <div class="stat-row__values"><span class="stat-val is-lead">6</span><span class="stat-row__label">Korner</span><span class="stat-val stat-val--away">4</span></div>
-            <div class="stat-bar" aria-hidden="true"><span class="bar-home" style="--w:calc(60% - 2px)"></span><span class="bar-away" style="--w:calc(40% - 2px)"></span></div>
+            <div class="stat-row__values"><span class="stat-val is-lead">@Model.Statistics.CornersHome</span><span class="stat-row__label">Korner</span><span class="stat-val stat-val--away">@Model.Statistics.CornersAway</span></div>
+            <div class="stat-bar" aria-hidden="true"><span class="bar-home" style="--w:calc(@Model.Statistics.CornersHome% - 2px)"></span><span class="bar-away" style="--w:calc(@Model.Statistics.CornersAway% - 2px)"></span></div>
         </li>
         <li class="stat-row stat-row--muted">
-            <div class="stat-row__values"><span class="stat-val">11</span><span class="stat-row__label">Faul</span><span class="stat-val stat-val--away is-lead">13</span></div>
-            <div class="stat-bar" aria-hidden="true"><span class="bar-home" style="--w:calc(45.8% - 2px)"></span><span class="bar-away" style="--w:calc(54.2% - 2px)"></span></div>
+            <div class="stat-row__values"><span class="stat-val">@Model.Statistics.FoulsHome</span><span class="stat-row__label">Faul</span><span class="stat-val stat-val--away is-lead">@Model.Statistics.FoulsAway</span></div>
+            <div class="stat-bar" aria-hidden="true"><span class="bar-home" style="--w:calc(@Model.Statistics.FoulsHome% - 2px)"></span><span class="bar-away" style="--w:calc(@Model.Statistics.FoulsAway% - 2px)"></span></div>
         </li>
         <li class="stat-row stat-row--muted">
-            <div class="stat-row__values"><span class="stat-val is-lead">2</span><span class="stat-row__label">Ofsayt</span><span class="stat-val stat-val--away">1</span></div>
-            <div class="stat-bar" aria-hidden="true"><span class="bar-home" style="--w:calc(66.7% - 2px)"></span><span class="bar-away" style="--w:calc(33.3% - 2px)"></span></div>
+            <div class="stat-row__values"><span class="stat-val is-lead">@Model.Statistics.OffsidesHome</span><span class="stat-row__label">Ofsayt</span><span class="stat-val stat-val--away">@Model.Statistics.OffsidesAway</span></div>
+            <div class="stat-bar" aria-hidden="true"><span class="bar-home" style="--w:calc(@Model.Statistics.OffsidesHome% - 2px)"></span><span class="bar-away" style="--w:calc(@Model.Statistics.OffsidesAway% - 2px)"></span></div>
         </li>
         <li class="stat-row stat-row--muted">
-            <div class="stat-row__values"><span class="stat-val">2</span><span class="stat-row__label">Sarı kart</span><span class="stat-val stat-val--away is-lead">3</span></div>
-            <div class="stat-bar" aria-hidden="true"><span class="bar-home" style="--w:calc(40% - 2px)"></span><span class="bar-away" style="--w:calc(60% - 2px)"></span></div>
+            <div class="stat-row__values"><span class="stat-val">@Model.Statistics.YellowCardsHome</span><span class="stat-row__label">Sarı kart</span><span class="stat-val stat-val--away is-lead">@Model.Statistics.YellowCardsAway</span></div>
+            <div class="stat-bar" aria-hidden="true"><span class="bar-home" style="--w:calc(@Model.Statistics.YellowCardsHome% - 2px)"></span><span class="bar-away" style="--w:calc(@Model.Statistics.YellowCardsAway% - 2px)"></span></div>
         </li>
         <li class="stat-row stat-row--muted">
-            <div class="stat-row__values"><span class="stat-val">0</span><span class="stat-row__label">Kırmızı kart</span><span class="stat-val stat-val--away is-lead">1</span></div>
-            <div class="stat-bar" aria-hidden="true"><span class="bar-home" style="--w:0%"></span><span class="bar-away" style="--w:100%"></span></div>
+            <div class="stat-row__values"><span class="stat-val">@Model.Statistics.RedCardsHome</span><span class="stat-row__label">Kırmızı kart</span><span class="stat-val stat-val--away is-lead">@Model.Statistics.RedCardsAway</span></div>
+            <div class="stat-bar" aria-hidden="true"><span class="bar-home" style="--w:@Model.Statistics.RedCardsHome%"></span><span class="bar-away" style="--w:@Model.Statistics.RedCardsAway%"></span></div>
         </li>
     </ul>
 </section>

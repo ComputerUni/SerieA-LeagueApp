@@ -1,11 +1,11 @@
 ﻿@using SerieA.API.DTOs.MatchDtos
 @using SerieA.API.Entities.Enums
-@model ResultMatchDto
+@model MatchStatisticsViewModel
 
 @{
-    var cards = Model.Cards.OrderBy(c => c.Minute).ToList();
-    var homeCards = cards.Where(c => c.TeamId == Model.HomeTeamId).ToList();
-    var awayCards = cards.Where(c => c.TeamId == Model.AwayTeamId).ToList();
+    var cards = Model.Match.Cards.OrderBy(c => c.Minute).ToList();
+    var homeCards = cards.Where(c => c.TeamId == Model.Match.HomeTeamId).ToList();
+    var awayCards = cards.Where(c => c.TeamId == Model.Match.AwayTeamId).ToList();
 }
 
 <section class="panel" aria-labelledby="cards-title">
@@ -13,15 +13,14 @@
     <div class="split">
         @foreach(var (teamCards, teamName, teamLogo) in new[]
         {
-            (homeCards, Model.HomeTeamName, Model.HomeTeamLogo),
-            (awayCards, Model.AwayTeamName, Model.AwayTeamLogo)
+            (homeCards, Model.Match.HomeTeamName, Model.Match.HomeTeamLogo),
+            (awayCards, Model.Match.AwayTeamName, Model.Match.AwayTeamLogo)
         })
         {
             <div class="split__col">
                 <h3 class="split__team">
-                    <span class="team-crest team-crest--xs" aria-hidden="true">
-                        <img src="@teamLogo" alt="@teamName" />
-                    </span>
+                    <img style="width:25px;height:25px;" src="@teamLogo" alt="@teamName" />
+
                     @teamName
                     <span class="split__count">@teamCards.Count kart</span>
                 </h3>

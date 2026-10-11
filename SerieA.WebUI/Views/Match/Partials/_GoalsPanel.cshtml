@@ -1,10 +1,10 @@
 ﻿@using SerieA.API.DTOs.MatchDtos
-@model ResultMatchDto
+@model MatchStatisticsViewModel
 
 @{
-    var goals = Model.Goals.OrderBy(g => g.Minute).ToList();
-    var homeGoals = goals.Where(g => g.TeamId == Model.HomeTeamId).ToList();
-    var awayGoals = goals.Where(g => g.TeamId == Model.AwayTeamId).ToList();
+    var goals = Model.Match.Goals.OrderBy(g => g.Minute).ToList();
+    var homeGoals = goals.Where(g => g.TeamId == Model.Match.HomeTeamId).ToList();
+    var awayGoals = goals.Where(g => g.TeamId == Model.Match.AwayTeamId).ToList();
 }
 
 <section class="panel" aria-labelledby="goals-title">
@@ -12,17 +12,18 @@
     <div class="split">
         @foreach (var (teamGoals, teamName, teamLogo) in new[]
         {
-            (homeGoals, Model.HomeTeamName, Model.HomeTeamLogo),
-            (awayGoals, Model.AwayTeamName, Model.AwayTeamLogo)
+            (homeGoals, Model.Match.HomeTeamName, Model.Match.HomeTeamLogo),
+            (awayGoals, Model.Match.AwayTeamName, Model.Match.AwayTeamLogo)
         })
         {
             <div class="split__col">
                 <h3 class="split__team">
-                    <span class="team-crest team-crest--xs" aria-hidden="true">
-                        <img src="@teamLogo"
-                             alt="@teamName"
-                             onerror="this.style.display='none'" />
-                    </span>
+
+                    <img src="@teamLogo"
+                         style="width:25px;height:25px;"
+                         alt="@teamName"
+                         onerror="this.style.display='none'" />
+
                     @teamName
                     <span class="split__count">@teamGoals.Count gol</span>
                 </h3>

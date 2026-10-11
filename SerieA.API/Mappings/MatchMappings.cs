@@ -23,9 +23,16 @@ namespace SerieA.API.Mappings
                 .ForMember(dest => dest.Substitutions, opt => opt.MapFrom(src => src.Substitutions));
             CreateMap<CreateMatchDto, Match>().ReverseMap();
             CreateMap<Match, UpdateMatchDto>().ReverseMap();
-            CreateMap<MatchGoal, ResultMatchGoalDto>();
-            CreateMap<MatchCard, ResultMatchCardDto>();
-            CreateMap<Substitution, ResultSubstitutionDto>();
+            CreateMap<MatchGoal, ResultMatchGoalDto>()
+                .ForMember(dest => dest.PlayerName, opt => opt.MapFrom(src => src.Player != null ? $"{src.Player.FirstName} {src.Player.LastName}" : null))
+                .ForMember(dest => dest.AssistPlayerName, opt => opt.MapFrom(src => src.AssistPlayer != null ? $"{src.AssistPlayer.FirstName} {src.AssistPlayer.LastName}" : null));
+
+            CreateMap<MatchCard, ResultMatchCardDto>()
+                .ForMember(dest => dest.PlayerName, opt => opt.MapFrom(src => src.Player != null ? $"{src.Player.FirstName} {src.Player.LastName}" : null));
+
+            CreateMap<Substitution, ResultSubstitutionDto>()
+                .ForMember(dest => dest.PlayerInName, opt => opt.MapFrom(src => src.PlayerIn != null ? $"{src.PlayerIn.FirstName} {src.PlayerIn.LastName}" : null))
+                .ForMember(dest => dest.PlayerOutName, opt => opt.MapFrom(src => src.PlayerOut != null ? $"{src.PlayerOut.FirstName} {src.PlayerOut.LastName}" : null));
         }
     }
 }
