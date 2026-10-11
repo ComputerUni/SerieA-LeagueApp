@@ -10,7 +10,11 @@ namespace SerieA.API.Mappings
         {
             CreateMap<CreateMatchGoalDto, MatchGoal>();
             CreateMap<UpdateMatchGoalDto, MatchGoal>();
-            CreateMap<MatchGoal, ResultMatchGoalDto>();
+            CreateMap<MatchGoal, ResultMatchGoalDto>()
+                .ForMember(dest => dest.PlayerName, opt => opt.MapFrom(src =>
+                    src.Player != null ? $"{src.Player.FirstName} {src.Player.LastName}".Trim() : "Oyuncu Bilinmiyor"))
+                .ForMember(dest => dest.AssistPlayerName, opt => opt.MapFrom(src =>
+                    src.AssistPlayer != null ? $"{src.AssistPlayer.FirstName} {src.AssistPlayer.LastName}".Trim() : null));
         }
     }
 }

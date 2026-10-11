@@ -15,7 +15,20 @@ namespace SerieA.API.Controllers
         [HttpGet("{matchId}")]
         public async Task<IActionResult> GetCardByMatchId(int matchId)
         {
-            var card = await _context.MatchCards.Where(x => x.MatchId == matchId).Include(x => x.Team).ToListAsync();
+            var card = await _context.MatchCards.AsNoTracking()
+                .Where(x => x.MatchId == matchId)
+                .Include(x => x.Team)
+                .Include(x => x.Player)
+                .Select(x => new ResultMatchCardDto
+                {
+                    Id = x.Id,
+                    MatchId = x.MatchId,
+                    TeamId = x.TeamId,
+                    PlayerId = x.PlayerId,
+                    CardType = x.CardType,
+                    Minute = x.Minute,
+                    PlayerName = x.Player.FirstName + " " + x.Player.LastName
+                }).ToListAsync();
             if(!card.Any())
             {
                 return NotFound("Bu Maça Ait Kart Kaydı Bulunamadı");

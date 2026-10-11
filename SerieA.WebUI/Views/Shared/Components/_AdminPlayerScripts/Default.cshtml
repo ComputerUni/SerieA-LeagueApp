@@ -1,0 +1,24 @@
+﻿<script>
+    function filterPlayers() {
+        const search = document.getElementById('searchPlayer')?.value.toLowerCase() || '';
+        const team = document.getElementById('filterTeam')?.value.toLowerCase() || '';
+        const pos = document.getElementById('filterPos')?.value.toLowerCase() || '';
+        const rows = document.querySelectorAll('#playerTable tbody tr:not(.table-empty)');
+
+        rows.forEach(row => {
+            const rowText = row.innerText.toLowerCase();
+            const matchesSearch = !search || rowText.includes(search);
+            const matchesTeam = !team || rowText.includes(team);
+            const matchesPos = !pos || rowText.includes(pos);
+
+            row.style.display = (matchesSearch && matchesTeam && matchesPos) ? '' : 'none';
+        });
+    }
+
+    function resetPlayerFilters() {
+        if (document.getElementById('searchPlayer')) document.getElementById('searchPlayer').value = '';
+        if (document.getElementById('filterTeam')) document.getElementById('filterTeam').value = '';
+        if (document.getElementById('filterPos')) document.getElementById('filterPos').value = '';
+        filterPlayers();
+    }
+</script>

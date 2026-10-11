@@ -20,17 +20,17 @@
         let teamsArray = @Html.Raw(Json.Serialize(Model.Teams.Select(t => new
             {
                 id = t.Id,
-                                                    name = t.Name,
-                                                    code = t.ShortCode,
-                                                    city = t.City,
-                                                    region = t.Region,
-                                                    stadium = t.Stadium,
-                                                    capacity = t.StadiumCapacity,
-                                                    founded = t.FoundationYear,
-                                                    colorA = t.PrimaryColor,
-                                                    colorB = t.SecondaryColor,
-                                                    status = t.IsActive ? "active" : "inactive"
-                            })));
+                                                            name = t.Name,
+                                                            code = t.ShortCode,
+                                                            city = t.City,
+                                                            region = t.Region,
+                                                            stadium = t.Stadium,
+                                                            capacity = t.StadiumCapacity,
+                                                            founded = t.FoundationYear,
+                                                            colorA = t.PrimaryColor,
+                                                            colorB = t.SecondaryColor,
+                                                            status = t.IsActive ? "active" : "inactive"
+                                })));
 
         const TEAMS = Object.fromEntries(teamsArray.map(t => [t.id, t]));
 
@@ -39,16 +39,16 @@
         let matches = @Html.Raw(Json.Serialize(Model.Matches.Select(m => new
             {
                 id = m.Id,
-                                                    week = m.Week,
-                                                    date = m.MatchDate.ToString("yyyy-MM-dd"),
-                                                    time = m.MatchTime.ToString("HH:mm"),
-                                                    home = m.HomeTeamId,
-                                                    away = m.AwayTeamId,
-                                                    homeScore = m.HomeTeamScore,
-                                                    awayScore = m.AwayTeamScore,
-                                                    status = (int)m.Status,
-                                                    stadium = m.Stadium
-                            })));
+                                                            week = m.Week,
+                                                            date = m.MatchDate.ToString("yyyy-MM-dd"),
+                                                            time = m.MatchTime.ToString("HH:mm"),
+                                                            home = m.HomeTeamId,
+                                                            away = m.AwayTeamId,
+                                                            homeScore = m.HomeTeamScore,
+                                                            awayScore = m.AwayTeamScore,
+                                                            status = (int)m.Status,
+                                                            stadium = m.Stadium
+                                })));
 
 
         /* ---------- Yardımcılar ---------- */
@@ -77,7 +77,11 @@
             statsModal: $('#stats-modal'),
             statsForm: $('[data-stats-form]'),
             goalsModal: $('#goal-modal'),
-            goalsForm: $('[data-goal-form]')
+            goalsForm: $('[data-goal-form]'),
+            cardsModal: $('#card-modal'),
+            cardsForm: $('[data-card-form]'),
+            subsModal: $('#sub-modal'),
+            subsForm: $('[data-sub-form]')
         };
         let filters = { team: '', week: '', status: '' };
 
@@ -95,27 +99,29 @@
                 els.rows.innerHTML = `<tr class="table-empty"><td colspan="9"><strong>Kayıt bulunamadı</strong>Filtreleri değiştirin ya da Temizle ile tüm maçları gösterin.</td></tr>`;
             } else {
                 els.rows.innerHTML = list.map((m) => `
-                                                <tr data-id="${m.id}"${m.id === highlightId ? ' class="is-new"' : ''}>
-                                                  <td class="col-id"><span>${m.id}</span></td>
-                                                  <td class="week-cell">${m.week}. Hafta</td>
-                                                  <td>${fmtDate(m.date)}</td>
-                                                  <td>${m.time}</td>
-                                                  <td>${teamCell(m.home)}</td>
-                                                  <td class="col-score">${hasScore(m)
+                                                    <tr data-id="${m.id}"${m.id === highlightId ? ' class="is-new"' : ''}>
+                                                      <td class="col-id"><span>${m.id}</span></td>
+                                                      <td class="week-cell">${m.week}. Hafta</td>
+                                                      <td>${fmtDate(m.date)}</td>
+                                                      <td>${m.time}</td>
+                                                      <td>${teamCell(m.home)}</td>
+                                                      <td class="col-score">${hasScore(m)
                         ? `<span class="score">${m.homeScore} - ${m.awayScore}</span>`
                         : '<span class="score score--empty">-</span>'}</td>
-                                                  <td>${teamCell(m.away)}</td>
-                                                  <td><span class="badge-a badge-a--${m.status}">${STATUS[m.status]}</span></td>
-                                                  <td class="col-actions">
-                                                    <div class="row-actions">
-                                                      <a class="act-btn" href="/Match/MatchDetail/${m.id}" data-demo-nav title="Detay" aria-label="Detay: ${esc(TEAMS[m.home].name)} - ${esc(TEAMS[m.away].name)}">${icon('eye')}</a>
-                                                      <button type="button" class="act-btn" data-edit="${m.id}" title="Düzenle" aria-label="Düzenle: ${esc(TEAMS[m.home].name)} - ${esc(TEAMS[m.away].name)}">${icon('edit')}</button>
-                                                      <button type="button" class="act-btn ${(m.status === 2 || m.status === 3) ? '' : 'act-btn--disabled'}" ${(m.status === 2 || m.status === 3) ? `data-stats="${m.id}"` : 'disabled'}" title="İstatistik">${icon('chart')}</button>
-                                                      <button type="button" class="act-btn ${(m.status === 2 || m.status === 3) ? '' : 'act-btn--disabled'} " ${(m.status === 2 || m.status === 3) ? `data-goals="${ m.id } "` : 'disabled'} title="Goller">${icon('ball')}</button>
-                                                      <button type="button" class="act-btn act-btn--danger" data-delete="${m.id}" title="Sil" aria-label="Sil: ${esc(TEAMS[m.home].name)} - ${esc(TEAMS[m.away].name)}">${icon('trash')}</button>
-                                                    </div>
-                                                  </td>
-                                                </tr>`).join('');
+                                                      <td>${teamCell(m.away)}</td>
+                                                      <td><span class="badge-a badge-a--${m.status}">${STATUS[m.status]}</span></td>
+                                                      <td class="col-actions">
+                                                        <div class="row-actions">
+                                                          <a class="act-btn" href="/Match/MatchDetail/${m.id}" data-demo-nav title="Detay" aria-label="Detay: ${esc(TEAMS[m.home].name)} - ${esc(TEAMS[m.away].name)}">${icon('eye')}</a>
+                                                          <button type="button" class="act-btn" data-edit="${m.id}" title="Düzenle" aria-label="Düzenle: ${esc(TEAMS[m.home].name)} - ${esc(TEAMS[m.away].name)}">${icon('edit')}</button>
+                                                          <button type="button" class="act-btn ${(m.status === 2 || m.status === 3) ? '' : 'act-btn--disabled'}" ${(m.status === 2 || m.status === 3) ? `data-stats="${m.id}"` : 'disabled'}" title="İstatistik">${icon('chart')}</button>
+                                                          <button type="button" class="act-btn ${(m.status === 2 || m.status === 3) ? '' : 'act-btn--disabled'} " ${(m.status === 2 || m.status === 3) ? `data-goals="${m.id} "` : 'disabled'} title="Goller">${icon('ball')}</button>
+                                                          <button type="button" class="act-btn ${(m.status === 2 || m.status === 3) ? '' : 'act-btn--disabled'} " ${(m.status === 2 || m.status === 3) ? `data-cards="${m.id} "` : 'disabled'} title="Kartlar">${icon('calendar')}</button>
+                                                          <button type="button" class="act-btn ${(m.status === 2 || m.status === 3) ? '' : 'act-btn--disabled'} " ${(m.status === 2 || m.status === 3) ? `data-subs="${m.id} "` : 'disabled'} title="Değişiklikler">${icon('plus')}</button>
+                                                          <button type="button" class="act-btn act-btn--danger" data-delete="${m.id}" title="Sil" aria-label="Sil: ${esc(TEAMS[m.home].name)} - ${esc(TEAMS[m.away].name)}">${icon('trash')}</button>
+                                                        </div>
+                                                      </td>
+                                                    </tr>`).join('');
             }
             els.count.textContent = `${matches.length} kayıttan ${list.length} tanesi gösteriliyor`;
         }
@@ -354,63 +360,67 @@
 
             const teamSelect = $('#goal-team-id');
             teamSelect.innerHTML = `
-                <option value="">Takım Seçiniz</option>    
-                <option value="${m.home}">${TEAMS[m.home].name} (Ev Sahibi)</option>    
-                <option value="${m.away}">${TEAMS[m.away].name} (Deplasman)</option>    
-            `
-            
+                    <option value="">Takım Seçiniz</option>
+                    <option value="${m.home}">${TEAMS[m.home].name} (Ev Sahibi)</option>
+                    <option value="${m.away}">${TEAMS[m.away].name} (Deplasman)</option>
+                `
+
             resetGoalForm();
             await loadGoals(activeGoalMatchId);
             els.goalsModal.showModal();
         });
 
         async function loadGoals(matchId) {
-            const listEl = $('#goal-list');
-            listEl.innerHTML = '<span style="color:#94a3b8; font-size:0.85rem;">Yükleniyor...</span>';
+    const listEl = $('#goal-list');
+    listEl.innerHTML = '<span style="color:#94a3b8; font-size:0.85rem;">Yükleniyor...</span>';
 
-            try {
-                const res = await fetch(`https://localhost:7078/api/MatchGoals/${matchId}`);
-                if(!res.ok) throw new Error('Goller Getirilemedi');
-
-                currentMatchGoals = await res.json();
-                renderGoalList(currentMatchGoals);
-            } catch(err) {
-                listEl.innerHTML = '<span style="color:#ef4444; font-size:0.85rem;">Goller yüklenirken hata oluştu.</span>';
-            }
+    try {
+        const res = await fetch(`https://localhost:7078/api/MatchGoals/${matchId}`);
+        if (res.status === 404) {
+            currentMatchGoals = [];
+            renderGoalList([]);
+            return;
         }
+        if (!res.ok) throw new Error('Goller Getirilemedi');
+        currentMatchGoals = await res.json();
+        renderGoalList(currentMatchGoals);
+    } catch (err) {
+        listEl.innerHTML = '<span style="color:#ef4444; font-size:0.85rem;">Goller yüklenirken hata oluştu.</span>';
+    }
+}
 
         function renderGoalList(goals) {
-            const listEl = $('#goal-list');
-           if(!goals || goals.length === 0) {
-                listEl.innerHTML = '<span style="color:#94a3b8; font-size:0.85rem;">Bu maçta henüz gol kaydı yok.</span>';
-                return;
-           }
+    const listEl = $('#goal-list');
+    if (!goals || goals.length === 0) {
+        listEl.innerHTML = '<span style="color:#94a3b8; font-size:0.85rem;">Bu maçta henüz gol kaydı yok.</span>';
+        return;
+    }
 
-           goals.sort((a,b) => (a.minute ?? a.Minute) - (b.minute ?? b.Minute));
+    goals.sort((a, b) => (a.minute ?? a.Minute) - (b.minute ?? b.Minute));
 
-           listEl.innerHTML = goals.map(g => {
-               const id = g.id ?? g.Id;
-               const minute = g.minute ?? g.Minute;
-               const player = g.playerName ?? g.PlayerName;
-               const assist = g.assistPlayerName ?? g.AssistPlayerName;
-               const teamId = g.teamId ?? g.TeamId;
-               const teamName = TEAMS[teamId] ? TEAMS[teamId].name : 'Takım';
+    listEl.innerHTML = goals.map(g => {
+        const id = g.id ?? g.Id;
+        const minute = g.minute ?? g.Minute;
+        const player = g.playerName ?? g.PlayerName ?? `Oyuncu #${g.playerId ?? g.PlayerId}`;               
+        const assist = g.assistPlayerName ?? g.AssistPlayerName ?? null;
+        const teamId = g.teamId ?? g.TeamId;
+        const teamName = TEAMS[teamId] ? TEAMS[teamId].name : 'Takım';
 
-                return `
-                <div class="event-item" style="display:flex; align-items:center; justify-content:space-between; padding:8px 12px; background:rgba(255,255,255,0.04); border-radius:6px; margin-bottom:6px;">
-                    <div>
-                        <strong>${minute}'</strong> ⚽ <strong>${player}</strong>
-                        <span style="font-size:0.8rem; color:#94a3b8;">(${teamName})</span>
-                        ${assist ? `<span style="font-size:0.8rem; color:#64748b; margin-left:6px;">(Asist: ${assist})</span>` : ''}
-                    </div>
-                    <div style="display:flex; gap:6px;">
-                        <button type="button" class="btn-stat btn-stat--ghost" style="padding:4px 8px; font-size:0.75rem;" onclick="editGoal(${id})">Düzenle</button>
-                        <button type="button" class="btn-stat btn-stat--ghost" style="padding:4px 8px; font-size:0.75rem; color:#ef4444;" onclick="deleteGoal(${id})">Sil</button>
-                    </div>
+        return `
+            <div class="event-item" style="display:flex; align-items:center; justify-content:space-between; padding:8px 12px; background:rgba(255,255,255,0.04); border-radius:6px; margin-bottom:6px;">
+                <div>
+                    <strong>${minute}'</strong> ⚽ <strong>${player}</strong>
+                    <span style="font-size:0.8rem; color:#94a3b8;">(${teamName})</span>
+                    ${assist ? `<span style="font-size:0.8rem; color:#64748b; margin-left:6px;">(Asist: ${assist})</span>` : ''}
                 </div>
-            `;
-           }).join('');
-        }
+                <div style="display:flex; gap:6px;">
+                    <button type="button" class="btn-stat btn-stat--ghost" style="padding:4px 8px; font-size:0.75rem;" onclick="editGoal(${id})">Düzenle</button>
+                    <button type="button" class="btn-stat btn-stat--ghost" style="padding:4px 8px; font-size:0.75rem; color:#ef4444;" onclick="deleteGoal(${id})">Sil</button>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
 
         els.goalsForm.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -420,44 +430,32 @@
             const payload = {
                 matchId: Number(f.matchId.value),
                 teamId: Number(f.teamId.value),
-                playerName: f.playerName.value.trim(),
-                assistPlayerName: f.assistPlayerName.value.trim() || null,
+                playerId: Number(f.playerId.value),
+                assistPlayerId: f.assistPlayerName.value ? Number(f.assistPlayerName.value) : null,
                 minute: Number(f.minute.value)
             };
 
-            if(goalId) payload.id = goalId;
+            if (goalId) payload.id = goalId;
 
             try {
                 const url = 'https://localhost:7078/api/MatchGoals'
 
                 const res = await fetch(url, {
                     method: goalId ? 'PUT' : 'POST',
-                    headers: {'Content-Type': 'application/json'},
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
                 });
 
-                if(!res.ok){
+                if (!res.ok) {
                     const error = await res.text();
                     throw new Error(error || 'İşlem Gerçekleştirilemedi');
                 }
 
-                if(!goalId){
-                    const m = matches.find(x => x.id === activeGoalMatchId);
-                    if(m) {
-                        if(m.status === 1) m.status = 2;
-                        if(payload.teamId === m.home) {
-                            m.homeScore = (m.homeScore ?? 0) + 1;
-                        } else if(payload.teamId === m.away) {
-                            m.awayScore = (m.awayScore ?? 0) + 1;
-                        }
-                        renderTable();
-                    }
-                }
 
                 toast(goalId ? 'Gol Başarıyla Güncellendi' : 'Gol Başarıyla Eklendi.');
                 resetGoalForm();
                 await loadGoals(activeGoalMatchId);
-            } catch(err) {
+            } catch (err) {
                 toast('Hata: ' + err.message, 'info');
             }
         });
@@ -468,26 +466,453 @@
             $('#goal-match-id').value = activeGoalMatchId;
             $('#goal-submit-btn').textContent = 'Gol Ekle';
             const cancelBtn = $('#goal-reset-btn');
-            if(cancelBtn) cancelBtn.style.display = 'none';
+            if (cancelBtn) cancelBtn.style.display = 'none';
+            document.getElementById('goal-player-id').innerHTML = '<option value="">Önce takım seçin</option>';
+            document.getElementById('goal-assist-player-id').innerHTML = '<option value="">-</option>';
         }
 
-        window.editGoal = function(id) {
+        async function populatePlayersByTeam(teamId, selectedPlayerId = null, selectedAssistId = null) {
+            const playerSelect = document.getElementById('goal-player-id');
+            const assistSelect = document.getElementById('goal-assist-player-id');
+
+            if (!teamId) {
+                playerSelect.innerHTML = '<option value="">Önce takım seçin</option>';
+                assistSelect.innerHTML = '<option value="">-</option>';
+            return;
+        }
+
+        playerSelect.innerHTML = '<option value="">Yükleniyor...</option>';
+        assistSelect.innerHTML = '<option value="">Yükleniyor...</option>';
+
+        try {
+            const res = await fetch(`https://localhost:7078/api/Players/ByTeam/${teamId}`);
+            const players = await res.json();
+
+            playerSelect.innerHTML = '<option value="">Oyuncu seçin</option>';
+            assistSelect.innerHTML = '<option value="">- (Asist Yok)</option>';
+
+            players.forEach(p => {
+                const id = p.id ?? p.Id;
+                const name = `${p.firstName ?? p.FirstName} ${p.lastName ?? p.LastName}`;
+
+            playerSelect.innerHTML += `<option value="${id}" ${selectedPlayerId == id ? 'selected' : ''}>${name}</option>`;
+            assistSelect.innerHTML += `<option value="${id}" ${selectedAssistId == id ? 'selected' : ''}>${name}</option>`;
+        });
+        } catch (err) {
+            playerSelect.innerHTML = '<option value="">Oyuncular alınamadı</option>';
+            assistSelect.innerHTML = '<option value="">-</option>';
+        }
+    }
+
+        document.getElementById('goal-team-id').addEventListener('change', function () {
+        populatePlayersByTeam(this.value);
+    });
+
+        window.editGoal = async function(id) {
             const goal = currentMatchGoals.find(g => (g.id ?? g.Id) === id);
             if (!goal) return;
 
             const f = els.goalsForm.elements;
-            f.id.value = goal.id ?? goal.Id;
-            f.teamId.value = goal.teamId ?? goal.TeamId;
-            f.playerName.value = goal.playerName ?? goal.PlayerName;
-            f.assistPlayerName.value = goal.assistPlayerName ?? goal.AssistPlayerName ?? '';
-            f.minute.value = goal.minute ?? goal.Minute;
+            const gId = goal.id ?? goal.Id;
+            const tId = goal.teamId ?? goal.TeamId;
+            const pId = goal.playerId ?? goal.PlayerId;
+            const aId = goal.assistPlayerId ?? goal.AssistPlayerId;
+            const min = goal.minute ?? goal.Minute;
+
+            f.id.value = gId;
+            f.teamId.value = tId;
+            f.minute.value = min;
+
+            await populatePlayersByTeam(tId, pId, aId);
 
             $('#goal-submit-btn').textContent = 'Güncelle';
             const cancelBtn = $('#goal-reset-btn');
             if (cancelBtn) cancelBtn.style.display = 'inline-block';
+      };
+
+
+
+
+
+        let currentMatchSubs = [];
+        let activeSubsMatchId = null;
+
+        document.querySelectorAll('[data-sub-modal-close]').forEach(g => g.addEventListener('click', () => els.subsModal.close()));
+
+        els.rows.addEventListener('click', async (e) => {
+            const subs = e.target.closest('[data-subs]');
+            if (!subs) return;
+
+            activeSubsMatchId = Number(subs.dataset.subs);
+            const m = matches.find(x => x.id === activeSubsMatchId);
+
+            $('#sub-home-name').textContent = TEAMS[m.home].name;
+            $('#sub-away-name').textContent = TEAMS[m.away].name;
+            $('#sub-match-id').value = activeSubsMatchId;
+
+            const teamSelect = $('#sub-team-id');
+            teamSelect.innerHTML = `
+                    <option value="">Takım Seçiniz</option>
+                    <option value="${m.home}">${TEAMS[m.home].name} (Ev Sahibi)</option>
+                    <option value="${m.away}">${TEAMS[m.away].name} (Deplasman)</option>
+                `
+
+            resetSubForm();
+            await loadSubs(activeSubsMatchId);
+            els.subsModal.showModal();
+        });
+
+        async function loadSubs(matchId) {
+    const listEl = $('#sub-list');
+    listEl.innerHTML = '<span style="color:#94a3b8; font-size:0.85rem;">Yükleniyor...</span>';
+
+    try {
+        const res = await fetch(`https://localhost:7078/api/Substitutions/${matchId}`);
+        if (res.status === 404) {
+            currentMatchSubs = [];
+            renderSubList([]);
+            return;
+        }
+        if (!res.ok) throw new Error('Değişiklikler Getirilemedi');
+        currentMatchSubs = await res.json();
+        renderSubList(currentMatchSubs);
+    } catch (err) {
+        listEl.innerHTML = '<span style="color:#ef4444; font-size:0.85rem;">Değişiklikler yüklenirken hata oluştu.</span>';
+    }
+}
+
+        function renderSubList(subs) {
+    const listEl = $('#sub-list');
+    if (!subs || subs.length === 0) {
+        listEl.innerHTML = '<span style="color:#94a3b8; font-size:0.85rem;">Bu maçta henüz değişiklik kaydı yok.</span>';
+        return;
+    }
+
+    subs.sort((a, b) => (a.minute ?? a.Minute) - (b.minute ?? b.Minute));
+
+    listEl.innerHTML = subs.map(item => {
+        const id = item.id ?? item.Id;
+        const minute = item.minute ?? item.Minute;
+        const pIn = item.playerInName ?? item.PlayerInName ?? `Oyuncu #${item.playerInId ?? item.PlayerInId}`;
+        const pOut = item.playerOutName ?? item.PlayerOutName ?? `Oyuncu #${item.playerOutId ?? item.PlayerOutId}`;
+        const teamId = item.teamId ?? item.TeamId;
+        const teamName = TEAMS[teamId] ? TEAMS[teamId].name : 'Takım';
+
+        return `
+            <div class="event-item" style="display:flex; align-items:center; justify-content:space-between; padding:8px 12px; background:rgba(255,255,255,0.04); border-radius:6px; margin-bottom:6px;">
+                <div>
+                    <strong>${minute}'</strong> 
+                    <span style="color:#22c55e; font-weight:600;">▲ ${pIn}</span>
+                    <span style="color:#ef4444; font-weight:600; margin-left:8px;">▼ ${pOut}</span>
+                    <span style="font-size:0.8rem; color:#94a3b8; margin-left:6px;">(${teamName})</span>
+                </div>
+                <div style="display:flex; gap:6px;">
+                    <button type="button" class="btn-stat btn-stat--ghost" style="padding:4px 8px; font-size:0.75rem;" onclick="editSub(${id})">Düzenle</button>
+                    <button type="button" class="btn-stat btn-stat--ghost" style="padding:4px 8px; font-size:0.75rem; color:#ef4444;" onclick="deleteSub(${id})">Sil</button>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+        els.subsForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const f = els.subsForm.elements;
+            const subId = f.id.value ? Number(f.id.value) : null;
+
+            const payload = {
+                matchId: Number(f.matchId.value),
+                teamId: Number(f.teamId.value),
+                playerInId: Number(f.playerInId.value),
+                playerOutId: Number(f.playerOutId.value),
+                minute: Number(f.minute.value)
+            };
+
+            if (subId) payload.id = subId;
+
+            try {
+                const url = 'https://localhost:7078/api/Substitutions'
+
+                const res = await fetch(url, {
+                    method: subId ? 'PUT' : 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!res.ok) {
+                    const error = await res.text();
+                    throw new Error(error || 'İşlem Gerçekleştirilemedi');
+                }
+
+
+                toast(subId ? 'Değişiklik Başarıyla Güncellendi' : 'Değişiklik Başarıyla Eklendi.');
+                resetSubForm();
+                await loadSubs(activeSubsMatchId);
+            } catch (err) {
+                toast('Hata: ' + err.message, 'info');
+            }
+        });
+
+        function resetSubForm() {
+            els.subsForm.reset();
+            $('#sub-id').value = '';
+            $('#sub-match-id').value = activeSubsMatchId;
+            $('#sub-submit-btn').textContent = 'Değişiklik Ekle';
+            const cancelBtn = $('#sub-reset-btn');
+            if (cancelBtn) cancelBtn.style.display = 'none';
+            document.getElementById('sub-player-in-id').innerHTML = '<option value="">Önce takım seçin</option>';
+            document.getElementById('sub-player-out-id').innerHTML = '<option value="">-</option>';
+        }
+
+        async function populatePlayersByTeam(teamId, selectedPlayerInId = null, selectedPlayerOutId = null) {
+            const playerInSelect = document.getElementById('sub-player-in-id');
+            const playerOutSelect = document.getElementById('sub-player-out-id');
+
+            if (!teamId) {
+                playerInSelect.innerHTML = '<option value="">Önce takım seçin</option>';
+                playerOutSelect.innerHTML = '<option value="">Önce takım seçin</option>';
+                return;
+            }
+
+        playerInSelect.innerHTML = '<option value="">Yükleniyor...</option>';
+        playerOutSelect.innerHTML = '<option value="">Yükleniyor...</option>';
+
+        try {
+            const res = await fetch(`https://localhost:7078/api/Players/ByTeam/${teamId}`);
+            const players = await res.json();
+
+            playerInSelect.innerHTML = '<option value="">Giren oyuncuyu seçin</option>';
+            playerOutSelect.innerHTML = '<option value="">Çıkan oyuncuyu seçin</option>';
+          
+
+            players.forEach(p => {
+                const id = p.id ?? p.Id;
+                const name = `${p.firstName ?? p.FirstName} ${p.lastName ?? p.LastName}`;
+
+            playerInSelect.innerHTML += `<option value="${id}" ${selectedPlayerInId == id ? 'selected' : ''}>${name}</option>`;
+            playerOutSelect.innerHTML += `<option value="${id}" ${selectedPlayerOutId == id ? 'selected' : ''}>${name}</option>`;
+        });
+        } catch (err) {
+            playerInSelect.innerHTML = '<option value="">Oyuncular alınamadı</option>';
+            playerOutSelect.innerHTML = '<option value="">Oyuncular alınamadı</option>';
+        }
+    }
+
+        document.getElementById('sub-team-id').addEventListener('change', function () {
+        populatePlayersByTeam(this.value);
+    });
+
+        window.editSub = async function(id) {
+            const sub = currentMatchSubs.find(g => (g.id ?? g.Id) === id);
+            if (!sub) return;
+
+            const f = els.subsForm.elements;
+            const tId = sub.teamId ?? sub.TeamId;
+            const inId = sub.playerInId ?? sub.playerInId;
+            const outId = sub.playerOutId ?? sub.playerOutId;
+
+            f.id.value = sub.id ?? sub.Id;
+            f.teamId.value = tId;
+            f.minute.value = sub.minute ?? sub.Minute;
+
+            await populatePlayersByTeam(tId, inId, outId);
+
+            $('#sub-submit-btn').textContent = 'Güncelle';
+            const cancelBtn = $('#sub-reset-btn');
+            if (cancelBtn) cancelBtn.style.display = 'inline-block';
+      };
+
+
+
+
+
+        let currentMatchCards = [];
+        let activeCardMatchId = null;
+
+        document.querySelectorAll('[data-card-modal-close]').forEach(g => g.addEventListener('click', () => els.cardsModal.close()));
+
+        els.rows.addEventListener('click', async (e) => {
+            const cards = e.target.closest('[data-cards]');
+            if (!cards) return;
+
+            activeCardMatchId = Number(cards.dataset.cards);
+            const m = matches.find(x => x.id === activeCardMatchId);
+
+            $('#card-home-name').textContent = TEAMS[m.home].name;
+            $('#card-away-name').textContent = TEAMS[m.away].name;
+            $('#card-match-id').value = activeCardMatchId;
+
+            const teamSelect = $('#card-team-id');
+            teamSelect.innerHTML = `
+                    <option value="">Takım Seçiniz</option>
+                    <option value="${m.home}">${TEAMS[m.home].name} (Ev Sahibi)</option>
+                    <option value="${m.away}">${TEAMS[m.away].name} (Deplasman)</option>
+                `
+
+            resetCardForm();
+            await loadCards(activeCardMatchId);
+            els.cardsModal.showModal();
+        });
+
+        async function loadCards(matchId) {
+    const listEl = $('#card-list');
+    listEl.innerHTML = '<span style="color:#94a3b8; font-size:0.85rem;">Yükleniyor...</span>';
+
+    try {
+        const res = await fetch(`https://localhost:7078/api/MatchCards/${matchId}`);
+        if (res.status === 404) {
+            currentMatchCards = [];
+            renderCardList([]);
+            return;
+        }
+        if (!res.ok) throw new Error('Kartlar Getirilemedi');
+        currentMatchCards = await res.json();
+        renderCardList(currentMatchCards);
+    } catch (err) {
+        listEl.innerHTML = '<span style="color:#ef4444; font-size:0.85rem;">Kartlar yüklenirken hata oluştu.</span>';
+    }
+}
+
+        function renderCardList(cards) {
+    const listEl = $('#card-list');
+    if (!cards || cards.length === 0) {
+        listEl.innerHTML = '<span style="color:#94a3b8; font-size:0.85rem;">Bu maçta henüz kart kaydı yok.</span>';
+        return;
+    }
+
+    cards.sort((a, b) => (a.minute ?? a.Minute) - (b.minute ?? b.Minute));
+
+    const cardBadges = {
+        1: '<span title="Sarı Kart">🟨</span>',
+        2: '<span title="Kırmızı Kart">🟥</span>',
+        3: '<span title="İkinci Sarıdan Kırmızı">🟨🟥</span>'
+    };
+
+    listEl.innerHTML = cards.map(g => {
+        const id = g.id ?? g.Id;
+        const minute = g.minute ?? g.Minute;
+        const cardType = g.cardType ?? g.CardType;
+        const player = g.playerName ?? g.PlayerName ?? `Oyuncu #${g.playerId ?? g.PlayerId}`;               
+        const teamId = g.teamId ?? g.TeamId;
+        const teamName = TEAMS[teamId] ? TEAMS[teamId].name : 'Takım';
+
+        return `
+            <div class="event-item" style="display:flex; align-items:center; justify-content:space-between; padding:8px 12px; background:rgba(255,255,255,0.04); border-radius:6px; margin-bottom:6px;">
+                <div>
+                    <strong>${minute}'</strong> ${cardBadges[cardType] || '🟨'} <strong>${player}</strong>
+                    <span style="font-size:0.8rem; color:#94a3b8;">(${teamName})</span>
+                </div>
+                <div style="display:flex; gap:6px;">
+                    <button type="button" class="btn-stat btn-stat--ghost" style="padding:4px 8px; font-size:0.75rem;" onclick="editCard(${id})">Düzenle</button>
+                    <button type="button" class="btn-stat btn-stat--ghost" style="padding:4px 8px; font-size:0.75rem; color:#ef4444;" onclick="deleteCard(${id})">Sil</button>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+        els.cardsForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const f = els.cardsForm.elements;
+            const cardId = f.id.value ? Number(f.id.value) : null;
+
+            const payload = {
+                matchId: Number(f.matchId.value),
+                teamId: Number(f.teamId.value),
+                playerId: Number(f.playerId.value),
+                cardType: Number(f.cardType.value),
+                minute: Number(f.minute.value)
+            };
+
+            if (cardId) payload.id = cardId;
+
+            try {
+                const url = 'https://localhost:7078/api/MatchCards'
+
+                const res = await fetch(url, {
+                    method: cardId ? 'PUT' : 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!res.ok) {
+                    const error = await res.text();
+                    throw new Error(error || 'İşlem Gerçekleştirilemedi');
+                }
+
+
+                toast(cardId ? 'Kart Başarıyla Güncellendi' : 'Kart Başarıyla Eklendi.');
+                resetCardForm();
+                await loadCards(activeCardMatchId);
+            } catch (err) {
+                toast('Hata: ' + err.message, 'info');
+            }
+        });
+
+        function resetCardForm() {
+            if (els.cardsForm) els.cardsForm.reset();
+            if ($('#card-id')) $('#card-id').value = '';
+            if ($('#card-match-id')) $('#card-match-id').value = activeCardMatchId;
+            const submitBtn = $('#card-submit-btn') || $('[data-card-form] button[type="submit"]');
+            if (submitBtn) submitBtn.textContent = 'Kart Ekle';
+            const cancelBtn = $('#card-reset-btn');
+            if (cancelBtn) cancelBtn.style.display = 'none';
+            const playerSelect = document.getElementById('card-player-id');
+            if (playerSelect) playerSelect.innerHTML = '<option value="">Önce takım seçin</option>';
+        }
+
+        async function populateCardPlayersByTeam(teamId, selectedPlayerId = null) {
+            const playerSelect = document.getElementById('card-player-id');
+
+            if (!teamId) {
+                playerSelect.innerHTML = '<option value="">Önce takım seçin</option>';
+                return;
+            }
+
+            playerSelect.innerHTML = '<option value="">Yükleniyor...</option>';
+    
+
+            try {
+                const res = await fetch(`https://localhost:7078/api/Players/ByTeam/${teamId}`);
+                const players = await res.json();
+
+                playerSelect.innerHTML = '<option value="">Oyuncu seçin</option>';
+
+                players.forEach(p => {
+                    const id = p.id ?? p.Id;
+                    const name = `${p.firstName ?? p.FirstName} ${p.lastName ?? p.LastName}`;
+                    playerSelect.innerHTML += `<option value="${id}" ${selectedPlayerId == id ? 'selected' : ''}>${name}</option>`;
+                });
+            } catch (err) {
+                playerSelect.innerHTML = '<option value="">Oyuncular alınamadı</option>';
+
+        }
+    }
+
+        document.getElementById('card-team-id').addEventListener('change', function () {
+        populateCardPlayersByTeam(this.value);
+    });
+
+        window.editCard = async function(id) {
+            const card = currentMatchCards.find(g => (g.id ?? g.Id) === id);
+            if (!card) return;
+
+            const f = els.cardsForm.elements;
+            const tId = card.teamId ?? card.TeamId;
+            const pId = card.playerId ?? card.PlayerId;
+
+            f.id.value = card.id ?? card.Id;
+            f.teamId.value = tId;
+            f.cardType.value = card.cardType ?? card.CardType;
+            f.minute.value = card.minute ?? card.Minute;
+
+            await populateCardPlayersByTeam(tId, pId);
+
+            const submitBtn = $('#card-submit-btn') || $('[data-card-form] button[type="submit"]');
+            if (submitBtn) submitBtn.textContent = 'Güncelle';
+            const cancelBtn = $('#card-reset-btn');
+            if (cancelBtn) cancelBtn.style.display = 'inline-block';
         };
-
-
 
 
         let existingHomeStatId = null;

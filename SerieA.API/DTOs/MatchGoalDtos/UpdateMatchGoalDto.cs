@@ -5,8 +5,8 @@
         public int Id { get; set; }
         public int MatchId { get; set; }
         public int TeamId { get; set; }
-        public string PlayerName { get; set; }
-        public string? AssistPlayerName { get; set; }
+        public int PlayerId { get; set; }
+        public int? AssistPlayerId { get; set; }
         public int Minute { get; set; }
     }
 }

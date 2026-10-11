@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Oyuncu Yönetimi | Serie A Admin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@await Component.InvokeAsync("_AdminTeamHeadCss")
+
+<main class="admin-content">
+    @await Component.InvokeAsync("_AdminPlayerHead")
+    @await Component.InvokeAsync("_AdminPlayerLeagueStrip")
+    @await Component.InvokeAsync("_AdminPlayerTable")
+</main>
+
+<div class="toast-stack" data-toasts aria-live="polite"></div>
+
+@await Component.InvokeAsync("_AdminPlayerScripts")

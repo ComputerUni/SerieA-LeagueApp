@@ -496,10 +496,11 @@
 
                 <div class="stat-form-row">
                     <div class="stat-form-group stat-form-group--flex-3">
-                        <label for="goal-player-name" class="stat-form-label">Golü Atan</label>
-                        <input type="text" id="goal-player-name" name="playerName" class="stat-input" placeholder="Oyuncu Adı" required>
-                    </div>
-
+    <label for="goal-player-name" class="stat-form-label">Golü Atan</label>
+    <select id="goal-player-id" name="playerName" class="stat-input stat-input--select" required>
+        <option value="">Önce takım seçin</option>
+    </select>
+</div>
                     <div class="stat-form-group stat-form-group--flex-1">
                         <label for="goal-minute" class="stat-form-label">Dakika</label>
                         <input type="number" id="goal-minute" name="minute" class="stat-input text-center" min="1" max="130" placeholder="Örn: 24" required>
@@ -507,9 +508,11 @@
                 </div>
 
                 <div class="stat-form-group">
-                    <label for="goal-assist-player" class="stat-form-label">Asist Yapan (Opsiyonel)</label>
-                    <input type="text" id="goal-assist-player" name="assistPlayerName" class="stat-input" placeholder="Asist Yapan">
-                </div>
+    <label for="goal-assist-player-id" class="stat-form-label">Asist Yapan</label>
+    <select id="goal-assist-player-id" name="assistPlayerName" class="stat-input stat-input--select">
+        <option value="">-</option>
+    </select>
+</div>
             </div>
 
             <div style="display:flex; justify-content:flex-end; gap:8px;">
@@ -568,30 +571,39 @@
                     <div class="stat-form-group stat-form-group--flex-2">
                         <label for="card-type" class="stat-form-label">Kart Tipi</label>
                         <select id="card-type" name="cardType" class="stat-input stat-input--select" required>
-                            <option value="1">Sarı Kart</option>
-                            <option value="2">Kırmızı Kart</option>
+                            <option value="1">🟨 Sarı Kart</option>
+                            <option value="2">🟥 Kırmızı Kart</option>
+                            <option value="3">🟨🟥 İkinci Sarıdan Kırmızı</option>
                         </select>
                     </div>
                 </div>
 
                 <div class="stat-form-row">
                     <div class="stat-form-group stat-form-group--flex-3">
-                        <label for="card-player-name" class="stat-form-label">Oyuncu</label>
-                        <input type="text" id="card-player-name" name="playerName" class="stat-input" placeholder="Örn: Theo Hernández" required>
+                        <label for="card-player-id" class="stat-form-label">Oyuncu</label>
+                        <select id="card-player-id" name="playerId" class="stat-input stat-input--select" required>
+                            <option value="">Önce takım seçin</option>
+                        </select>
                     </div>
 
                     <div class="stat-form-group stat-form-group--flex-1">
                         <label for="card-minute" class="stat-form-label">Dakika</label>
-                        <input type="number" id="card-minute" name="minute" class="stat-input text-center" min="1" max="130" placeholder="Örn: 72" required>
+                        <input type="number" id="card-minute" name="minute" class="stat-input text-center" min="1" max="130" placeholder="72" required>
                     </div>
                 </div>
             </div>
 
             <footer class="stats-dialog__foot">
-                <button type="button" class="btn-stat btn-stat--ghost" data-card-modal-close>İptal</button>
-                <button type="submit" class="btn-stat btn-stat--primary">Kaydet</button>
+                <button type="button" class="btn-stat btn-stat--ghost" id="card-reset-btn" style="display: none;" onclick="resetCardForm()">İptal</button>
+                <button type="submit" class="btn-stat btn-stat--primary" id="card-submit-btn">Kart Ekle</button>
             </footer>
         </form>
+        <div style="margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.08);">
+            <span style="display: block; margin-bottom: 8px; font-size: 0.8rem; font-weight: 600; color: #94a3b8;">Kayıtlı Kartlar</span>
+            <div id="card-list">
+                <span style="color:#94a3b8; font-size:0.85rem;">Bu maçta henüz kart kaydı yok.</span>
+            </div>
+        </div>
     </div>
 </dialog>
 
@@ -640,26 +652,36 @@
 
                 <div class="stat-form-row">
                     <div class="stat-form-group stat-form-group--flex-1">
-                        <label for="sub-player-in" class="stat-form-label">
-                            <span class="text-success">▲</span> Giren Oyuncu (Player In)
+                        <label for="sub-player-in-id" class="stat-form-label" style="color: #22c55e;">
+                            ▲ Giren Oyuncu
                         </label>
-                        <input type="text" id="sub-player-in" name="playerIn" class="stat-input" placeholder="Örn: Federico Dimarco" required>
+                        <select id="sub-player-in-id" name="playerInId" class="stat-input stat-input--select" required>
+                            <option value="">Önce takım seçin</option>
+                        </select>
                     </div>
 
                     <div class="stat-form-group stat-form-group--flex-1">
-                        <label for="sub-player-out" class="stat-form-label">
-                            <span class="text-danger">▼</span> Çıkan Oyuncu (Player Out)
+                        <label for="sub-player-out-id" class="stat-form-label" style="color: #ef4444;">
+                            ▼ Çıkan Oyuncu
                         </label>
-                        <input type="text" id="sub-player-out" name="playerOut" class="stat-input" placeholder="Örn: Carlos Augusto" required>
+                        <select id="sub-player-out-id" name="playerOutId" class="stat-input stat-input--select" required>
+                            <option value="">Önce takım seçin</option>
+                        </select>
                     </div>
                 </div>
             </div>
 
             <footer class="stats-dialog__foot">
-                <button type="button" class="btn-stat btn-stat--ghost" data-sub-modal-close>İptal</button>
-                <button type="submit" class="btn-stat btn-stat--primary">Kaydet</button>
+                <button type="button" class="btn-stat btn-stat--ghost" id="sub-reset-btn" style="display: none;" onclick="resetSubForm()">İptal</button>
+                <button type="submit" class="btn-stat btn-stat--primary" id="sub-submit-btn">Değişiklik Ekle</button>
             </footer>
         </form>
+        <div style="margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.08);">
+            <span style="display: block; margin-bottom: 8px; font-size: 0.8rem; font-weight: 600; color: #94a3b8;">Kayıtlı Değişiklikler</span>
+            <div id="sub-list">
+                <span style="color:#94a3b8; font-size:0.85rem;">Bu maçta henüz değişiklik kaydı yok.</span>
+            </div>
+        </div>
     </div>
 </dialog>
 

@@ -5,25 +5,24 @@
 @await Component.InvokeAsync("_AdminMatchHeadCss")
 
 
-<body class="admin">
-    <div class="admin-main">
+
 
 @*         @await Component.InvokeAsync("_AdminMatchTopbar") *@
 
-        <main class="admin-content">
+<main class="admin-content">
 
-            @await Component.InvokeAsync("_AdminMatchHead")
+    @await Component.InvokeAsync("_AdminMatchHead")
 
-            @await Component.InvokeAsync("_AdminMatchTable")
+    @await Component.InvokeAsync("_AdminMatchTable")
 
-        </main>
-    </div>
+</main>
 
-    @await Component.InvokeAsync("_AdminMatchModals")
 
-    <div class="toast-stack" data-toasts aria-live="polite"></div>
+@await Component.InvokeAsync("_AdminMatchModals")
 
-    @await Component.InvokeAsync("_AdminMatchScripts")
+<div class="toast-stack" data-toasts aria-live="polite"></div>
 
-</body>
+@await Component.InvokeAsync("_AdminMatchScripts")
+
+
 

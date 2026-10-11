@@ -1,0 +1,144 @@
+﻿@using SerieA.API.DTOs.PlayerDtos
+@using SerieA.API.DTOs.TeamDtos
+@model UpdatePlayerDto
+
+@{
+    ViewData["Title"] = "Yeni Oyuncu Ekle | Serie A Admin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var teams = ViewBag.Teams as List<ResultTeamDto>;
+    var positions = ViewBag.Positions as List<SelectListItem>;
+}
+
+@await Component.InvokeAsync("_AdminTeamHeadCss")
+
+<main class="admin-content">
+    <div class="page-eyebrow">Lega Serie A TIM &bull; Kadro Kaydı</div>
+    <div class="page-head">
+        <div>
+            <h1 class="page-title">Yeni Oyuncu Tanımla</h1>
+            <p class="page-desc">Kulüp kadrosuna yeni bir futbolcu lisansı ve profil kartı ekleyin.</p>
+        </div>
+        <a href="/Player/PlayerList" class="btn-a btn-a--secondary">
+            &larr; Oyuncu Listesine Dön
+        </a>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-xl-9 col-lg-10">
+            <div class="card-a" style="overflow: hidden;">
+                <div style="height: 4px; background: var(--tricolore);"></div>
+
+                <form method="post" asp-action="UpdatePlayer" style="padding: 24px 28px;">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="crest-preview">
+                        <img id="previewImg"
+                             src="https://placehold.co/100x100/081530/FFFFFF?text=Player"
+                             alt="Önizleme"
+                             referrerpolicy="no-referrer"
+                             onerror="this.onerror=null; this.src='https://placehold.co/100x100/081530/FFFFFF?text=Hata';"
+                             style="width: 58px; height: 58px; border-radius: 10px; object-fit: cover; border: 1px solid var(--line);" />
+                        <div>
+                            <span class="crest-preview__name" id="previewName">Futbolcu Adı Soyadı</span>
+                            <span class="crest-preview__meta" id="previewSub">Serie A Kadro Kartı &bull; Forma: -</span>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <label class="field-label">Ad <span class="req">*</span></label>
+                            <input type="text" asp-for="FirstName" id="inFirstName" class="input-a" placeholder="Örn: Lautaro" required oninput="syncPreview()" />
+                        </div>
+
+                        <div class="form-field">
+                            <label class="field-label">Soyad <span class="req">*</span></label>
+                            <input type="text" asp-for="LastName" id="inLastName" class="input-a" placeholder="Örn: Martínez" required oninput="syncPreview()" />
+                        </div>
+
+                        <div class="form-field">
+                            <label class="field-label">Kulüp / Takım <span class="req">*</span></label>
+                            <select asp-for="TeamId" class="select-a" required>
+                                <option value="">Takım Seçiniz</option>
+                                @if (teams != null)
+                                {
+                                    foreach (var team in teams)
+                                    {
+                                        <option value="@team.Id">@team.Name</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+
+                        <div class="form-field">
+                            <label class="field-label">Forma Numarası <span class="req">*</span></label>
+                            <input type="number" asp-for="ShirtNumber" id="inShirt" class="input-a code-input" placeholder="10" min="1" max="99" required oninput="syncPreview()" />
+                        </div>
+
+                        <div class="form-field">
+                            <label class="field-label">Mevki <span class="req">*</span></label>
+                            <select asp-for="Position" asp-items="positions" class="select-a" required>
+                                <option value="">Mevki Seçiniz</option>
+                            </select>
+                        </div>
+
+                        <div class="form-field">
+                            <label class="field-label">Doğum Tarihi <span class="req">*</span></label>
+                            <input type="date" asp-for="BirthDate" class="input-a" required />
+                        </div>
+
+                        <div class="form-field span-2">
+                            <label class="field-label">Uyruk <span class="req">*</span></label>
+                            <input type="text" asp-for="Nationality" class="input-a" placeholder="Örn: Arjantin" required />
+                        </div>
+
+                        <div class="form-field span-2">
+                            <label class="field-label">Profil Görseli (URL)</label>
+                            <input type="url"
+                                   asp-for="ImageUrl"
+                                   id="inUrl"
+                                   class="input-a"
+                                   placeholder="https://domain.com/player-photo.png"
+                                   oninput="syncPreview()" />
+                            <p class="field-hint">Oyuncunun şeffaf arka planlı veya resmi portre görsel linkini ekleyin.</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-end gap-2 mt-4 pt-3" style="border-top: 1px solid var(--line);">
+                        <a href="/Player/PlayerList" class="btn-a btn-a--secondary">İptal</a>
+                        <button type="submit" class="btn-a btn-a--primary">
+                            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Kaydet & Oluştur
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    function syncPreview() {
+        const fn = document.getElementById('inFirstName')?.value.trim() || 'Futbolcu';
+        const ln = document.getElementById('inLastName')?.value.trim() || '';
+        const num = document.getElementById('inShirt')?.value.trim() || '-';
+        const inUrl = document.getElementById('inUrl');
+        const url = inUrl ? inUrl.value.trim() : '';
+        const previewImg = document.getElementById('previewImg');
+
+        if (document.getElementById('previewName')) {
+            document.getElementById('previewName').innerText = `${fn} ${ln}`.trim();
+        }
+        if (document.getElementById('previewSub')) {
+            document.getElementById('previewSub').innerText = `Serie A Kadro Kartı • Forma: #${num}`;
+        }
+
+        if (previewImg) {
+            if (url) {
+                previewImg.src = url;
+            } else {
+                previewImg.src = 'https://placehold.co/100x100/081530/FFFFFF?text=Player';
+            }
+        }
+    }
+</script>

@@ -403,6 +403,142 @@
         }
       }
     },
+    "/api/Players": {
+      "get": {
+        "tags": [
+          "Players"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Players"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePlayerDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePlayerDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePlayerDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Players"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Players"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePlayerDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePlayerDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePlayerDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Players/{id}": {
+      "get": {
+        "tags": [
+          "Players"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Players/ByTeam/{teamId}": {
+      "get": {
+        "tags": [
+          "Players"
+        ],
+        "parameters": [
+          {
+            "name": "teamId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Standings": {
       "get": {
         "tags": [
@@ -650,9 +786,9 @@
             "type": "integer",
             "format": "int32"
           },
-          "playerName": {
-            "type": "string",
-            "nullable": true
+          "playerId": {
+            "type": "integer",
+            "format": "int32"
           },
           "minute": {
             "type": "integer",
@@ -718,12 +854,13 @@
             "type": "integer",
             "format": "int32"
           },
-          "playerName": {
-            "type": "string",
-            "nullable": true
+          "playerId": {
+            "type": "integer",
+            "format": "int32"
           },
-          "assistPlayerName": {
-            "type": "string",
+          "assistPlayerId": {
+            "type": "integer",
+            "format": "int32",
             "nullable": true
           },
           "minute": {
@@ -779,6 +916,43 @@
         },
         "additionalProperties": false
       },
+      "CreatePlayerDto": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "shirtNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "position": {
+            "$ref": "#/components/schemas/Position"
+          },
+          "birthDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "nationality": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "teamId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateSubstitutionDto": {
         "type": "object",
         "properties": {
@@ -790,13 +964,13 @@
             "type": "integer",
             "format": "int32"
           },
-          "playerIn": {
-            "type": "string",
-            "nullable": true
+          "playerInId": {
+            "type": "integer",
+            "format": "int32"
           },
-          "playerOut": {
-            "type": "string",
-            "nullable": true
+          "playerOutId": {
+            "type": "integer",
+            "format": "int32"
           },
           "minute": {
             "type": "integer",
@@ -863,6 +1037,16 @@
         "type": "integer",
         "format": "int32"
       },
+      "Position": {
+        "enum": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
       "Region": {
         "enum": [
           1,
@@ -888,9 +1072,9 @@
             "type": "integer",
             "format": "int32"
           },
-          "playerName": {
-            "type": "string",
-            "nullable": true
+          "playerId": {
+            "type": "integer",
+            "format": "int32"
           },
           "minute": {
             "type": "integer",
@@ -964,12 +1148,13 @@
             "type": "integer",
             "format": "int32"
           },
-          "playerName": {
-            "type": "string",
-            "nullable": true
+          "playerId": {
+            "type": "integer",
+            "format": "int32"
           },
-          "assistPlayerName": {
-            "type": "string",
+          "assistPlayerId": {
+            "type": "integer",
+            "format": "int32",
             "nullable": true
           },
           "minute": {
@@ -1029,6 +1214,47 @@
         },
         "additionalProperties": false
       },
+      "UpdatePlayerDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "shirtNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "position": {
+            "$ref": "#/components/schemas/Position"
+          },
+          "birthDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "nationality": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "teamId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "UpdateSubstitutionDto": {
         "type": "object",
         "properties": {
@@ -1044,13 +1270,13 @@
             "type": "integer",
             "format": "int32"
           },
-          "playerIn": {
-            "type": "string",
-            "nullable": true
+          "playerInId": {
+            "type": "integer",
+            "format": "int32"
           },
-          "playerOut": {
-            "type": "string",
-            "nullable": true
+          "playerOutId": {
+            "type": "integer",
+            "format": "int32"
           },
           "minute": {
             "type": "integer",

@@ -9,7 +9,7 @@
 
     var cards = Model.Cards.Select(c => new { c.Minute, Type = c.CardType == CardType.YellowCard ? "yellow" : "red", c.TeamId, PlayerName = c.PlayerName, Sub = (string?)null });
     var goals = Model.Goals.Select(g => new { g.Minute, Type = "goal", g.TeamId, g.PlayerName, Sub = (string?)null });
-    var subs = Model.Substitutions.Select(s => new { s.Minute, Type = "sub", s.TeamId, PlayerName = s.PlayerIn, Sub = s.PlayerOut });
+    var subs = Model.Substitutions.Select(s => new { s.Minute, Type = "sub", s.TeamId, PlayerName = s.PlayerInName, Sub = s.PlayerOutName });
 
     var allEvents = goals.Cast<dynamic>().Concat(cards.Cast<dynamic>()).Concat(subs.Cast<dynamic>()).OrderBy(e => e.Minute).ToList();
 }
