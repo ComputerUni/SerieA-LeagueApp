@@ -6,6 +6,8 @@ C:\Users\BURHAN\Desktop\SerieA\SerieA.API\bin\Debug\net8.0\SerieA.API.deps.json
 C:\Users\BURHAN\Desktop\SerieA\SerieA.API\bin\Debug\net8.0\SerieA.API.runtimeconfig.json
 C:\Users\BURHAN\Desktop\SerieA\SerieA.API\bin\Debug\net8.0\SerieA.API.dll
 C:\Users\BURHAN\Desktop\SerieA\SerieA.API\bin\Debug\net8.0\SerieA.API.pdb
+C:\Users\BURHAN\Desktop\SerieA\SerieA.API\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\BURHAN\Desktop\SerieA\SerieA.API\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\BURHAN\Desktop\SerieA\SerieA.API\bin\Debug\net8.0\Azure.Core.dll
 C:\Users\BURHAN\Desktop\SerieA\SerieA.API\bin\Debug\net8.0\Azure.Identity.dll
 C:\Users\BURHAN\Desktop\SerieA\SerieA.API\bin\Debug\net8.0\Humanizer.dll
@@ -146,5 +148,3 @@ C:\Users\BURHAN\Desktop\SerieA\SerieA.API\obj\Debug\net8.0\refint\SerieA.API.dll
 C:\Users\BURHAN\Desktop\SerieA\SerieA.API\obj\Debug\net8.0\SerieA.API.pdb
 C:\Users\BURHAN\Desktop\SerieA\SerieA.API\obj\Debug\net8.0\SerieA.API.genruntimeconfig.cache
 C:\Users\BURHAN\Desktop\SerieA\SerieA.API\obj\Debug\net8.0\ref\SerieA.API.dll
-C:\Users\BURHAN\Desktop\SerieA\SerieA.API\bin\Debug\net8.0\AutoMapper.dll
-C:\Users\BURHAN\Desktop\SerieA\SerieA.API\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

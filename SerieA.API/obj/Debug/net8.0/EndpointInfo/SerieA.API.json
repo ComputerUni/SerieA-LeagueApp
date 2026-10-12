@@ -201,6 +201,18 @@
         }
       }
     },
+    "/api/Matches/all-weeks": {
+      "get": {
+        "tags": [
+          "Matches"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Matches/{id}": {
       "get": {
         "tags": [

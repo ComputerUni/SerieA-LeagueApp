@@ -123,6 +123,16 @@
   },
   {
     "ContainingType": "SerieA.API.Controllers.MatchesController",
+    "Method": "GetWeeksSummary",
+    "RelativePath": "api/Matches/all-weeks",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SerieA.API.Controllers.MatchesController",
     "Method": "GetMatchesByWeek",
     "RelativePath": "api/Matches/week/{week}",
     "HttpMethod": "GET",

@@ -18,7 +18,7 @@ namespace SerieA.API.Mappings
                 .ForMember(dest => dest.Fouls, opt => opt.MapFrom(src => src.Fouls))
                 .ForMember(dest => dest.Offsides, opt => opt.MapFrom(src => src.Offsides)).ReverseMap();
             CreateMap<CreateMatchStatisticsDto, MatchStatistic>().ReverseMap();
-            CreateMap<Match, UpdateMatchStatisticsDto>().ReverseMap();
+            CreateMap<UpdateMatchStatisticsDto, MatchStatistic>().ReverseMap();
         }
     }
 }

@@ -72,27 +72,38 @@ namespace SerieA.API.Controllers
             return Ok(values);
         }
 
+        [HttpGet("all-weeks")]
+        public async Task<IActionResult> GetWeeksSummary()
+        {
+            var matches = await _context.Matches.ToListAsync();
+            var weeks = matches.GroupBy(m => m.Week).Select(g => new
+            {
+                week = g.Key,
+                start = g.Min(m => m.MatchDate).ToString("yyyy-MM-dd"),
+                end = g.Max(m => m.MatchDate).ToString("yyyy-MM-dd")
+
+            }).OrderBy(w => w.week).ToList();
+
+            return Ok(weeks);
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetMatchDetailById(int id)
         {
             var detail = await _context.Matches
                 .Include(x => x.AwayTeam)
                 .Include(x => x.HomeTeam)
-                .Include(x => x.Substitutions)
-                    .ThenInclude(s => s.PlayerIn)
-                .Include(x => x.Substitutions)
-                    .ThenInclude(s => s.PlayerOut)
-                .Include(x => x.MatchCards)
-                    .ThenInclude(c => c.Player)
-                .Include(x => x.MatchGoals)
-                    .ThenInclude(g => g.Player)
-                .Include(x => x.MatchGoals)
-                    .ThenInclude(g => g.AssistPlayer)
                 .FirstOrDefaultAsync(x => x.Id == id);
+
             if(detail is null)
             {
                 return NotFound($"{id} numaralı id'ye ait maç detayı bulunamadı");
             }
+            await _context.Entry(detail).Collection(x => x.MatchGoals).Query().Include(g => g.Player).Include(g => g.AssistPlayer).LoadAsync();
+            await _context.Entry(detail).Collection(x => x.MatchCards).Query().Include(c => c.Player).LoadAsync();
+            await _context.Entry(detail).Collection(x => x.Substitutions).Query().Include(s => s.PlayerIn).Include(s => s.PlayerOut).LoadAsync();
+
+
             var value = _mapper.Map<ResultMatchDto>(detail);
             return Ok(value);
         }
