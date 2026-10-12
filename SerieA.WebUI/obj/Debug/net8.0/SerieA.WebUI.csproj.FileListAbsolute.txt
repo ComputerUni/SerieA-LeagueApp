@@ -94,3 +94,5 @@ C:\Users\BURHAN\Desktop\SerieA\SerieA.WebUI\obj\Debug\net8.0\refint\SerieA.WebUI
 C:\Users\BURHAN\Desktop\SerieA\SerieA.WebUI\obj\Debug\net8.0\SerieA.WebUI.pdb
 C:\Users\BURHAN\Desktop\SerieA\SerieA.WebUI\obj\Debug\net8.0\SerieA.WebUI.genruntimeconfig.cache
 C:\Users\BURHAN\Desktop\SerieA\SerieA.WebUI\obj\Debug\net8.0\ref\SerieA.WebUI.dll
+C:\Users\BURHAN\Desktop\SerieA\SerieA.WebUI\bin\Debug\net8.0\X.PagedList.dll
+C:\Users\BURHAN\Desktop\SerieA\SerieA.WebUI\bin\Debug\net8.0\X.PagedList.Mvc.Core.dll

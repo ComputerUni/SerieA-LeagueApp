@@ -1,0 +1,129 @@
+﻿@using SerieA.API.DTOs.StandingDtos
+@model List<ResultStandingDto>
+
+
+@{
+    int rank = 1;
+}
+
+<section class="table-panel" aria-labelledby="table-title">
+    <div class="table-toolbar">
+        <h2 class="table-toolbar__title" id="table-title">Genel sıralama</h2>
+        <div class="table-toolbar__controls">
+            <div class="zone-filter" role="group" aria-label="Bölgeye göre filtrele">
+                <button type="button" class="zone-chip zone-chip--all" data-zone-filter="all" aria-pressed="true">Tümü</button>
+                <button type="button" class="zone-chip zone-chip--ucl" data-zone-filter="ucl" aria-pressed="false">Şampiyonlar Ligi</button>
+                <button type="button" class="zone-chip zone-chip--europe" data-zone-filter="europe" aria-pressed="false">Avrupa</button>
+                <button type="button" class="zone-chip zone-chip--rel" data-zone-filter="rel" aria-pressed="false">Düşme hattı</button>
+            </div>
+            <label class="team-search">
+                <span class="visually-hidden">Takım ara</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="M20 20l-4-4" /></svg>
+                <input type="search" placeholder="Takım ara" autocomplete="off" data-team-search>
+            </label>
+        </div>
+    </div>
+
+    <div class="standings-table-wrap">
+        <table class="standings-table">
+            <caption class="visually-hidden">Serie A 2026/27, 12. hafta puan durumu</caption>
+            <thead>
+                <tr>
+                    <th scope="col" class="col-pos">#</th>
+                    <th scope="col" class="col-team">Takım</th>
+                    <th scope="col" class="col-num"><abbr title="Oynanan maç">O</abbr></th>
+                    <th scope="col" class="col-num"><abbr title="Galibiyet">G</abbr></th>
+                    <th scope="col" class="col-num"><abbr title="Beraberlik">B</abbr></th>
+                    <th scope="col" class="col-num"><abbr title="Mağlubiyet">M</abbr></th>
+                    <th scope="col" class="col-num col-hide-sm"><abbr title="Atılan gol">AG</abbr></th>
+                    <th scope="col" class="col-num col-hide-sm"><abbr title="Yenilen gol">YG</abbr></th>
+                    <th scope="col" class="col-gd"><abbr title="Averaj">AV</abbr></th>
+                    <th scope="col" class="col-pts">Puan</th>
+                    <th scope="col" class="col-form">Son 5 maç</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var team in Model)
+                {
+                    string zone = rank <= 4 ? "ucl" : (rank <= 6 ? "europe" : (rank >= 18 ? "rel" : "mid"));
+                    string zoneClass = zone switch
+                    {
+                        "ucl" => "zone-ucl" + (rank == 4 ? " edge-ucl" : ""),
+                        "europe" => "zone-europe" + (rank == 6 ? " edge-europe" : ""),
+                        "rel" => "zone-rel",
+                        _ => (rank == 17 ? "edge-rel" : "")
+                    };
+
+                    string teamKey = team.TeamName.ToLower().Replace(" ", "");
+                    string crestCode = team.TeamName.Length >= 3 ? team.TeamName.Substring(0, 3).ToUpper() : team.TeamName.ToUpper();
+                    string gdClass = team.GoalDifference > 0 ? "is-pos" : (team.GoalDifference < 0 ? "is-neg" : "is-zero");
+                    string gdSign = team.GoalDifference > 0 ? "+" : "";
+
+                    
+                    <tr class="standings-row @zoneClass" data-team="@teamKey" data-team-name="@team.TeamName" data-zone="@zone" tabindex="0">
+                        <td class="col-pos">@rank</td>
+                        <th scope="row" class="col-team">
+                            <div class="team-cell">
+                                <img style="width:30px;height:30px" src="@team.LogoUrl" alt="@team.TeamName" />
+                                <span class="team-name">@team.TeamName</span>
+                            </div>
+                        </th>
+                        <td class="col-num">@team.PlayedMatch</td>
+                        <td class="col-num">@team.Won</td>
+                        <td class="col-num">@team.Drawn</td>
+                        <td class="col-num">@team.Lost</td>
+                        <td class="col-num col-hide-sm">@team.GoalsFor</td>
+                        <td class="col-num col-hide-sm">@team.GoalsAgainst</td>
+                        <td class="col-gd"><span class="gd @gdClass">@gdSign@team.GoalDifference</span></td>
+                        <td class="col-pts">@team.Points</td>
+                        <td class="col-form">
+                            @if (team.LastFiveMatches != null && team.LastFiveMatches.Any())
+                            {
+                                <ol class="form-list">
+                                    @foreach (var result in team.LastFiveMatches)
+                                    {
+                                        string badgeClass = result switch
+                                        {
+                                            "G" => "form-badge--w",
+                                            "B" => "form-badge--d",
+                                            "M" => "form-badge--l",
+                                            _ => ""
+                                        };
+
+                                        string title = result switch
+                                        {
+                                            "G" => "Galibiyet",
+                                            "B" => "Beraberlik",
+                                            "M" => "Mağlubiyet",
+                                            _ => ""
+                                        };
+                                        <li>
+                                            <span class="form-badge @badgeClass" title="@title">@result</span>
+                                        </li>
+                                    }
+                                </ol>
+                            }
+                            else
+                            {
+                                <span class="text-muted small">-</span>
+                            }
+                        </td>
+
+                    </tr>
+
+                    rank++;
+                }
+
+              
+                <tr class="empty-row" data-empty-row hidden>
+                    <td colspan="11"><strong>Bu filtreyle eşleşen takım yok</strong>Aramayı temizle ya da “Tümü” filtresini seç.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-foot">
+        <span>Gösterilen takım: <strong data-visible-count>20</strong> / 20</span>
+        <span>Son güncelleme: 22 Eylül 2026, 23:45</span>
+    </div>
+</section>

@@ -8,6 +8,7 @@
 @await Html.PartialAsync("Partials/_FixtureHead")
 
 <body class="fixtures-page">
+    @await Html.PartialAsync("Partials/_Navbar")
     <main class="fixtures-shell container-xl" data-fixtures-page data-current-week="@Model.CurrentWeek">
 
         @await Html.PartialAsync("Partials/_FixturesHero", Model)

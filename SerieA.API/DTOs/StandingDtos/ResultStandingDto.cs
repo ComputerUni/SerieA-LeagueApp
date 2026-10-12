@@ -12,5 +12,7 @@
         public int GoalsAgainst { get; set; }
         public int GoalDifference { get; set; }
         public int Points { get; set; }
+        public string LogoUrl { get; set; }
+        public List<string> LastFiveMatches { get; set; }
     }
 }

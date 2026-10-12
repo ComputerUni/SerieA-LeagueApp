@@ -1,0 +1,73 @@
+﻿@model StandingsViewModel
+
+<section class="summary-section" aria-label="Haftanın öne çıkanları">
+    <div class="row g-3">
+        <div class="col-sm-6 col-xl-3">
+            <!-- Partial: _StatCard -->
+            <article class="stat-card stat-card--leader">
+                <div class="stat-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M8 4h8v5a4 4 0 0 1-8 0V4z" />
+                        <path d="M8 6H5v1a3 3 0 0 0 3 3M16 6h3v1a3 3 0 0 1-3 3M12 13v4M9 20h6" />
+                    </svg>
+                </div>
+                <div class="stat-card__body">
+                    <p class="stat-card__label">Lider</p>
+                    <p class="stat-card__team">
+                        <img src="@Model.Leader.LogoUrl" alt="@Model.Leader.TeamName" class="team-crest team-crest--sm" style="width:24px;height:24px;object-fit:contain;" />
+                        @Model.Leader.TeamName
+                    </p>
+                    <p class="stat-card__note">@(Model.LeadGap > 0 ? $"En yakın rakibin {Model.LeadGap} puan önünde" : "Averajla lider")</p>
+                </div>
+                <p class="stat-card__value">@Model.Leader.Points<small>puan</small></p>
+            </article>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <!-- Partial: _StatCard -->
+            <article class="stat-card stat-card--attack">
+                <div class="stat-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5" /><path d="M12 7.6l3.3 2.4-1.3 3.8h-4l-1.3-3.8z" /></svg></div>
+                <div class="stat-card__body">
+                    <p class="stat-card__label">En çok gol atan</p>
+                    <p class="stat-card__team">
+                        <img src="@Model.BestAttack.LogoUrl" alt="@Model.BestAttack.TeamName" class="team-crest team-crest--sm" style="width:24px;height:24px;object-fit:contain;" />
+                        @Model.BestAttack.TeamName
+                    </p>
+                    <p class="stat-card__note">Maç başına @Model.AvgGoalsFor.ToString("0.00") gol</p>
+                </div>
+                <p class="stat-card__value">@Model.BestAttack?.GoalsFor<small>gol</small></p>
+            </article>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <!-- Partial: _StatCard -->
+            <article class="stat-card stat-card--defence">
+                <div class="stat-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z" /></svg></div>
+                <div class="stat-card__body">
+                    <p class="stat-card__label">En az gol yiyen</p>
+                    <p class="stat-card__team">
+                        <img src="@Model.BestDefence.LogoUrl" alt="@Model.BestDefence.TeamName" class="team-crest team-crest--sm" style="width:24px;height:24px;object-fit:contain;" />
+                        @Model.BestDefence.TeamName
+                    </p>                   
+                    <p class="stat-card__note">Maç başına @Model.AvgGoalsAgainst.ToString("0.00") gol</p>
+                </div>
+                <p class="stat-card__value">@Model.BestDefence.GoalsAgainst<small>gol</small></p>
+            </article>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <!-- Partial: _StatCard -->
+            <article class="stat-card stat-card--danger">
+                <div class="stat-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l6 6 4-4 6 6M20 10v5h-5" /></svg></div>
+                <div class="stat-card__body">
+                    <p class="stat-card__label">Düşme hattı başlangıcı</p>
+                    <p class="stat-card__team">
+                        <img src="@Model.RelegationStart.LogoUrl" alt="@Model.RelegationStart.TeamName" class="team-crest team-crest--sm" style="width:24px;height:24px;object-fit:contain;" />
+                        @Model.RelegationStart.TeamName
+                    </p>                 
+                    <p class="stat-card__note">
+                        @Model.RelegationStart?.Points puan, @(Model.GapToSafety > 0 ? $"kurtuluşa {Model.GapToSafety} puan" : "baraj hattında")
+                    </p>
+                </div>
+                <p class="stat-card__value">18.<small>sıra</small></p>
+            </article>
+        </div>
+    </div>
+</section>

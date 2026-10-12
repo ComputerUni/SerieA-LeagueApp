@@ -36,16 +36,6 @@ namespace SerieA.WebUI.Controllers
 
         public async Task<IActionResult> PlayerList()
         {
-            //var teams = await GetTeams();
-            //ViewBag.Teams = teams;
-            //var client = new HttpClient();
-            //var responseMessage = await client.GetAsync("https://localhost:7078/api/Players");
-            //if (responseMessage.IsSuccessStatusCode)
-            //{
-            //    var jsonData = await responseMessage.Content.ReadAsStringAsync();
-            //    var values = JsonConvert.DeserializeObject<List<ResultPlayerDto>>(jsonData);
-            //    return View(values);
-            //}
             return View();
         }
 

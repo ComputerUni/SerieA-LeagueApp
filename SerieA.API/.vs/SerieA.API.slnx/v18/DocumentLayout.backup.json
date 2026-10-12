@@ -3,15 +3,56 @@
   "WorkspaceRootPath": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.api\\mappings\\matchstatisticsmappings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|solutionrelative:mappings\\matchstatisticsmappings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\weeklyfixture\\weeklyfixturelist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.api\\controllers\\matchescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|solutionrelative:controllers\\matchescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\standing\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\standing\\partials\\_navbar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\weeklyfixture\\partials\\_navbar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.api\\dtos\\standingdtos\\formleaderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BFC8C191-C28C-4C5B-6D93-DB41B57A94F5}|SerieA.API.csproj|solutionrelative:dtos\\standingdtos\\formleaderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\standing\\partials\\_standinghead.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\standing\\partials\\_standingsidebar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\models\\standingsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\standing\\partials\\_standingsummarycards.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\controllers\\standingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\standing\\partials\\_standinghero.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\models\\fixturesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\controllers\\weeklyfixturecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\controllers\\matchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\controllers\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -20,8 +61,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 592,
-          "SelectedChildIndex": 6,
+          "DockedWidth": 597,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -41,41 +82,229 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "WeeklyFixtureList.cshtml",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\WeeklyFixture\\WeeklyFixtureList.cshtml",
+              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\WeeklyFixture\\WeeklyFixtureList.cshtml",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\WeeklyFixture\\WeeklyFixtureList.cshtml",
+              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\WeeklyFixture\\WeeklyFixtureList.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-12T23:18:38.783Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Navbar.cshtml",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\WeeklyFixture\\Partials\\_Navbar.cshtml",
+              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\WeeklyFixture\\Partials\\_Navbar.cshtml",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\WeeklyFixture\\Partials\\_Navbar.cshtml",
+              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\WeeklyFixture\\Partials\\_Navbar.cshtml",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-12T23:18:02.257Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MatchController.cs",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Controllers\\MatchController.cs",
-              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Controllers\\MatchController.cs",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Controllers\\MatchController.cs",
-              "RelativeToolTip": "..\\SerieA.WebUI\\Controllers\\MatchController.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAUwGIAAAARAAAAAAAAAA==",
+              "Title": "_Navbar.cshtml",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Standing\\Partials\\_Navbar.cshtml",
+              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Standing\\Partials\\_Navbar.cshtml",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Standing\\Partials\\_Navbar.cshtml",
+              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Standing\\Partials\\_Navbar.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-12T23:11:19.491Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_AdminLayout.cshtml",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Shared\\_AdminLayout.cshtml",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Shared\\_AdminLayout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-12T23:09:30.943Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormLeaderDto.cs",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\DTOs\\StandingDtos\\FormLeaderDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\StandingDtos\\FormLeaderDto.cs",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\DTOs\\StandingDtos\\FormLeaderDto.cs",
+              "RelativeToolTip": "DTOs\\StandingDtos\\FormLeaderDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-12T14:21:42.279Z",
+              "WhenOpened": "2026-10-12T21:48:48.437Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MatchesController.cs",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\Controllers\\MatchesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\MatchesController.cs",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\Controllers\\MatchesController.cs",
-              "RelativeToolTip": "Controllers\\MatchesController.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAADwv10AAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-12T14:21:28.536Z",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Standing\\Index.cshtml",
+              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Standing\\Index.cshtml",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Standing\\Index.cshtml",
+              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Standing\\Index.cshtml",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAiwA4AAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-12T16:55:03.584Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MatchStatisticsMappings.cs",
-              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\Mappings\\MatchStatisticsMappings.cs",
-              "RelativeDocumentMoniker": "Mappings\\MatchStatisticsMappings.cs",
-              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\Mappings\\MatchStatisticsMappings.cs",
-              "RelativeToolTip": "Mappings\\MatchStatisticsMappings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABeAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "_StandingHead.cshtml",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Standing\\Partials\\_StandingHead.cshtml",
+              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Standing\\Partials\\_StandingHead.cshtml",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Standing\\Partials\\_StandingHead.cshtml",
+              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Standing\\Partials\\_StandingHead.cshtml",
+              "ViewState": "AgIAANEDAAAAAAAAAAAiwCcEAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-12T23:14:42.799Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-12T23:09:34.458Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "_StandingSidebar.cshtml",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Standing\\Partials\\_StandingSidebar.cshtml",
+              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Standing\\Partials\\_StandingSidebar.cshtml",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Standing\\Partials\\_StandingSidebar.cshtml",
+              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Standing\\Partials\\_StandingSidebar.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-12T22:58:29.053Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "_StandingSummaryCards.cshtml",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Standing\\Partials\\_StandingSummaryCards.cshtml",
+              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Standing\\Partials\\_StandingSummaryCards.cshtml",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Standing\\Partials\\_StandingSummaryCards.cshtml",
+              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Standing\\Partials\\_StandingSummaryCards.cshtml",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAEcAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-12T19:27:08.479Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 587,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "StandingsViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Models\\StandingsViewModel.cs",
+              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Models\\StandingsViewModel.cs",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Models\\StandingsViewModel.cs",
+              "RelativeToolTip": "..\\SerieA.WebUI\\Models\\StandingsViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-12T12:47:58.859Z",
+              "WhenOpened": "2026-10-12T18:55:55.228Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "FixturesViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Models\\FixturesViewModel.cs",
+              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Models\\FixturesViewModel.cs",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Models\\FixturesViewModel.cs",
+              "RelativeToolTip": "..\\SerieA.WebUI\\Models\\FixturesViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-12T16:57:11.797Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "StandingController.cs",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Controllers\\StandingController.cs",
+              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Controllers\\StandingController.cs",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Controllers\\StandingController.cs",
+              "RelativeToolTip": "..\\SerieA.WebUI\\Controllers\\StandingController.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAiwCoAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-12T16:56:46.126Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "_StandingHero.cshtml",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Standing\\Partials\\_StandingHero.cshtml",
+              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Standing\\Partials\\_StandingHero.cshtml",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Standing\\Partials\\_StandingHero.cshtml",
+              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Standing\\Partials\\_StandingHero.cshtml",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAiwCgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-12T16:55:04.637Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "WeeklyFixtureController.cs",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Controllers\\WeeklyFixtureController.cs",
+              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Controllers\\WeeklyFixtureController.cs",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Controllers\\WeeklyFixtureController.cs",
+              "RelativeToolTip": "..\\SerieA.WebUI\\Controllers\\WeeklyFixtureController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-12T16:57:23.253Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "MatchController.cs",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Controllers\\MatchController.cs",
+              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Controllers\\MatchController.cs",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Controllers\\MatchController.cs",
+              "RelativeToolTip": "..\\SerieA.WebUI\\Controllers\\MatchController.cs",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAmwGkAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-12T16:56:47.149Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "PlayerController.cs",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Controllers\\PlayerController.cs",
+              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Controllers\\PlayerController.cs",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Controllers\\PlayerController.cs",
+              "RelativeToolTip": "..\\SerieA.WebUI\\Controllers\\PlayerController.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-12T16:56:39.117Z",
               "EditorCaption": ""
             }
           ]

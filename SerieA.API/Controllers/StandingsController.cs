@@ -16,7 +16,8 @@ namespace SerieA.API.Controllers
         public async Task<IActionResult> GetStandings()
         {
             var completed = await _context.Matches.Where(x => x.Status == MatchStatus.Completed).ToListAsync();
-            var teams = await _context.Teams.ToListAsync();
+            var teams = await _context.Teams.Where(x => x.IsActive).ToListAsync();
+
 
             var standings = teams.Select(team =>
             {
@@ -35,6 +36,21 @@ namespace SerieA.API.Controllers
 
                 var points = wins * 3 + draws;
 
+                var allTeamMatches = completed.Where(m => m.HomeTeamId == team.Id || m.AwayTeamId == team.Id).OrderByDescending(m => m.MatchDate).Take(5).OrderBy(m => m.MatchDate).ToList();
+
+                var lastFive = allTeamMatches.Select(m =>
+                {
+                    bool isHome = m.HomeTeamId == team.Id;
+                    int teamScore = isHome ? (m.HomeScore ?? 0) : (m.AwayScore ?? 0);
+                    int oppScore = isHome ? (m.AwayScore ?? 0) : (m.HomeScore ?? 0);
+
+                    if (teamScore > oppScore) return "G";
+                    if (teamScore == oppScore) return "B";
+                    return "M";
+
+                }).ToList();
+
+
                 return new ResultStandingDto
                 {
                     TeamId = team.Id,
@@ -46,7 +62,9 @@ namespace SerieA.API.Controllers
                     GoalsFor = goalsFor,
                     GoalsAgainst = goalsAgainst,
                     GoalDifference = goalsFor - goalsAgainst,
-                    Points = points
+                    Points = points,
+                    LogoUrl = team.LogoUrl,
+                    LastFiveMatches = lastFive
                 };
 
             }).OrderByDescending(x => x.Points).ThenByDescending(x => x.GoalDifference).ThenByDescending(x => x.GoalsFor).ToList();

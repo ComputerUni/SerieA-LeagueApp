@@ -1,0 +1,59 @@
+﻿@model StandingsViewModel
+
+@{
+    int rank = 1;
+    var pointGroups = Model.Standings.GroupBy(x => x.Points).ToDictionary(g => g.Key, g => 0);
+    int maxPoints = Model.Standings.Any() ? Math.Max(Model.Standings.Max(x => x.Points), 1) : 0;
+}
+
+<header class="standings-hero">
+    <div class="hero-top">
+        <div>
+            <div class="hero-league"><span class="league-mark" aria-hidden="true">SA</span>İtalya, Serie A</div>
+            <h1 class="hero-title">Serie A Puan Durumu</h1>
+            <p class="hero-subtitle">@Model.CurrentWeek. hafta sonunda güncel sıralama, gol dengesi ve son 5 maçlık form durumu.</p>
+        </div>
+        <dl class="hero-meta">
+            <div><dt>Sezon</dt><dd>2026/27</dd></div>
+            <div><dt>Hafta</dt><dd>@Model.CurrentWeek</dd></div>
+            <div><dt>Takım sayısı</dt><dd>@Model.TotalTeams</dd></div>
+        </dl>
+    </div>
+
+    <!-- Partial: _PointsLadder -->
+    <section class="points-ladder" aria-labelledby="ladder-title">
+        <div class="ladder-head">
+            <h2 class="ladder-title" id="ladder-title">Puan dağılımı</h2>
+            <p class="ladder-hint">Tabloda görmek için bir takıma dokun</p>
+        </div>
+        <div class="ladder-scroll">
+            <div class="ladder-track">
+                <span class="ladder-axis" aria-hidden="true"></span>
+                <span class="ladder-tick" style="--x:4.17%">5</span>
+                <span class="ladder-tick" style="--x:25.00%">10</span>
+                <span class="ladder-tick" style="--x:45.83%">15</span>
+                <span class="ladder-tick" style="--x:66.67%">20</span>
+                <span class="ladder-tick" style="--x:87.50%">25</span>
+                @foreach (var team in Model.Standings)
+                {
+                    string zone = rank <= 4 ? "zone-ucl" : (rank <= 6 ? "zone-europe" : (rank >= 18 ? "zone-rel" : ""));
+                    string teamKey = team.TeamName.ToLower().Replace(" ", "");
+                    double xPos = Math.Clamp(((double)team.Points / 28.0) * 100.0, 4.0, 96.0);
+                    int stackIndex = pointGroups[team.Points]++;
+
+                    <button type="button"
+                            class="ladder-marker @zone"
+                            style="--x:@(xPos.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture))%; --stack:@stackIndex; --i:@(Model.TotalTeams - rank);"
+                            data-ladder-team="@teamKey"
+                            aria-label="@team.TeamName, @rank. sıra, @team.Points puan"
+                            title="@team.TeamName: @team.Points">
+                        <img src="@team.LogoUrl"
+                             alt="@team.TeamName"
+                             style="width:24px;height:24px;object-fit:contain;" />
+                    </button>
+                    rank++;
+                }
+            </div>
+        </div>
+    </section>
+</header>

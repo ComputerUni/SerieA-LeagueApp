@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "0bxehsFdjMc=",
+  "dgSpecHash": "Q0E1YpqA5Pc=",
   "success": true,
   "projectFilePath": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\SerieA.WebUI.csproj",
   "expectedPackageFiles": [
@@ -67,7 +67,9 @@
     "C:\\Users\\BURHAN\\.nuget\\packages\\system.text.encodings.web\\4.7.2\\system.text.encodings.web.4.7.2.nupkg.sha512",
     "C:\\Users\\BURHAN\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512",
     "C:\\Users\\BURHAN\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\BURHAN\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
+    "C:\\Users\\BURHAN\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
+    "C:\\Users\\BURHAN\\.nuget\\packages\\x.pagedlist\\10.6.0\\x.pagedlist.10.6.0.nupkg.sha512",
+    "C:\\Users\\BURHAN\\.nuget\\packages\\x.pagedlist.mvc.core\\10.6.0\\x.pagedlist.mvc.core.10.6.0.nupkg.sha512"
   ],
   "logs": []
 }
