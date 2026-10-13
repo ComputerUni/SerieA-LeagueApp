@@ -1,0 +1,473 @@
+﻿@using SerieA.API.DTOs.StandingDtos
+@model List<TopAssistDto>
+@{
+    Layout = null;
+    var topThree = Model.Take(3).ToList();
+    var restList = Model.Skip(3).ToList();
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Serie A – Asist Krallığı</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Teko:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+            :root {
+                --bg-dark: #080C14;
+                --card-bg: rgba(17, 24, 39, 0.7);
+                --card-border: rgba(255, 255, 255, 0.08);
+                --card-hover: rgba(29, 41, 66, 0.85);
+                --accent-teal: #00E5FF;
+                --accent-emerald: #00F5A0;
+                --accent-gold: #FFD043;
+                --accent-silver: #CBD5E1;
+                --accent-bronze: #F59E0B;
+                --text-main: #F8FAFC;
+                --text-sub: #94A3B8;
+                --font-display: "Teko", sans-serif;
+                --font-body: "Outfit", sans-serif;
+            }
+
+            *, *::before, *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                background-color: var(--bg-dark);
+                background-image: radial-gradient(circle at 15% 10%, rgba(0, 229, 255, 0.08), transparent 35%), radial-gradient(circle at 85% 20%, rgba(0, 245, 160, 0.05), transparent 35%);
+                background-attachment: fixed;
+                color: var(--text-main);
+                font-family: var(--font-body);
+                min-height: 100vh;
+                padding-bottom: 4rem;
+            }
+
+            .container {
+                max-width: 980px;
+                margin: 0 auto;
+                padding: 2.5rem 1.25rem;
+            }
+
+            .header-section {
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 1.5rem;
+                margin-bottom: 2.5rem;
+                border-bottom: 1px solid var(--card-border);
+                padding-bottom: 1.5rem;
+            }
+
+            .header-title {
+                font-size: 0.85rem;
+                text-transform: uppercase;
+                letter-spacing: 0.15em;
+                color: var(--accent-teal);
+                font-weight: 700;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .header-heading {
+                font-size: 2.25rem;
+                font-weight: 800;
+                color: var(--text-main);
+                letter-spacing: -0.02em;
+                margin-top: 0.25rem;
+            }
+
+            .search-box {
+                position: relative;
+                min-width: 260px;
+            }
+
+                .search-box input {
+                    width: 100%;
+                    background: rgba(17, 24, 39, 0.6);
+                    border: 1px solid var(--card-border);
+                    border-radius: 12px;
+                    padding: 0.75rem 1rem 0.75rem 2.5rem;
+                    color: #fff;
+                    font-family: var(--font-body);
+                    font-size: 0.9rem;
+                    outline: none;
+                    backdrop-filter: blur(8px);
+                    transition: all 0.2s ease;
+                }
+
+                    .search-box input:focus {
+                        border-color: var(--accent-teal);
+                        box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
+                    }
+
+                .search-box i {
+                    position: absolute;
+                    left: 0.9rem;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    color: var(--text-sub);
+                    font-size: 0.9rem;
+                }
+
+            .podium-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.25rem;
+                margin-bottom: 3rem;
+                align-items: end;
+            }
+
+            .podium-card {
+                background: var(--card-bg);
+                border: 1px solid var(--card-border);
+                border-radius: 20px;
+                padding: 1.5rem;
+                text-align: center;
+                position: relative;
+                backdrop-filter: blur(12px);
+                transition: transform 0.25s ease, border-color 0.25s ease;
+            }
+
+                .podium-card:hover {
+                    transform: translateY(-5px);
+                }
+
+                .podium-card.first {
+                    border-color: rgba(255, 208, 67, 0.4);
+                    box-shadow: 0 10px 30px rgba(255, 208, 67, 0.1);
+                    order: 2;
+                    padding-top: 2rem;
+                    padding-bottom: 2rem;
+                }
+
+                .podium-card.second {
+                    order: 1;
+                    border-color: rgba(203, 213, 225, 0.25);
+                }
+
+                .podium-card.third {
+                    order: 3;
+                    border-color: rgba(245, 158, 11, 0.25);
+                }
+
+            .podium-badge {
+                position: absolute;
+                top: -14px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 28px;
+                height: 28px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 800;
+                font-size: 0.85rem;
+            }
+
+            .first .podium-badge {
+                background: var(--accent-gold);
+                color: #000;
+                box-shadow: 0 0 12px var(--accent-gold);
+            }
+
+            .second .podium-badge {
+                background: var(--accent-silver);
+                color: #000;
+            }
+
+            .third .podium-badge {
+                background: var(--accent-bronze);
+                color: #fff;
+            }
+
+            .podium-avatar-wrapper {
+                position: relative;
+                width: 84px;
+                height: 84px;
+                margin: 0.5rem auto 1rem;
+            }
+
+            .first .podium-avatar-wrapper {
+                width: 100px;
+                height: 100px;
+            }
+
+            .podium-avatar {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 3px solid rgba(255, 255, 255, 0.1);
+                background: #1e293b;
+            }
+
+            .first .podium-avatar {
+                border-color: var(--accent-gold);
+            }
+
+            .podium-name {
+                font-weight: 700;
+                font-size: 1.1rem;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .podium-team {
+                color: var(--text-sub);
+                font-size: 0.85rem;
+                margin-top: 2px;
+            }
+
+            .podium-stats {
+                margin-top: 1rem;
+                font-family: var(--font-display);
+                font-size: 3rem;
+                line-height: 1;
+                font-weight: 700;
+                color: var(--accent-emerald);
+            }
+
+                .podium-stats span {
+                    font-family: var(--font-body);
+                    font-size: 0.75rem;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    color: var(--text-sub);
+                    display: block;
+                }
+
+            .table-container {
+                background: var(--card-bg);
+                border: 1px solid var(--card-border);
+                border-radius: 18px;
+                overflow: hidden;
+                backdrop-filter: blur(12px);
+            }
+
+            .standings-table {
+                width: 100%;
+                border-collapse: collapse;
+                text-align: left;
+            }
+
+                .standings-table thead th {
+                    padding: 1rem 1.25rem;
+                    font-size: 0.75rem;
+                    text-transform: uppercase;
+                    letter-spacing: 0.08em;
+                    color: var(--text-sub);
+                    border-bottom: 1px solid var(--card-border);
+                    background: rgba(255, 255, 255, 0.02);
+                }
+
+                .standings-table tbody tr {
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+                    transition: background 0.15s ease;
+                }
+
+                    .standings-table tbody tr:last-child {
+                        border-bottom: none;
+                    }
+
+                    .standings-table tbody tr:hover {
+                        background: var(--card-hover);
+                    }
+
+            .rank-col {
+                width: 60px;
+                text-align: center;
+                font-weight: 700;
+                color: var(--text-sub);
+                font-size: 0.95rem;
+            }
+
+            .player-info {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                padding: 0.85rem 0;
+            }
+
+            .player-thumb {
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                object-fit: cover;
+                background: #1e293b;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .player-title {
+                font-weight: 600;
+                font-size: 0.95rem;
+                color: #fff;
+            }
+
+            .player-club {
+                font-size: 0.8rem;
+                color: var(--text-sub);
+            }
+
+            .stat-col {
+                text-align: right;
+                padding-right: 1.5rem;
+                font-family: var(--font-display);
+                font-size: 1.75rem;
+                font-weight: 700;
+                color: var(--accent-emerald);
+            }
+
+            @@media (max-width: 768px) {
+                .podium-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .podium-card.first {
+                    order: 1;
+                }
+
+                .podium-card.second {
+                    order: 2;
+                }
+
+                .podium-card.third {
+                    order: 3;
+                }
+
+                .header-heading {
+                    font-size: 1.75rem;
+                }
+
+                .search-box {
+                    width: 100%;
+                }
+            }
+    </style>
+</head>
+<body>
+    @await Html.PartialAsync("Partials/_Navbar")
+
+    <main class="container">
+        <header class="header-section">
+            <div>
+                <div class="header-title">
+                    <i class="fa-solid fa-trophy"></i> Serie A TIM
+                </div>
+                <h1 class="header-heading">Asist Krallığı</h1>
+            </div>
+
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="playerSearch" placeholder="Oyuncu veya takım ara..." />
+            </div>
+        </header>
+
+        @if (topThree.Count >= 3)
+        {
+            <section class="podium-grid">
+                <div class="podium-card second">
+                    <div class="podium-badge">2</div>
+                    <div class="podium-avatar-wrapper">
+                        <img class="podium-avatar" src="@(string.IsNullOrEmpty(topThree[1].ImageUrl) ? "/images/player-placeholder.png" : topThree[1].ImageUrl)" alt="@topThree[1].AssistPlayerName" />
+                    </div>
+                    <div class="podium-name">@topThree[1].AssistPlayerName</div>
+                    <div class="podium-team">@topThree[1].TeamName</div>
+                    <div class="podium-stats">
+                        @topThree[1].Assists
+                        <span>Asist</span>
+                    </div>
+                </div>
+
+                <div class="podium-card first">
+                    <div class="podium-badge"><i class="fa-solid fa-crown"></i></div>
+                    <div class="podium-avatar-wrapper">
+                        <img class="podium-avatar" src="@(string.IsNullOrEmpty(topThree[0].ImageUrl) ? "/images/player-placeholder.png" : topThree[0].ImageUrl)" alt="@topThree[0].AssistPlayerName" />
+                    </div>
+                    <div class="podium-name">@topThree[0].AssistPlayerName</div>
+                    <div class="podium-team">@topThree[0].TeamName</div>
+                    <div class="podium-stats">
+                        @topThree[0].Assists
+                        <span>Asist</span>
+                    </div>
+                </div>
+
+                <div class="podium-card third">
+                    <div class="podium-badge">3</div>
+                    <div class="podium-avatar-wrapper">
+                        <img class="podium-avatar" src="@(string.IsNullOrEmpty(topThree[2].ImageUrl) ? "/images/player-placeholder.png" : topThree[2].ImageUrl)" alt="@topThree[2].AssistPlayerName" />
+                    </div>
+                    <div class="podium-name">@topThree[2].AssistPlayerName</div>
+                    <div class="podium-team">@topThree[2].TeamName</div>
+                    <div class="podium-stats">
+                        @topThree[2].Assists
+                        <span>Asist</span>
+                    </div>
+                </div>
+            </section>
+        }
+
+        <section class="table-container">
+            <table class="standings-table">
+                <thead>
+                    <tr>
+                        <th class="rank-col">#</th>
+                        <th>Oyuncu</th>
+                        <th style="text-align: right; padding-right: 1.5rem;">Asist Sayısı</th>
+                    </tr>
+                </thead>
+                <tbody id="standingsBody">
+                    @for (int i = 0; i < restList.Count; i++)
+                    {
+                        var player = restList[i];
+                        var rank = i + 4;
+                        <tr class="player-row">
+                            <td class="rank-col">@rank</td>
+                            <td>
+                                <div class="player-info">
+                                    <img class="player-thumb"
+                                         src="@(string.IsNullOrEmpty(player.ImageUrl) ? "/images/player-placeholder.png" : player.ImageUrl)"
+                                         alt="@player.AssistPlayerName" />
+                                    <div>
+                                        <div class="player-title">@player.AssistPlayerName</div>
+                                        <div class="player-club">@player.TeamName</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="stat-col">@player.Assists</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script>
+            const searchInput = document.getElementById('playerSearch');
+            const rows = document.querySelectorAll('.player-row');
+
+            searchInput.addEventListener('input', function(e) {
+                const query = e.target.value.toLowerCase().trim();
+                rows.forEach(row => {
+                    const name = row.querySelector('.player-title').textContent.toLowerCase();
+                    const team = row.querySelector('.player-club').textContent.toLowerCase();
+                    if (name.includes(query) || team.includes(query)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            });
+    </script>
+</body>
+</html>

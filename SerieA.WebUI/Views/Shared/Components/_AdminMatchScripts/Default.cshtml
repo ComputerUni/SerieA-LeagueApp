@@ -100,7 +100,6 @@
             } else {
                 els.rows.innerHTML = list.map((m) => `
                                                     <tr data-id="${m.id}"${m.id === highlightId ? ' class="is-new"' : ''}>
-                                                      <td class="col-id"><span>${m.id}</span></td>
                                                       <td class="week-cell">${m.week}. Hafta</td>
                                                       <td>${fmtDate(m.date)}</td>
                                                       <td>${m.time}</td>

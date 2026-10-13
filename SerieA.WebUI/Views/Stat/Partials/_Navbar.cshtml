@@ -1,0 +1,88 @@
+﻿<style>
+    .site-nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(7, 15, 31, 0.94);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--line, #1F3358);
+        width: 100%;
+    }
+
+        .site-nav::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--blue, #2E7BFF) 0%, var(--blue-bright, #5B9BFF) 30%, transparent 75%);
+        }
+
+    .site-nav__inner {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        height: 56px;
+        padding: 0 1.25rem;
+        max-width: 980px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .site-nav__brand {
+        font-family: var(--font-display, "Barlow Condensed", "Arial Narrow", sans-serif);
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-decoration: none;
+        background: linear-gradient(90deg, var(--blue-bright, #5B9BFF), var(--text, #E9F0FB));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .site-nav__links {
+        display: flex;
+        gap: 0.15rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .site-nav__link {
+        display: block;
+        padding: 0.4rem 0.9rem;
+        border-radius: 8px;
+        color: var(--muted, #8B9CC0);
+        text-decoration: none;
+        font-family: var(--font-body, "Barlow", system-ui, sans-serif);
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: color 0.15s, background 0.15s;
+    }
+
+        .site-nav__link:hover {
+            color: var(--text, #E9F0FB);
+            background: var(--blue-soft, rgba(46,123,255,.14));
+        }
+
+        .site-nav__link.active {
+            color: var(--blue-bright, #5B9BFF);
+            background: var(--blue-soft, rgba(46,123,255,.14));
+        }
+</style>
+
+<nav class="site-nav" aria-label="Ana Menü">
+    <div class="site-nav__inner container-xl">
+        <a class="site-nav__brand" href="/">Serie A</a>
+        <ul class="site-nav__links">
+            <li><a href="/WeeklyFixture/WeeklyFixtureList" class="site-nav__link">Fikstür</a></li>
+            <li><a href="/Standing/Index" class="site-nav__link">Puan Durumu</a></li>
+            <li><a href="/Stat/TopGoals" class="site-nav__link">Gol Krallığı</a></li>
+            <li><a href="/Stat/TopAssists" class="site-nav__link">Asist Sıralaması</a></li>
+        </ul>
+    </div>
+</nav>

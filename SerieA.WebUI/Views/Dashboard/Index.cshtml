@@ -1,0 +1,596 @@
+﻿@model DashboardViewModel
+@{
+    ViewData["Title"] = "Gösterge Paneli | Serie A Admin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Teko:wght@600;700&display=swap" rel="stylesheet" />
+@await Component.InvokeAsync("_AdminTeamHeadCss")
+
+<style>
+    :root {
+        --kpi-bg: rgba(17, 24, 39, 0.75);
+        --kpi-border: rgba(255, 255, 255, 0.08);
+        --text-muted: #94A3B8;
+        --color-gold: #FFC72C;
+        --color-blue: #38BDF8;
+        --color-emerald: #10B981;
+        --color-orange: #FB923C;
+        --color-purple: #A855F7;
+    }
+
+    .dashboard-header {
+        margin-bottom: 2rem;
+    }
+
+    .dashboard-title {
+        font-size: 1.75rem;
+        font-weight: 800;
+        color: #F8FAFC;
+        letter-spacing: -0.02em;
+    }
+
+    .dashboard-subtitle {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        margin-top: 0.25rem;
+    }
+
+    .kpi-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.25rem;
+    }
+
+    .kpi-card {
+        background: var(--kpi-bg);
+        border: 1px solid var(--kpi-border);
+        border-radius: 18px;
+        padding: 1.35rem;
+        position: relative;
+        overflow: hidden;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.35);
+        transition: transform 0.25s ease, border-color 0.25s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 165px;
+    }
+
+        .kpi-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .kpi-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+        }
+
+    .card-gold::before {
+        background: linear-gradient(90deg, var(--color-gold), transparent);
+    }
+
+    .card-blue::before {
+        background: linear-gradient(90deg, var(--color-blue), transparent);
+    }
+
+    .card-emerald::before {
+        background: linear-gradient(90deg, var(--color-emerald), transparent);
+    }
+
+    .card-orange::before {
+        background: linear-gradient(90deg, var(--color-orange), transparent);
+    }
+
+    .card-purple::before {
+        background: linear-gradient(90deg, var(--color-purple), transparent);
+    }
+
+    .kpi-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 0.85rem;
+    }
+
+    .kpi-label {
+        font-size: 0.78rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-muted);
+    }
+
+    .kpi-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+    }
+
+    .card-gold .kpi-icon {
+        background: rgba(255, 199, 44, 0.12);
+        color: var(--color-gold);
+    }
+
+    .card-blue .kpi-icon {
+        background: rgba(56, 189, 248, 0.12);
+        color: var(--color-blue);
+    }
+
+    .card-emerald .kpi-icon {
+        background: rgba(16, 185, 129, 0.12);
+        color: var(--color-emerald);
+    }
+
+    .card-orange .kpi-icon {
+        background: rgba(251, 146, 60, 0.12);
+        color: var(--color-orange);
+    }
+
+    .card-purple .kpi-icon {
+        background: rgba(168, 85, 247, 0.12);
+        color: var(--color-purple);
+    }
+
+    .kpi-main-val {
+        font-size: 1.45rem;
+        font-weight: 800;
+        color: #F8FAFC;
+        line-height: 1.2;
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .kpi-team-logo {
+        width: 30px;
+        height: 30px;
+        object-fit: contain;
+    }
+
+    .kpi-sub {
+        margin-top: 0.85rem;
+        padding-top: 0.65rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.82rem;
+        color: var(--text-muted);
+    }
+
+    .kpi-badge {
+        font-weight: 700;
+        font-size: 0.78rem;
+        padding: 0.2rem 0.5rem;
+        border-radius: 6px;
+    }
+
+    .badge-gold {
+        background: rgba(255, 199, 44, 0.15);
+        color: var(--color-gold);
+    }
+
+    .badge-blue {
+        background: rgba(56, 189, 248, 0.15);
+        color: var(--color-blue);
+    }
+
+    .badge-emerald {
+        background: rgba(16, 185, 129, 0.15);
+        color: var(--color-emerald);
+    }
+
+    .badge-orange {
+        background: rgba(251, 146, 60, 0.15);
+        color: var(--color-orange);
+    }
+
+    .badge-purple {
+        background: rgba(168, 85, 247, 0.15);
+        color: var(--color-purple);
+    }
+
+    /* --- TABLO STİLLERİ --- */
+    .standings-panel {
+        background: var(--kpi-bg);
+        border: 1px solid var(--kpi-border);
+        border-radius: 18px;
+        padding: 1.5rem;
+        margin-top: 2rem;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(12px);
+    }
+
+    .standings-panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.25rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .standings-panel-title {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: #F8FAFC;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+    }
+
+    .standings-legend {
+        display: flex;
+        gap: 1rem;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        align-items: center;
+    }
+
+    .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+    .legend-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+    }
+
+    .btn-view-all {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(56, 189, 248, 0.1);
+        border: 1px solid rgba(56, 189, 248, 0.25);
+        color: var(--color-blue);
+        padding: 0.45rem 0.9rem;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s ease;
+    }
+
+        .btn-view-all:hover {
+            background: var(--color-blue);
+            color: #070F1F;
+            border-color: var(--color-blue);
+        }
+
+    .standings-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        color: #E2E8F0;
+        font-size: 0.88rem;
+    }
+
+        .standings-table th {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.75rem 0.5rem;
+            border-bottom: 1px solid var(--kpi-border);
+        }
+
+        .standings-table td {
+            padding: 0.75rem 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            vertical-align: middle;
+        }
+
+        .standings-table tbody tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+    .rank-cell {
+        width: 44px;
+        text-align: center;
+        font-weight: 700;
+        position: relative;
+    }
+
+    .rank-indicator {
+        position: absolute;
+        left: 0;
+        top: 20%;
+        bottom: 20%;
+        width: 3px;
+        border-radius: 2px;
+    }
+
+    .rank-ucl .rank-indicator {
+        background: var(--color-blue);
+    }
+
+    .rank-uel .rank-indicator {
+        background: var(--color-orange);
+    }
+
+    .team-info-cell {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 600;
+    }
+
+    .team-logo-small {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+    }
+
+    .points-cell {
+        font-weight: 800;
+        color: var(--color-gold);
+        font-size: 1rem;
+    }
+
+    .form-badges {
+        display: flex;
+        gap: 0.25rem;
+        justify-content: center;
+    }
+
+    .form-badge {
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.65rem;
+        font-weight: 700;
+        color: #fff;
+    }
+
+    .form-w {
+        background: #10B981;
+    }
+
+    .form-d {
+        background: #64748B;
+    }
+
+    .form-l {
+        background: #EF4444;
+    }
+
+    .standings-panel-footer {
+        display: flex;
+        justify-content: left;
+        padding-top: 1.25rem;
+        margin-top: 0.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+</style>
+
+<div class="container-fluid py-4">
+    <div class="dashboard-header">
+        <h4>Serie A Güncel Lig Tablosu ve Temel Performans Göstergeleri</h4>
+    </div>
+
+    @if (Model != null)
+    {
+        <div class="kpi-grid">
+            <div class="kpi-card card-gold">
+                <div>
+                    <div class="kpi-top">
+                        <span class="kpi-label">Lig Lideri</span>
+                        <div class="kpi-icon">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                    </div>
+                    <div class="kpi-main-val">
+                        @if (!string.IsNullOrEmpty(Model.KpiCards?.LeaderTeamLogo))
+                        {
+                            <img src="@Model.KpiCards.LeaderTeamLogo" alt="@Model.KpiCards.LeaderTeamName" class="kpi-team-logo" />
+                        }
+                        <span title="@Model.KpiCards?.LeaderTeamName">@(Model.KpiCards?.LeaderTeamName ?? "-")</span>
+                    </div>
+                </div>
+                <div class="kpi-sub">
+                    <span>Averaj: <strong>@(Model.KpiCards?.LeaderTeamAverage > 0 ? "+" + Model.KpiCards.LeaderTeamAverage : Model.KpiCards?.LeaderTeamAverage.ToString())</strong></span>
+                    <span class="kpi-badge badge-gold">@(Model.KpiCards?.LeaderTeamPoint ?? 0) Puan</span>
+                </div>
+            </div>
+
+            <div class="kpi-card card-blue">
+                <div>
+                    <div class="kpi-top">
+                        <span class="kpi-label">Hafta / Takvim</span>
+                        <div class="kpi-icon">
+                            <i class="fa-regular fa-calendar-check"></i>
+                        </div>
+                    </div>
+                    <div class="kpi-main-val">
+                        <span>@(Model.KpiCards?.CurrentWeek ?? 0). Hafta</span>
+                    </div>
+                </div>
+                <div class="kpi-sub">
+                    <span>Tamamlanan</span>
+                    <span class="kpi-badge badge-blue">@(Model.KpiCards?.PlayedTotalMatch ?? 0) Karşılaşma</span>
+                </div>
+            </div>
+
+            <div class="kpi-card card-emerald">
+                <div>
+                    <div class="kpi-top">
+                        <span class="kpi-label">Gol İstatistikleri</span>
+                        <div class="kpi-icon">
+                            <i class="fa-solid fa-futbol"></i>
+                        </div>
+                    </div>
+                    <div class="kpi-main-val">
+                        <span>@(Model.KpiCards?.TotalGoals ?? 0) Gol</span>
+                    </div>
+                </div>
+                <div class="kpi-sub">
+                    <span>Maç Başına</span>
+                    <span class="kpi-badge badge-emerald">@(Model.KpiCards?.AvgGoalsPerMatch ?? 0) Ortalama</span>
+                </div>
+            </div>
+
+            <div class="kpi-card card-orange">
+                <div>
+                    <div class="kpi-top">
+                        <span class="kpi-label">Gol Kralı</span>
+                        <div class="kpi-icon">
+                            <i class="fa-solid fa-fire"></i>
+                        </div>
+                    </div>
+                    <div class="kpi-main-val">
+                        <span title="@Model.KpiCards?.LeaderGoalScorePlayerName">@(Model.KpiCards?.LeaderGoalScorePlayerName ?? "-")</span>
+                    </div>
+                </div>
+                <div class="kpi-sub">
+                    <span>Toplam Başarı</span>
+                    <span class="kpi-badge badge-orange">@(Model.KpiCards?.LeaderGoalScore ?? 0) Gol</span>
+                </div>
+            </div>
+
+            <div class="kpi-card card-purple">
+                <div>
+                    <div class="kpi-top">
+                        <span class="kpi-label">Asist Kralı</span>
+                        <div class="kpi-icon">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+                    </div>
+                    <div class="kpi-main-val">
+                        <span title="@Model.KpiCards?.LeaderAssistScorePlayerName">@(Model.KpiCards?.LeaderAssistScorePlayerName ?? "-")</span>
+                    </div>
+                </div>
+                <div class="kpi-sub">
+                    <span>Toplam Asist</span>
+                    <span class="kpi-badge badge-purple">@(Model.KpiCards?.LeaderAssistScore ?? 0) Asist</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="standings-panel">
+            <div class="standings-panel-header">
+                <div class="standings-panel-title">
+                    <i class="fa-solid fa-ranking-star text-info"></i> Serie A Puan Durumu (Zirve Hattı)
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                    <div class="standings-legend d-none d-md-flex">
+                        <div class="legend-item"><span class="legend-dot" style="background: var(--color-blue);"></span> Şampiyonlar Ligi (1-4)</div>
+                        <div class="legend-item"><span class="legend-dot" style="background: var(--color-orange);"></span> Avrupa Kupaları (5-6)</div>
+                    </div>
+                    <a href="/Standing/Index" class="btn-view-all">
+                        <span>Panelde Tümünü Gör</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="standings-table">
+                    <thead>
+                        <tr>
+                            <th class="text-center" style="width: 44px;">#</th>
+                            <th>Takım</th>
+                            <th class="text-center">O</th>
+                            <th class="text-center">G</th>
+                            <th class="text-center">B</th>
+                            <th class="text-center">M</th>
+                            <th class="text-center">AG</th>
+                            <th class="text-center">YG</th>
+                            <th class="text-center">AV</th>
+                            <th class="text-center">P</th>
+                            <th class="text-center" style="width: 130px;">Son 5</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Standings != null && Model.Standings.Any())
+                        {
+                            var topTeams = Model.Standings.Take(9).ToList();
+
+                            @for (int i = 0; i < topTeams.Count; i++)
+                            {
+                                var team = topTeams[i];
+                                var rank = i + 1;
+                                var rankClass = rank <= 4 ? "rank-ucl" : (rank <= 6 ? "rank-uel" : "");
+
+                                <tr class="@rankClass">
+                                    <td class="rank-cell">
+                                        <div class="rank-indicator"></div>
+                                        <span>@rank</span>
+                                    </td>
+                                    <td>
+                                        <div class="team-info-cell">
+                                            @if (!string.IsNullOrEmpty(team.LogoUrl))
+                                            {
+                                                <img src="@team.LogoUrl" alt="@team.TeamName" class="team-logo-small" />
+                                            }
+                                            <span>@team.TeamName</span>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">@team.PlayedMatch</td>
+                                    <td class="text-center">@team.Won</td>
+                                    <td class="text-center">@team.Drawn</td>
+                                    <td class="text-center">@team.Lost</td>
+                                    <td class="text-center">@team.GoalsFor</td>
+                                    <td class="text-center">@team.GoalsAgainst</td>
+                                    <td class="text-center">@(team.GoalDifference > 0 ? "+" + team.GoalDifference : team.GoalDifference.ToString())</td>
+                                    <td class="text-center points-cell">@team.Points</td>
+                                    <td class="text-center">
+                                        <div class="form-badges">
+                                            @if (team.LastFiveMatches != null)
+                                            {
+                                                @foreach (var res in team.LastFiveMatches)
+                                                {
+                                                    var badgeClass = res == "G" ? "form-w" : (res == "B" ? "form-d" : "form-l");
+                                                    <span class="form-badge @badgeClass" title="@(res == "G" ? "Galibiyet" : (res == "B" ? "Beraberlik" : "Mağlubiyet"))">@res</span>
+                                                }
+                                            }
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="11" class="text-center text-muted py-4">Puan tablosu verisi bulunamadı.</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="standings-panel-footer">
+                <a href="/Standing/Index" class="btn-view-all">
+                    <span>Tüm 20 Takımın Sıralamasını Görüntüle</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning text-center">
+            Veriler API'den yüklenemedi veya boş geldi.
+        </div>
+    }
+</div>

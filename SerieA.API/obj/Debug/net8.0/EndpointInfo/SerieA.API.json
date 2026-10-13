@@ -5,6 +5,18 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/Dashboards": {
+      "get": {
+        "tags": [
+          "Dashboards"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/MatchCards/{matchId}": {
       "get": {
         "tags": [
@@ -555,6 +567,30 @@
       "get": {
         "tags": [
           "Standings"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Stats/goal-top-scorers": {
+      "get": {
+        "tags": [
+          "Stats"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Stats/assist-top-scorers": {
+      "get": {
+        "tags": [
+          "Stats"
         ],
         "responses": {
           "200": {

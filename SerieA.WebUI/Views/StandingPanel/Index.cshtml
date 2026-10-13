@@ -1,0 +1,310 @@
+﻿@using SerieA.API.DTOs.StandingDtos
+@model List<ResultStandingDto>
+@{
+    ViewData["Title"] = "Puan Durumu | Serie A Admin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<style>
+    .standings-panel {
+        background: #464f60;
+        border-radius: 18px;
+        padding: 1.75rem 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        color: #F8FAFC;
+        font-family: "Outfit", system-ui, sans-serif;
+        margin-top: 1rem;
+    }
+
+    .standings-panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.75rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .standings-panel-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #FFFFFF;
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+    }
+
+        .standings-panel-title i {
+            color: #38BDF8;
+        }
+
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .standings-legend {
+        display: flex;
+        gap: 1.25rem;
+        font-size: 0.78rem;
+        color: #CBD5E1;
+        align-items: center;
+    }
+
+    .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 0.45rem;
+    }
+
+    .legend-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+    }
+
+    .btn-panel-action {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(56, 189, 248, 0.12);
+        border: 1px solid rgba(56, 189, 248, 0.35);
+        color: #38BDF8;
+        padding: 0.45rem 1rem;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s ease;
+    }
+
+        .btn-panel-action:hover {
+            background: #38BDF8;
+            color: #1E293B;
+        }
+
+    .standings-table {
+        width: 100%;
+        border-collapse: collapse;
+        color: #E2E8F0;
+        font-size: 0.88rem;
+    }
+
+        .standings-table thead th {
+            color: #94A3B8;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.85rem 0.6rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .standings-table td {
+            padding: 0.75rem 0.6rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            vertical-align: middle;
+        }
+
+        .standings-table tbody tr:hover td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+    .rank-cell {
+        width: 44px;
+        text-align: center;
+        font-weight: 700;
+        color: #FFFFFF;
+        position: relative;
+    }
+
+    /* Sol kenar dikey gösterge çubukları */
+    .rank-indicator {
+        position: absolute;
+        left: 0;
+        top: 20%;
+        bottom: 20%;
+        width: 3px;
+        border-radius: 2px;
+    }
+
+    .rank-ucl .rank-indicator {
+        background: #38BDF8;
+    }
+
+    .rank-uel .rank-indicator {
+        background: #FB923C;
+    }
+
+    .rank-rel .rank-indicator {
+        background: #EF4444;
+    }
+
+    .team-info-cell {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 600;
+        color: #FFFFFF;
+    }
+
+    .team-logo-small {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+    }
+
+    .stat-col {
+        color: #E2E8F0;
+        font-weight: 500;
+    }
+
+    .points-cell {
+        font-weight: 800;
+        color: #FACC15;
+        font-size: 1.05rem;
+    }
+
+    /* Son 5 maç form kutuları */
+    .form-badges {
+        display: flex;
+        gap: 0.3rem;
+        justify-content: center;
+    }
+
+    .form-badge {
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.65rem;
+        font-weight: 700;
+        color: #FFFFFF;
+    }
+
+    .form-w {
+        background: #10B981;
+    }
+
+    .form-d {
+        background: #64748B;
+    }
+
+    .form-l {
+        background: #EF4444;
+    }
+</style>
+@await Component.InvokeAsync("_AdminTeamHeadCss")
+
+<div class="container-fluid py-4">
+    <div class="standings-panel">
+        <div class="standings-panel-header">
+            <div class="standings-panel-title">
+                <i class="fa-solid fa-chart-simple"></i>
+                <span>Serie A Puan Durumu (Tüm Sıralama)</span>
+            </div>
+
+            <div class="header-actions">
+                <div class="standings-legend">
+                    <div class="legend-item">
+                        <span class="legend-dot" style="background: #38BDF8;"></span>
+                        <span>Şampiyonlar Ligi (1-4)</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot" style="background: #FB923C;"></span>
+                        <span>Avrupa Kupaları (5-6)</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot" style="background: #EF4444;"></span>
+                        <span>Düşme Hattı (18-20)</span>
+                    </div>
+                </div>
+
+                <a href="/Dashboard/Index" class="btn-panel-action">
+                    <span>Dashboard'a Dön</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="standings-table">
+                <thead>
+                    <tr>
+                        <th class="text-center" style="width: 44px;">#</th>
+                        <th>TAKIM</th>
+                        <th class="text-center">O</th>
+                        <th class="text-center">G</th>
+                        <th class="text-center">B</th>
+                        <th class="text-center">M</th>
+                        <th class="text-center">AG</th>
+                        <th class="text-center">YG</th>
+                        <th class="text-center">AV</th>
+                        <th class="text-center">P</th>
+                        <th class="text-center" style="width: 130px;">SON 5</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        @for (int i = 0; i < Model.Count; i++)
+                        {
+                            var team = Model[i];
+                            var rank = i + 1;
+                            var rankClass = rank <= 4 ? "rank-ucl" : (rank <= 6 ? "rank-uel" : (rank >= 18 ? "rank-rel" : ""));
+
+                            <tr class="@rankClass">
+                                <td class="rank-cell">
+                                    <div class="rank-indicator"></div>
+                                    <span>@rank</span>
+                                </td>
+                                <td>
+                                    <div class="team-info-cell">
+                                        @if (!string.IsNullOrEmpty(team.LogoUrl))
+                                        {
+                                            <img src="@team.LogoUrl" alt="@team.TeamName" class="team-logo-small" />
+                                        }
+                                        <span>@team.TeamName</span>
+                                    </div>
+                                </td>
+                                <td class="text-center stat-col">@team.PlayedMatch</td>
+                                <td class="text-center stat-col">@team.Won</td>
+                                <td class="text-center stat-col">@team.Drawn</td>
+                                <td class="text-center stat-col">@team.Lost</td>
+                                <td class="text-center stat-col">@team.GoalsFor</td>
+                                <td class="text-center stat-col">@team.GoalsAgainst</td>
+                                <td class="text-center stat-col">@(team.GoalDifference > 0 ? "+" + team.GoalDifference : team.GoalDifference.ToString())</td>
+                                <td class="text-center points-cell">@team.Points</td>
+                                <td class="text-center">
+                                    <div class="form-badges">
+                                        @if (team.LastFiveMatches != null)
+                                        {
+                                            @foreach (var res in team.LastFiveMatches)
+                                            {
+                                                var badgeClass = res == "G" ? "form-w" : (res == "B" ? "form-d" : "form-l");
+                                                <span class="form-badge @badgeClass" title="@(res == "G" ? "Galibiyet" : (res == "B" ? "Beraberlik" : "Mağlubiyet"))">@res</span>
+                                            }
+                                        }
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="11" class="text-center text-muted py-4">Puan durumu verisi bulunamadı.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
