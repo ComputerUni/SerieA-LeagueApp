@@ -3,13 +3,25 @@
   "WorkspaceRootPath": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\controllers\\standingpanelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\player\\playerlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\shared\\components\\_adminplayerleaguestrip\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\standingpanel\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\shared\\components\\_adminlayoutsidebar\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\team\\teamlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\shared\\components\\_adminteamtable\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\controllers\\standingpanelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\controllers\\teamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -19,15 +31,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\team\\teamlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\shared\\components\\_adminteamtable\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\views\\player\\playerlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B6EEBC7-AB66-1A7E-CD74-727D1FA6B319}|..\\SerieA.WebUI\\SerieA.WebUI.csproj|c:\\users\\burhan\\desktop\\seriea\\seriea.webui\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -65,7 +68,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 597,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -85,7 +88,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "Default.cshtml",
+              "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminPlayerLeagueStrip\\Default.cshtml",
+              "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminPlayerLeagueStrip\\Default.cshtml",
+              "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminPlayerLeagueStrip\\Default.cshtml",
+              "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminPlayerLeagueStrip\\Default.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-13T12:49:48.874Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Default.cshtml",
               "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminLayoutSidebar\\Default.cshtml",
               "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminLayoutSidebar\\Default.cshtml",
@@ -98,59 +114,59 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\StandingPanel\\Index.cshtml",
               "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\StandingPanel\\Index.cshtml",
               "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\StandingPanel\\Index.cshtml",
               "RelativeToolTip": "..\\SerieA.WebUI\\Views\\StandingPanel\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAANQAAAAAAAAAAAAAAOYAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-10-13T12:40:12.086Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "StandingPanelController.cs",
               "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Controllers\\StandingPanelController.cs",
               "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Controllers\\StandingPanelController.cs",
               "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Controllers\\StandingPanelController.cs",
               "RelativeToolTip": "..\\SerieA.WebUI\\Controllers\\StandingPanelController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-13T12:39:29.731Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
               "Title": "Default.cshtml",
               "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamTable\\Default.cshtml",
               "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamTable\\Default.cshtml",
               "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamTable\\Default.cshtml",
               "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Shared\\Components\\_AdminTeamTable\\Default.cshtml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAADsAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADsAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-10-13T12:35:27.864Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "TeamList.cshtml",
               "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Team\\TeamList.cshtml",
               "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Team\\TeamList.cshtml",
               "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Team\\TeamList.cshtml",
               "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Team\\TeamList.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-10-13T12:34:40.785Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Dashboard\\Index.cshtml",
               "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Dashboard\\Index.cshtml",
@@ -163,7 +179,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "MatchController.cs",
               "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Controllers\\MatchController.cs",
               "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Controllers\\MatchController.cs",
@@ -176,7 +192,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "DashboardController.cs",
               "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Controllers\\DashboardController.cs",
               "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Controllers\\DashboardController.cs",
@@ -189,7 +205,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "DashboardsController.cs",
               "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\Controllers\\DashboardsController.cs",
               "RelativeDocumentMoniker": "Controllers\\DashboardsController.cs",
@@ -202,7 +218,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Controllers\\HomeController.cs",
@@ -217,24 +233,24 @@
         },
         {
           "DockedWidth": 597,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
               "Title": "PlayerList.cshtml",
               "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Player\\PlayerList.cshtml",
               "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Views\\Player\\PlayerList.cshtml",
               "ToolTip": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Views\\Player\\PlayerList.cshtml",
               "RelativeToolTip": "..\\SerieA.WebUI\\Views\\Player\\PlayerList.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-10-13T12:01:16.441Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "DashboardViewModel.cs",
               "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Models\\DashboardViewModel.cs",
               "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Models\\DashboardViewModel.cs",
@@ -247,7 +263,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "StatsController.cs",
               "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\Controllers\\StatsController.cs",
               "RelativeDocumentMoniker": "Controllers\\StatsController.cs",
@@ -260,7 +276,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Controllers\\PlayerController.cs",
               "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Controllers\\PlayerController.cs",
@@ -273,7 +289,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "TeamController.cs",
               "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.WebUI\\Controllers\\TeamController.cs",
               "RelativeDocumentMoniker": "..\\SerieA.WebUI\\Controllers\\TeamController.cs",
@@ -286,7 +302,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "ResultDashboardDto.cs",
               "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\DTOs\\DashboardDtos\\ResultDashboardDto.cs",
               "RelativeDocumentMoniker": "DTOs\\DashboardDtos\\ResultDashboardDto.cs",
@@ -299,7 +315,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "StandingsController.cs",
               "DocumentMoniker": "C:\\Users\\BURHAN\\Desktop\\SerieA\\SerieA.API\\Controllers\\StandingsController.cs",
               "RelativeDocumentMoniker": "Controllers\\StandingsController.cs",
