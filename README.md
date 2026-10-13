@@ -49,44 +49,44 @@ SerieA/
 
 ## 🖼️ Uygulama Görünümleri
 
-### Dashboard - Yönetim Paneli Giriş Ekranı
-![Dashboard](screenshots/Ekran%20görüntüsü%202026-10-13%20131032.png)
+### Gol Krallığı
+![Gol Krallığı](screenshots/Ekran%20görüntüsü%202026-10-13%20131032.png)
 
-### Takım Listesi - Tüm Takımların Yönetildiği Alan
-![Takım Listesi](screenshots/Ekran%20görüntüsü%202026-10-13%20131044.png)
+### Asist Krallığı
+![Asist Krallığı](screenshots/Ekran%20görüntüsü%202026-10-13%20131044.png)
 
-### Takım Detayları - Takım Bilgileri Düzenleme
-![Takım Detayları](screenshots/Ekran%20görüntüsü%202026-10-13%20131127.png)
+### Maç Detayı
+![Maç Detayı](screenshots/Ekran%20görüntüsü%202026-10-13%20131127.png)
 
-### Oyuncu Listesi - Takım Oyuncularını Yönetme
-![Oyuncu Listesi](screenshots/Ekran%20görüntüsü%202026-10-13%20131152.png)
+### Maç Detayı Genel
+![Maç Detayı Genel](screenshots/Ekran%20görüntüsü%202026-10-13%20131152.png)
 
-### Oyuncu Ekleme Formu - Yeni Oyuncu Kaydı
-![Oyuncu Ekleme](screenshots/Ekran%20görüntüsü%202026-10-13%20131214.png)
+### Haftalık Fikstür
+![Haftalık Fikstür](screenshots/Ekran%20görüntüsü%202026-10-13%20131214.png)
 
-### Maç Yönetimi - Tüm Maçları Düzenleme
-![Maç Yönetimi](screenshots/Ekran%20görüntüsü%202026-10-13%20131308.png)
+### Puan Durumu
+![Puan Durumu](screenshots/Ekran%20görüntüsü%202026-10-13%20131308.png)
 
-### Maç Detayları - Maç Sonuçları ve İstatistikleri
-![Maç Detayları](screenshots/Ekran%20görüntüsü%202026-10-13%20155055.png)
+### Dashboard
+![Dashboard](screenshots/Ekran%20görüntüsü%202026-10-13%20155055.png)
 
-### Maç İstatistikleri - Gol, Kartlar ve Performans
-![Maç İstatistikleri](screenshots/Ekran%20görüntüsü%202026-10-13%20155106.png)
+### Maçlar
+![Maçlar](screenshots/Ekran%20görüntüsü%202026-10-13%20155106.png)
 
-### Puan Durumu - Takımların Sıralaması
-![Puan Durumu](screenshots/Ekran%20görüntüsü%202026-10-13%20155115.png)
+### Goller
+![Goller](screenshots/Ekran%20görüntüsü%202026-10-13%20155115.png)
 
-### İstatistikler - En Çok Gol Atanlar
-![Top Gol Atıcılar](screenshots/Ekran%20görüntüsü%202026-10-13%20155131.png)
+### Kartlar
+![Kartlar](screenshots/Ekran%20görüntüsü%202026-10-13%20155131.png)
 
-### İstatistikler - En Çok Asist Yapanlar  
-![Top Asist Yapanlar](screenshots/Ekran%20görüntüsü%202026-10-13%20155142.png)
+### İstatistikler 
+![İstatistikler](screenshots/Ekran%20görüntüsü%202026-10-13%20155142.png)
 
-### Haftalık Fikstür - Yaklaşan Maçları Görüntüleme
-![Haftalık Fikstür](screenshots/Ekran%20görüntüsü%202026-10-13%20155203.png)
+### Oyuncular
+![Oyuncular](screenshots/Ekran%20görüntüsü%202026-10-13%20155203.png)
 
-### Fikstür Detayları - Maç Bilgileri ve Öne Çıkanlar
-![Fikstür Detayları](screenshots/Ekran%20görüntüsü%202026-10-13%20155219.png)
+### Panel Puan Durumu
+![Panel Puan Durumu](screenshots/Ekran%20görüntüsü%202026-10-13%20155219.png)
 
 ## 🚀 Kullanmaya Başlama
 
